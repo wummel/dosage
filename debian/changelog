@@ -1,0 +1,109 @@
+dosage (1.7-0calvin1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Bastian Kleineidam <calvin@debian.org>  Thu, 24 May 2012 16:38:22 +0200
+
+dosage (1.6.0-1) unstable; urgency=low
+
+  * New upstream release.
+    - License change to MIT-style license: updated debian/copyright.
+    - New dependencies on python-twisted-core and python-zopeinterface.
+    - Python 2.4 is now the minimum support version.
+  * Bump Standards-Version.
+  * Update my e-mail address.
+  * Building with a new python-central (closes: #490459).
+
+ -- Tristan Seligmann <mithrandi@mithrandi.net>  Wed, 16 Jul 2008 04:34:30 +0200
+
+dosage (1.5.8-2) unstable; urgency=low
+
+  * Brown paper bag release.
+  * The 1.5.8-1 diff reverted everything back to 1.5.7; the diff should now
+    hopefully be correct.
+  * Bump python-central dependency.
+  * Raise debhelper compat level to 5 (no changes necessary).
+  * Make Homepage a real control field.
+  * Remove lintian overrides that are no longer needed.
+
+ -- Tristan Seligmann <mithrandi@mithrandi.za.net>  Mon, 12 Nov 2007 20:38:54 +0200
+
+dosage (1.5.8-1) unstable; urgency=low
+
+  * New upstream release (closes: #383926).
+  * Build-Depend on python-dev, not python-all-dev.
+
+ -- Tristan Seligmann <mithrandi@mithrandi.za.net>  Mon, 21 Aug 2006 13:36:23 +0200
+
+dosage (1.5.7-2) unstable; urgency=low
+
+  * Convert to python-central and new Python policy.
+  * Add lintian source overrides.
+  * Bump Standards-Version to 3.7.2 (no changes required).
+
+ -- Tristan Seligmann <mithrandi@mithrandi.za.net>  Sat, 17 Jun 2006 04:37:29 +0200
+
+dosage (1.5.7-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Fixes a potentially nasty bug in the SmackJeeves module; catchup would
+      loop around from the beginning back to the end, thus never ending, and
+      resulting in excessive hits to the SmackJevees server.
+
+ -- Tristan Seligmann <mithrandi@mithrandi.za.net>  Sun,  2 Apr 2006 04:20:22 +0200
+
+dosage (1.5.6-1) unstable; urgency=low
+
+  * The "Christmas break" release.
+  * New upstream release.
+    - Fixed QuestionableContent image regex (closes: #330145).
+    - Fixed PiledHigherAndDeeper module (closes: #330879).
+  * Changed build-deps to allow building against python2.4.
+
+ -- Tristan Seligmann <mithrandi@mithrandi.za.net>  Tue, 27 Dec 2005 13:05:55 +0200
+
+dosage (1.5.5-1) unstable; urgency=low
+
+  * New upstream release.
+    - Fixed SluggyFreelance image regex (closes: #324638).
+
+ -- Tristan Seligmann <mithrandi@mithrandi.za.net>  Sun, 18 Sep 2005 17:41:58 +0200
+
+dosage (1.5.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump Standards-Version.
+  * Remove pointless unversioned build-dep on build-essential.
+
+ -- Tristan Seligmann <mithrandi@mithrandi.za.net>  Sun, 21 Aug 2005 22:31:48 +0200
+
+dosage (1.5.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * Stop autogenerating debian/control with CDBS.
+
+ -- Tristan Seligmann <mithrandi@mithrandi.za.net>  Sun, 19 Jun 2005 20:04:07 +0200
+
+dosage (1.5.2-1) unstable; urgency=low
+
+  * New upstream release.
+    - Removed debugging cruft (closes: #304900).
+
+ -- Tristan Seligmann <mithrandi@mithrandi.za.net>  Mon, 18 Apr 2005 21:17:03 +0200
+
+dosage (1.5.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * setup.py change merged upstream.
+  * Add debian/watch file.
+
+ -- Tristan Seligmann <mithrandi@mithrandi.za.net>  Fri, 25 Mar 2005 20:59:13 +0200
+
+dosage (1.4.0-1) unstable; urgency=low
+
+  * Initial release (closes: #288874).
+  * Remove version import from setup.py, thus avoiding creation of *.pyc files
+    while building.
+
+ -- Tristan Seligmann <mithrandi@mithrandi.za.net>  Sun,  9 Jan 2005 23:22:04 +0200
+

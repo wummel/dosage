@@ -1,0 +1,21 @@
+Source: dosage
+Section: net
+Priority: optional
+Maintainer: Bastian Kleineidam <calvin@debian.org>
+Build-Depends: debhelper (>= 8),
+               python-all (>= 2.5)
+X-Python-Version: >= 2.5
+Standards-Version: 3.9.3.1
+
+Package: dosage
+Architecture: all
+Depends: ${python:Depends},
+         ${misc:Depends}
+Provides: ${python:Provides}
+Description: powerful webcomic downloader / archiver
+ *** Unofficial package from calvin@debian.org ***
+ .
+ Dosage allows webcomics to be downloaded. It can retrieve just the latest
+ strip in a comic, catch-up to the last strip downloaded, or download a
+ strip for a particular date/index (except if the webcomic's site layout
+ makes this impossible).

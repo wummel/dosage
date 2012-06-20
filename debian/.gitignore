@@ -1,0 +1,7 @@
+/files
+/*.debhelper
+/*.debhelper.log
+/dosage
+/tmp
+/*.substvars
+/python-module-stampdir

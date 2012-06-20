@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with python2
+
+override_dh_auto_configure:
+# make sure the manifest is built
+	python setup.py sdist --manifest-only
+
+override_dh_auto_build:
+# force usage of setup.py over Makefile
+	dh_auto_build --buildsystem python_distutils
+
+override_dh_installchangelogs:
+# install custom changelog
+	dh_installchangelogs doc/changelog.txt
+
+override_dh_auto_install:
+# force usage of setup.py over Makefile
+	dh_auto_install --buildsystem python_distutils
+
+# clean generated files
+override_dh_clean:
+	dh_clean _Dosage_configdata.py
+
+# do not run test suite when building
+override_dh_auto_test:
