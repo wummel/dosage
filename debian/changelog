@@ -1,6 +1,15 @@
-dosage (1.7-0calvin1) unstable; urgency=low
+dosage (1.7-1) unstable; urgency=low
 
   * New upstream release.
+    - Add dependencies on python-requests and python-optcomplete
+    - Remove dependencies on python-twisted-core and python-zopeinterface
+    - Require Python >= 2.7
+    - Supports robots.txt (Closes: #376813)
+  * Use dh in debian/rules
+  * Remove old plugin cache files on postinst (Closes: #672153)
+  * Use debhelper compatibility level 9
+  * Use Debian source format v3.0
+  * Use xz for debian binary package compression
 
  -- Bastian Kleineidam <calvin@debian.org>  Thu, 24 May 2012 16:38:22 +0200
 

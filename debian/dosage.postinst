@@ -1,0 +1,26 @@
+#!/bin/sh -e
+# postinst script for dosage
+#
+# see: dh_installdeb(1)
+
+case "$1" in
+configure|reconfigure|abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+*)
+    echo "postinst called with unknown argument \`$1'" >&2
+    exit 1
+    ;;
+esac
+
+# remove old plugin cache files
+# this code can be removed after the next stable release after wheezy
+for pyver in $(pyversions -s); do
+  f=/usr/lib/${pyver}/dist-packages/dosage/plugins/dropin.cache
+  if [ -f $f ]; then
+    rm -f $f || true
+  fi
+done
+
+#DEBHELPER#
+
+exit 0

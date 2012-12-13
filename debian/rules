@@ -15,13 +15,26 @@ override_dh_installchangelogs:
 # install custom changelog
 	dh_installchangelogs doc/changelog.txt
 
+ROOTDIR=$(CURDIR)/debian/dosage
+ETCDIR=$(ROOTDIR)/etc
+
 override_dh_auto_install:
 # force usage of setup.py over Makefile
 	dh_auto_install --buildsystem python_distutils
 
-# clean generated files
+override_dh_auto_install-arch:
+        dh_auto_install --buildsystem python_distutils
+# install bash_completion script
+        install -m 644 doc/dosage-completion $(ETCDIR)/bash_completion.d
+
 override_dh_clean:
+# clean generated files
 	dh_clean _Dosage_configdata.py
 
 # do not run test suite when building
 override_dh_auto_test:
+
+override_dh_builddeb:
+# use xz for debian binary package compression
+        dh_builddeb -- -Zxz
+
