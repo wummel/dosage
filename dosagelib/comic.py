@@ -1,101 +1,114 @@
-import urllib2
+# -*- coding: iso-8859-1 -*-
+# Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
+# Copyright (C) 2012 Bastian Kleineidam
+
 import os
-import locale
 import rfc822
 import time
-import shutil
-locale.setlocale(locale.LC_ALL, '')
 
 from .output import out
-from .util import urlopen, saneDataSize, normaliseURL
-from .progress import progressBar, OperationComplete
-from .events import handler
+from .util import getImageObject, normaliseURL, unquote, strsize, getDirname, getFilename
+from .events import getHandler
 
-class FetchComicError(IOError): pass
+class FetchComicError(IOError):
+    """Exception for comic fetching errors."""
+    pass
 
-class Comic(object):
-    def __init__(self, moduleName, url, referrer=None, filename=None):
-        self.moduleName = moduleName
-        url = normaliseURL(url)
-        out.write('Getting headers for %s...' % (url,), 2)
+class ComicStrip(object):
+    """A list of comic image URLs."""
+
+    def __init__(self, name, stripUrl, imageUrls, namer):
+        """Store the image URL list."""
+        self.name = name
+        self.stripUrl = stripUrl
+        self.imageUrls = imageUrls
+        self.namer = namer
+
+    def getImages(self):
+        """Get a list of image downloaders."""
+        for imageUrl in self.imageUrls:
+            yield self.getDownloader(normaliseURL(imageUrl))
+
+    def getDownloader(self, url):
+        """Get an image downloader."""
+        filename = self.namer(url, self.stripUrl)
+        if filename is None:
+            filename = url.rsplit('/', 1)[1]
+        dirname = getDirname(self.name)
+        return ComicImage(self.name, url, self.stripUrl, dirname, filename)
+
+
+class ComicImage(object):
+    """A comic image downloader."""
+
+    def __init__(self, name, url, referrer, dirname, filename):
+        """Set URL and filename."""
+        self.name = name
+        self.referrer = referrer
+        self.url = url
+        self.dirname = dirname
+        filename = getFilename(filename)
+        self.filename, self.ext = os.path.splitext(filename)
+
+    def connect(self):
+        """Connect to host and get meta information."""
         try:
-            self.urlobj = urlopen(url, referrer=referrer)
-        except urllib2.HTTPError, he:
-            raise FetchComicError, ('Unable to retrieve URL.', url, he.code)
+            self.urlobj = getImageObject(self.url, self.referrer)
+        except IOError as msg:
+            raise FetchComicError('Unable to retrieve URL.', self.url, msg)
 
-        if self.urlobj.info().getmaintype() != 'image' and \
-           self.urlobj.info().gettype() not in ('application/octet-stream', 'application/x-shockwave-flash'):
-            raise FetchComicError, ('No suitable image found to retrieve.', url)
+        content_type = unquote(self.urlobj.headers.get('content-type'))
+        content_type = content_type.split(';', 1)[0]
+        if '/' in content_type:
+            maintype, subtype = content_type.split('/', 1)
+        else:
+            maintype = content_type
+            subtype = None
+        if maintype != 'image' and content_type not in ('application/octet-stream', 'application/x-shockwave-flash'):
+            raise FetchComicError('Content type %r is not an image.' % content_type, self.url)
 
-        self.filename, self.ext = os.path.splitext(url.split('/')[-1])
-        self.filename = filename or self.filename
-        self.filename = self.filename.replace(os.sep, '_')
         # Always use mime type for file extension if it is sane.
-        if self.urlobj.info().getmaintype() == 'image':
-            self.ext = '.' + self.urlobj.info().getsubtype()
-        self.contentLength = int(self.urlobj.info().get('content-length', 0))
-        self.lastModified = self.urlobj.info().get('last-modified')
-        out.write('... filename = "%s", ext = "%s", contentLength = %d' % (self.filename, self.ext, self.contentLength), 2)
+        if maintype == 'image':
+            self.ext = '.' + subtype.replace('jpeg', 'jpg')
+        self.contentLength = int(self.urlobj.headers.get('content-length', 0))
+        self.lastModified = self.urlobj.headers.get('last-modified')
+        out.debug('... filename = %r, ext = %r, contentLength = %d' % (self.filename, self.ext, self.contentLength))
 
     def touch(self, filename):
+        """Set last modified date on filename."""
         if self.lastModified:
             tt = rfc822.parsedate(self.lastModified)
             if tt:
                 mtime = time.mktime(tt)
                 os.utime(filename, (mtime, mtime))
 
-    def save(self, basepath, showProgress=False):
-        comicName, comicExt = self.filename, self.ext
+    def save(self, basepath):
+        """Save comic URL to filename on disk."""
+        self.connect()
+        filename = "%s%s" % (self.filename, self.ext)
         comicSize = self.contentLength
-        comicDir = os.path.join(basepath, self.moduleName.replace('/', os.sep))
+        comicDir = os.path.join(basepath, self.dirname)
         if not os.path.isdir(comicDir):
             os.makedirs(comicDir)
 
-        fn = os.path.join(comicDir, '%s%s' % (self.filename, self.ext))
+        fn = os.path.join(comicDir, filename)
         if os.path.isfile(fn) and os.path.getsize(fn) >= comicSize:
-            self.urlobj.close()
             self.touch(fn)
-            out.write('Skipping existing file "%s".' % (fn,), 1)
+            out.info('Skipping existing file "%s".' % fn)
             return fn, False
 
         try:
-            tmpFn = os.path.join(comicDir, '__%s%s' % (self.filename, self.ext))
-            out.write('Writing comic to temporary file %s...' % (tmpFn,), 3)
-            comicOut = file(tmpFn, 'wb')
-            try:
-                startTime = time.time()
-                if showProgress:
-                    def pollData():
-                        data = self.urlobj.read(8192)
-                        if not data:
-                            raise OperationComplete
-                        comicOut.write(data)
-                        return len(data), self.contentLength
-                    progressBar(pollData)
-                else:
-                    comicOut.write(self.urlobj.read())
-                endTime = time.time()
-            finally:
-                comicOut.close()
-            out.write('Copying temporary file (%s) to %s...' % (tmpFn, fn), 3)
-            shutil.copy2(tmpFn, fn)
+            out.debug('Writing comic to file %s...' % fn)
+            with open(fn, 'wb') as comicOut:
+                comicOut.write(self.urlobj.content)
             self.touch(fn)
-
-            size = os.path.getsize(fn)
-            bytes = locale.format('%d', size, True)
-            if endTime != startTime:
-                speed = saneDataSize(size / (endTime - startTime))
-            else:
-                speed = '???'
-            attrs = dict(fn=fn, bytes=bytes, speed=speed)
-            out.write('Saved "%(fn)s" (%(bytes)s bytes, %(speed)s/sec).' % attrs, 1)
-            handler.comicDownloaded(self.moduleName, fn)
-            self.urlobj.close()
-        finally:
-            try:
-                out.write('Removing temporary file %s...' % (tmpFn,), 3)
-                os.remove(tmpFn)
-            except:
-                pass
+        except Exception:
+            if os.path.isfile(fn):
+                os.remove(fn)
+            raise
+        else:
+            size = strsize(os.path.getsize(fn))
+            out.info("Saved %s (%s)." % (fn, size))
+            getHandler().comicDownloaded(self.name, fn)
 
         return fn, True

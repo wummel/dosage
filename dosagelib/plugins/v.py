@@ -1,36 +1,58 @@
-from re import compile, IGNORECASE, MULTILINE
+# -*- coding: iso-8859-1 -*-
+# Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
+# Copyright (C) 2012 Bastian Kleineidam
 
-from ..helpers import _BasicScraper
+from re import compile
+
+from ..scraper import _BasicScraper
+from ..util import tagre
 
 
+class Vendetta(_BasicScraper):
+    latestUrl = 'http://www.vendettacomic.com/'
+    stripUrl = latestUrl + 'archive.php?date=%s.jpg'
+    imageSearch = compile(tagre("img", "src", r'(/comics/[^"]+)'))
+    prevSearch = compile(tagre("a", "href", r'(archive\.php\?date=\d+\.jpg)') +
+      tagre("img", "src", r"/images/prev\.jpg"))
+    help = 'Index format: yyyymmdd'
 
-class _VGCats(_BasicScraper):
+
+class VGCats(_BasicScraper):
     latestUrl = 'http://www.vgcats.com/comics/'
-    imageSearch = compile(r'<img src="(images/\d{6}\..+?)"')
-    prevSearch = compile(r'<a href="(\?strip_id=\d+)"><img src="back.gif" border="0"')
+    stripUrl = latestUrl + '?strip_id=%s'
+    imageSearch = compile(tagre("img", "src", r'(images/\d{6}\.[^"]+)'))
+    prevSearch = compile(tagre("a", "href", r'(\?strip_id=\d+)') +
+      tagre("img", "src", r"back\.gif"))
     help = 'Index format: n (unpadded)'
 
-    @property
-    def imageUrl(self):
-        return self.latestUrl + '?strip_id=%s'
 
-
-
-class Super(_VGCats):
+class VGCatsSuper(VGCats):
     name = 'VGCats/Super'
     latestUrl = 'http://www.vgcats.com/super/'
+    stripUrl = latestUrl + '?strip_id=%s'
 
 
-
-class Adventure(_VGCats):
+class VGCatsAdventure(VGCats):
     name = 'VGCats/Adventure'
     latestUrl = 'http://www.vgcats.com/ffxi/'
+    stripUrl = latestUrl + '?strip_id=%s'
 
+
+class VictimsOfTheSystem(_BasicScraper):
+    latestUrl = 'http://www.votscomic.com/'
+    stripUrl = latestUrl + '?id=%s.jpg'
+    imageSearch = compile(tagre("img", "src", r'(comicpro/strips/[^"]+)'))
+    prevSearch = compile(tagre("a", "href", r'(\?id=\d+-\d+\.jpg)') + "Previous")
+    help = 'Index format: nnn-nnn'
 
 
 class ViiviJaWagner(_BasicScraper):
     latestUrl = 'http://www.hs.fi/viivijawagner/'
-    imageUrl = 'http://www.hs.fi/viivijawagner/%s'
-    imageSearch = compile(r'<img id="strip\d+"\s+src="([^"]+)"', IGNORECASE)
-    prevSearch = compile(r'<a href="(.+?)"[^>]+?>\nEdellinen&nbsp;\n<img src="http://www.hs.fi/static/hs/img/viivitaakse.gif"', MULTILINE | IGNORECASE)
-    help = 'Index format: shrugs!'
+    stripUrl = None
+    imageSearch = compile(tagre("link", "href", r'(http://hs\d+\.snstatic\.fi/webkuva/oletus/[^"]+)', before="image_src"))
+    prevSearch = compile(tagre("a", "href", r'(/viivijawagner/[^"]+)', before="prev-cm"))
+    help = 'Index format: none'
+
+    @classmethod
+    def namer(cls, imageUrl, pageUrl):
+        return imageUrl.split('=')[1]

@@ -1,7 +1,7 @@
 Dosage
 =======
 
-Dosage is a powerful webcomic downloader and archiver.
+Dosage is a commandline webcomic downloader and archiver.
 
 Introduction
 -------------
@@ -15,42 +15,54 @@ makes this impossible).
 Notice
 -------
 This software is in no way intended to publically "broadcast" comic strips,
-it is purely for personal use. Please be aware that by making these strips
-publically available (without the explicit permission of the author) you
-may be infringing upon various copyrights.
+it is purely for personal use. Please be aware that by making downloaded
+strips publically available (without the explicit permission of the author)
+you may be infringing upon various copyrights.
+
+Additionally, dosage respects the robots.txt exclusion protocol. This
+makes sure no content is accessed in an automatic way without consent
+by the publishers.
+
+If you are a publisher of comics and want dosage to access your files,
+add the following entry to your robotst.txt file:
+
+```
+User-agent: dosage
+Allow: *
+```
+
+Adult content
+--------------
+Some comics contain adult content and require age confirmation.
+These comics can only be downloaded by using the --adult option,
+which confirms that you are old enough to view them.
 
 Usage
 ------
-List available comics (over 4000 at the moment):
+List available comics (ca. 3000 at the moment):
+
 `$ dosage -l`
 
 Get the latest comic of for example CalvinAndHobbes and save it in the "Comics"
 directory:
+
 `$ dosage CalvinAndHobbes`
 
 If you already have downloaded several comics and want to get the latest
 strip of all of them:
+
 `$ dosage @`
 
-For advanced options and features execute dosage -h or look at the dosage
+For advanced options and features execute `dosage -h` or look at the dosage
 manual page.
-
-Offensive comics
------------------
-There are some comics supported by Dosage that may be offensive to readers or
-to others that have access to the downloaded images.
-SexyLosers is one module that has been discussed. Dosage offers a mechanism
-to disable such modules. Modules listed in "/etc/dosage/disabled" and
-"~/.dosage/disabled" will be disabled. These files should contain only one
-module name per line. Note: Under Windows "~" will also expand to the user's
-home directory, usually "C:\Documents and Settings\UserName".
 
 Dependencies
 -------------
-Dosage is requires Python version 2.5 or higher, which can be downloaded
-from http://www.python.org.
-No external Python modules are required - only the Python Standard Library
-that gets installed with Python.
+Python version 2.7 or higher, which can be downloaded
+from http://www.python.org/
+
+Also the python-requests module must be installed, which can be downloaded
+from http://docs.python-requests.org/en/latest/
 
 Installation
 -------------
@@ -64,9 +76,13 @@ or if you do not have root permissions:
 
 `python setup.py install --home=$HOME`
 
+Another option is to use pip:
+
+`pip install dosage`
+
 Technical Description
 ----------------------
-Dosage is written entirely in Python and relies on regular expressions to
+Dosage is written in Python and relies on regular expressions to
 do most of the grunt work.
 
 For each webcomic Dosage has a plugin module, found in the "plugins"
@@ -78,9 +94,9 @@ which help define the plugins for all comics of this syndicate.
 
 Extending Dosage
 -----------------
-In order to add a new webcoming, a new module class has to be created in one of the
-*.py files in the dosagelib/plugins subdirectory. Look at the existing
-module classes for examples.
+In order to add a new webcomic, a new module class has to be created in
+one of the *.py files in the dosagelib/plugins subdirectory.
+Look at the existing module classes for examples.
 
 Reporting Bugs
 ---------------
@@ -90,4 +106,3 @@ https://github.com/wummel/dosage/issues
 Dosage currently supports a large number of comics and that number grows on
 a regular basis. If you feel that there are comics that Dosage does not
 currently support but should support, please feel free to request them.
-

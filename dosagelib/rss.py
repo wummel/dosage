@@ -1,3 +1,5 @@
+# -*- coding: iso-8859-1 -*-
+# Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
 # TODO: Not sure if this RSS output is "valid", should be though.
 #       Might also be nice categorise Comics under one Item
 
@@ -5,7 +7,10 @@ import xml.dom.minidom
 import time
 
 class Feed(object):
+    """Write an RSS feed with comic strip images."""
+
     def __init__(self, title, link, description, lang='en-us'):
+        """Initialize RSS writer with given title, link and description."""
         self.rss = xml.dom.minidom.Document()
 
         rss_root = self.rss.appendChild(self.rss.createElement('rss'))
@@ -18,13 +23,12 @@ class Feed(object):
         self.addElement(self.channel, 'language', lang)
         self.addElement(self.channel, 'description', description)
 
-    def RFC822Date(data):
-        return time.strftime('%a, %d %b %Y %H:%M:%S GMT', data)
-
     def addElement(self, parent, tag, value):
+        """Add an RSS item."""
         return parent.appendChild(self.rss.createElement(tag)).appendChild(self.rss.createTextNode(value))
 
     def insertHead(self, title, link, description, date):
+        """Insert an item head."""
         item = self.rss.createElement('item')
 
         self.addElement(item, 'title', title)
@@ -39,6 +43,7 @@ class Feed(object):
             self.channel.appendChild(item)
 
     def addItem(self, title, link, description, date):
+        """Insert an item."""
         item = self.rss.createElement('item')
 
         self.addElement(item, 'title', title)
@@ -49,14 +54,18 @@ class Feed(object):
         self.channel.appendChild(item)
 
     def write(self, path):
+        """Write RSS content to file."""
         file = open(path, 'w')
         file.write(self.getXML())
         file.close()
 
     def getXML(self):
+        """Get RSS content in XML format."""
         return self.rss.toxml()
 
+
 def parseFeed(filename, yesterday):
+    """Parse an RSS feed and filter only entries that are newer than yesterday."""
     dom = xml.dom.minidom.parse(filename)
 
     getText = lambda node, tag: node.getElementsByTagName(tag)[0].childNodes[0].data

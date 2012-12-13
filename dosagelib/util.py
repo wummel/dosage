@@ -1,91 +1,150 @@
-from __future__ import division
+# -*- coding: iso-8859-1 -*-
+# Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
+# Copyright (C) 2012 Bastian Kleineidam
+from __future__ import division, print_function
 
-import urllib2, urlparse
+import urllib, urllib2, urlparse
+import robotparser
+import requests
 import sys
-import struct
-import array
 import os
 import cgi
 import re
 import traceback
 import time
 from htmlentitydefs import name2codepoint
-from math import log, floor
 
+from .decorators import memoized
 from .output import out
 from .configuration import UserAgent, AppName, App, SupportUrl
+from .fileutil import has_module
 
-class NoMatchError(Exception): pass
+has_curses = has_module("curses")
 
-def getMatchValues(matches):
-    return set([match.group(1) for match in matches])
+# Maximum content size for HTML pages
+MaxContentBytes = 1024 * 1024 * 2 # 2 MB
 
-def fetchManyMatches(url, regexes):
-    '''Returns a list containing lists of matches for each regular expression, in the same order.'''
-    out.write('Matching regex(es) %r multiple times against %s...' % ([rex.pattern for rex in regexes], url), 2)
-    page = urlopen(url)
-    data = page.read()
+# Maximum content size for images
+MaxImageBytes = 1024 * 1024 * 20 # 20 MB
 
-    matches = [getMatchValues(regex.finditer(data)) for regex in regexes]
-    if matches:
-        out.write('...found %r' % (matches,), 2)
+# Default connection timeout
+ConnectionTimeoutSecs = 60
+
+def tagre(tag, attribute, value, quote='"', before="", after=""):
+    """Return a regular expression matching the given HTML tag, attribute
+    and value. It matches the tag and attribute names case insensitive,
+    and skips arbitrary whitespace and leading HTML attributes. The "<>" at
+    the start and end of the HTML tag is also matched.
+    @param tag: the tag name
+    @ptype tag: string
+    @param attribute: the attribute name
+    @ptype attribute: string
+    @param value: the attribute value
+    @ptype value: string
+    @param quote: the attribute quote (default ")
+    @ptype quote: string
+    @param after: match after attribute value but before end
+    @ptype after: string
+
+    @return: the generated regular expression suitable for re.compile()
+    @rtype: string
+    """
+    if before:
+        prefix = r"[^>]*%s[^>]*\s+" % before
     else:
-        out.write('...not found!', 2)
+        prefix = r"(?:[^>]*\s+)?"
+    attrs = dict(
+        tag=case_insensitive_re(tag),
+        attribute=case_insensitive_re(attribute),
+        value=value,
+        quote=quote,
+        prefix=prefix,
+        after=after,
+    )
+    return r'<\s*%(tag)s\s+%(prefix)s%(attribute)s\s*=\s*%(quote)s%(value)s%(quote)s[^>]*%(after)s[^>]*>' % attrs
 
-    return list(matches)
 
-def fetchMatches(url, regexes):
-    out.write('Matching regex(es) %r against %s...' % ([rex.pattern for rex in regexes], url), 2)
-    page = urlopen(url)
-    data = page.read()
+def case_insensitive_re(name):
+    """Reformat the given name to a case insensitive regular expression string
+    without using re.IGNORECASE. This way selective strings can be made case
+    insensitive.
+    @param name: the name to make case insensitive
+    @ptype name: string
+    @return: the case insenstive regex
+    @rtype: string
+    """
+    return "".join("[%s%s]" % (c.lower(), c.upper()) for c in name)
 
-    matches = []
-    for regex in regexes:
-        match = regex.search(data)
-        if match:
-            matches.append(match.group(1))
 
-    if matches:
-        out.write('...found %r' % (matches,), 2)
-    else:
-        out.write('...not found!', 2)
+baseSearch = re.compile(tagre("base", "href", '([^"]*)'))
 
-    return matches
-
-def fetchMatch(url, regex):
-    matches = fetchMatches(url, (regex,))
-    if matches:
-        return matches[0]
-    return None
-
-def fetchUrl(url, regex):
-    match = fetchMatch(url, regex)
+def getPageContent(url, max_content_bytes=MaxContentBytes, session=None):
+    """Get text content of given URL."""
+    check_robotstxt(url)
+    # read page data
+    page = urlopen(url, max_content_bytes=max_content_bytes,
+      session=session)
+    data = page.text
+    # determine base URL
+    baseUrl = None
+    match = baseSearch.search(data)
     if match:
-        return urlparse.urljoin(url, match)
+        baseUrl = match.group(1)
+    else:
+        baseUrl = url
+    return data, baseUrl
+
+
+def getImageObject(url, referrer, max_content_bytes=MaxImageBytes):
+    """Get response object for given image URL."""
+    return urlopen(url, referrer=referrer, max_content_bytes=max_content_bytes)
+
+
+def fetchUrl(url, urlSearch, session=None):
+    """Search for given URL pattern in a HTML page."""
+    data, baseUrl = getPageContent(url, session=session)
+    match = urlSearch.search(data)
+    if match:
+        searchUrl = match.group(1)
+        if not searchUrl:
+            raise ValueError("Match empty URL at %s with pattern %s" % (url, urlSearch.pattern))
+        out.debug('matched URL %r' % searchUrl)
+        return normaliseURL(urlparse.urljoin(baseUrl, searchUrl))
     return None
 
-baseSearch = re.compile(r'<base\s+href="([^"]*)"\s+/?>', re.IGNORECASE)
-def fetchUrls(url, regexes):
-    matches = fetchMatches(url, [baseSearch] + list(regexes))
-    baseUrl = matches.pop(0) or url
-    return [urlparse.urljoin(baseUrl, match) for match in matches]
 
-def fetchManyUrls(url, regexes):
-    matchGroups = fetchManyMatches(url, [baseSearch] + list(regexes))
-    baseUrl = matchGroups.pop(0) or [url]
-    baseUrl = baseUrl[0]
+def fetchUrls(url, imageSearch, prevSearch=None, session=None):
+    """Search for given image and previous URL pattern in a HTML page."""
+    data, baseUrl = getPageContent(url, session=session)
+    # match images
+    imageUrls = set()
+    for match in imageSearch.finditer(data):
+        imageUrl = match.group(1)
+        if not imageUrl:
+            raise ValueError("Match empty image URL at %s with pattern %s" % (url, imageSearch.pattern))
+        out.debug('matched image URL %r with pattern %s' % (imageUrl, imageSearch.pattern))
+        imageUrls.add(normaliseURL(urlparse.urljoin(baseUrl, imageUrl)))
+    if not imageUrls:
+        out.warn("no images found at %s with pattern %s" % (url, imageSearch.pattern))
+    if prevSearch is not None:
+        # match previous URL
+        match = prevSearch.search(data)
+        if match:
+            prevUrl = match.group(1)
+            if not prevUrl:
+                raise ValueError("Match empty previous URL at %s with pattern %s" % (url, prevSearch.pattern))
+            prevUrl = normaliseURL(urlparse.urljoin(baseUrl, prevUrl))
+        else:
+            out.debug('no previous URL %s at %s' % (prevSearch.pattern, url))
+            prevUrl = None
+        return imageUrls, prevUrl
+    return imageUrls, None
 
-    xformedGroups = []
-    for matchGroup in matchGroups:
-        xformedGroups.append([urlparse.urljoin(baseUrl, match) for match in matchGroup])
 
-    return xformedGroups
-
-def _unescape(text):
-    """
-    Replace HTML entities and character references.
-    """
+def unescape(text):
+    """Replace HTML entities and character references."""
     def _fixup(m):
+        """Replace HTML entities."""
         text = m.group(0)
         if text[:2] == "&#":
             # character reference
@@ -106,76 +165,98 @@ def _unescape(text):
             text = text.encode('utf-8')
             text = urllib2.quote(text, safe=';/?:@&=+$,')
         return text
-    return re.sub("&#?\w+;", _fixup, text)
+    return re.sub(r"&#?\w+;", _fixup, text)
+
 
 def normaliseURL(url):
-    """
-    Removes any leading empty segments to avoid breaking urllib2; also replaces
+    """Removes any leading empty segments to avoid breaking urllib2; also replaces
     HTML entities and character references.
     """
     # XXX: brutal hack
-    url = _unescape(url)
-    url = url.replace(' ', '%20')
+    url = unescape(url)
 
     pu = list(urlparse.urlparse(url))
-    segments = pu[2].replace(' ', '%20').split('/')
-    while segments and segments[0] == '':
+    segments = pu[2].split('/')
+    while segments and segments[0] in ('', '..'):
         del segments[0]
-    pu[2] = '/' + '/'.join(segments)
+    pu[2] = '/' + '/'.join(segments).replace(' ', '%20')
+    # remove leading '&' from query
+    if pu[4].startswith('&'):
+        pu[4] = pu[4][1:]
+    # remove anchor
+    pu[5] = ""
     return urlparse.urlunparse(pu)
 
 
-def urlopen(url, referrer=None, retries=5):
-    # Work around urllib2 brokenness
-    url = normaliseURL(url)
-    req = urllib2.Request(url)
+def get_roboturl(url):
+    """Get robots.txt URL from given URL."""
+    pu = urlparse.urlparse(url)
+    return urlparse.urlunparse((pu[0], pu[1], "/robots.txt", "", "", ""))
+
+
+def check_robotstxt(url):
+    """Check if robots.txt allows our user agent for the given URL.
+    @raises: IOError if URL is not allowed
+    """
+    roboturl = get_roboturl(url)
+    rp = get_robotstxt_parser(roboturl)
+    if not rp.can_fetch(UserAgent, url):
+        raise IOError("%s is disallowed by robots.txt" % url)
+
+
+@memoized
+def get_robotstxt_parser(url):
+    """Get a RobotFileParser for the given robots.txt URL."""
+    rp = robotparser.RobotFileParser()
+    req = urlopen(url, max_content_bytes=MaxContentBytes, raise_for_status=False)
+    if req.status_code in (401, 403):
+        rp.disallow_all = True
+    elif req.status_code >= 400:
+        rp.allow_all = True
+    elif req.status_code == 200:
+        rp.parse(req.content.splitlines())
+    return rp
+
+
+def urlopen(url, referrer=None, retries=3, retry_wait_seconds=5, max_content_bytes=None,
+            timeout=ConnectionTimeoutSecs, session=None, raise_for_status=True):
+    """Open an URL and return the response object."""
+    out.debug('Open URL %s' % url)
+    assert retries >= 0, 'invalid retry value %r' % retries
+    assert retry_wait_seconds > 0, 'invalid retry seconds value %r' % retry_wait_seconds
+    headers = {'User-Agent': UserAgent}
     if referrer:
-        req.add_header('Referrer', referrer)
-        req.add_header('Referer', referrer)
-    req.add_header('User-Agent', UserAgent)
-
-    tries = 0
-    while 1:
-        try:
-            urlobj = urllib2.urlopen(req)
-            break
-        except IOError:
-            out.write('URL retrieval failed, sleeping %d seconds and retrying (%d)' % (2**tries, tries), 2)
-            time.sleep(2**tries)
-            tries += 1
-            if tries >= retries:
-                raise
-
-    return urlobj
-
-def getWindowSize():
+        headers['Referer'] = referrer
+    config = {"max_retries": retries}
+    if session is None:
+        session = requests
     try:
-        from fcntl import ioctl
-        from termios import TIOCGWINSZ
-    except ImportError:
-        raise NotImplementedError
-    st = 'HHHH'
-    names = 'ws_row', 'ws_col', 'ws_xpixel', 'ws_ypixel'
-    buf = array.array('b', ' ' * struct.calcsize(st))
-    try:
-        ioctl(sys.stderr, TIOCGWINSZ, buf, True)
-    except IOError:
-        raise NotImplementedError
-    winsize = dict(zip(names, struct.unpack(st, buf.tostring())))
-    return winsize['ws_col']
+        req = session.get(url, headers=headers, config=config,
+          prefetch=False, timeout=timeout)
+        check_content_size(url, req.headers, max_content_bytes)
+        if raise_for_status:
+            req.raise_for_status()
+        return req
+    except requests.exceptions.RequestException as err:
+        msg = 'URL retrieval of %s failed: %s' % (url, err)
+        raise IOError(msg)
 
-suffixes = ('B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB')
 
-def saneDataSize(size):
-    if size == 0:
-        return 'unk B'
-    index = int(floor(log(abs(size), 1024)))
-    index = min(index, len(suffixes) - 1)
-    index = max(index, 0)
-    factor = 1024 ** index
-    return '%0.3f %s' % (float(size) / factor, suffixes[index])
+def check_content_size(url, headers, max_content_bytes):
+    """Check that content length in URL response headers do not exceed the
+    given maximum bytes.
+    """
+    if not max_content_bytes:
+        return
+    if 'content-length' in headers:
+        size = int(headers['content-length'])
+        if size > max_content_bytes:
+            msg = 'URL content of %s with %d bytes exceeds %d bytes.' % (url, size, max_content_bytes)
+            raise IOError(msg)
+
 
 def splitpath(path):
+    """Split a path in its components."""
     c = []
     head, tail = os.path.split(path)
     while tail:
@@ -183,10 +264,11 @@ def splitpath(path):
         head, tail = os.path.split(head)
     return c
 
+
 def getRelativePath(basepath, path):
+    """Get a path that is relative to the given base path."""
     basepath = splitpath(os.path.abspath(basepath))
     path = splitpath(os.path.abspath(path))
-
     afterCommon = False
     for c in basepath:
         if afterCommon or path[0] != c:
@@ -194,49 +276,48 @@ def getRelativePath(basepath, path):
             afterCommon = True
         else:
             del path[0]
-
     return os.path.join(*path)
 
+
 def getQueryParams(url):
+    """Get URL query parameters."""
     query = urlparse.urlsplit(url)[3]
-    out.write('Extracting query parameters from %r (%r)...' % (url, query), 3)
+    out.debug('Extracting query parameters from %r (%r)...' % (url, query))
     return cgi.parse_qs(query)
 
 
 def internal_error(out=sys.stderr, etype=None, evalue=None, tb=None):
     """Print internal error message (output defaults to stderr)."""
-    print >> out, os.linesep
-    print >> out, """********** Oops, I did it again. *************
+    print(os.linesep, file=out)
+    print("""********** Oops, I did it again. *************
 
 You have found an internal error in %(app)s. Please write a bug report
-at %(url)s and include the following information:
-- your commandline arguments and any configuration file in ~/.dosage/
-- the system information below
+at %(url)s and include at least the information below:
 
-Not disclosing some of the information above due to privacy reasons is ok.
+Not disclosing some of the information below due to privacy reasons is ok.
 I will try to help you nonetheless, but you have to give me something
 I can work with ;) .
-""" % dict(app=AppName, url=SupportUrl)
+""" % dict(app=AppName, url=SupportUrl), file=out)
     if etype is None:
         etype = sys.exc_info()[0]
     if evalue is None:
         evalue = sys.exc_info()[1]
-    print >> out, etype, evalue
+    print(etype, evalue, file=out)
     if tb is None:
         tb = sys.exc_info()[2]
     traceback.print_exception(etype, evalue, tb, None, out)
     print_app_info(out=out)
     print_proxy_info(out=out)
     print_locale_info(out=out)
-    print >> out, os.linesep, \
-            "******** %s internal error, over and out ********" % AppName
+    print(os.linesep,
+            "******** %s internal error, over and out ********" % AppName, file=out)
 
 
 def print_env_info(key, out=sys.stderr):
     """If given environment key is defined, print it out."""
     value = os.getenv(key)
     if value is not None:
-        print >> out, key, "=", repr(value)
+        print(key, "=", repr(value), file=out)
 
 
 def print_proxy_info(out=sys.stderr):
@@ -252,12 +333,13 @@ def print_locale_info(out=sys.stderr):
 
 def print_app_info(out=sys.stderr):
     """Print system and application info (output defaults to stderr)."""
-    print >> out, "System info:"
-    print >> out, App
-    print >> out, "Python %(version)s on %(platform)s" % \
-                    {"version": sys.version, "platform": sys.platform}
+    print("System info:", file=out)
+    print(App, file=out)
+    print("Python %(version)s on %(platform)s" %
+                    {"version": sys.version, "platform": sys.platform}, file=out)
     stime = strtime(time.time())
-    print >> out, "Local time:", stime
+    print("Local time:", stime, file=out)
+    print("sys.argv", sys.argv, file=out)
 
 
 def strtime(t):
@@ -276,35 +358,83 @@ def strtimezone():
     return "%+04d" % (-zone//3600)
 
 
-def tagre(tag, attribute, value):
-    """Return a regular expression matching the given HTML tag, attribute
-    and value. It matches the tag and attribute names case insensitive,
-    and skips arbitrary whitespace and leading HTML attributes.
-    Also, it adds a match group for the value.
-    @param tag: the tag name
-    @ptype tag: string
-    @param attribute: the attribute name
-    @ptype attribute: string
-    @param value: the attribute value
-    @ptype value: string
-    @return: the generated regular expression suitable for re.compile()
-    @rtype: string
-    """
-    attrs = dict(
-        tag=case_insensitive_re(tag),
-        attribute=case_insensitive_re(attribute),
-        value=value,
-    )
-    return r'<\s*%(tag)s[^>]*\s+%(attribute)s\s*=\s*"(%(value)s)"' % attrs
+def rfc822date(indate):
+    """Format date in rfc822 format."""
+    return time.strftime("%a, %d %b %Y %H:%M:%S GMT", time.gmtime(indate))
 
-def case_insensitive_re(name):
-    """Reformat the given name to a case insensitive regular expression string
-    without using re.IGNORECASE. This way selective strings can be made case
-    insensitive.
-    @param name: the name to make case insensitive
-    @ptype name: string
-    @return: the case insenstive regex
-    @rtype: string
-    """
-    return "".join("[%s%s]" % (c.lower(), c.upper()) for c in name)
 
+def asciify(name):
+    """Remove non-ascii characters from string."""
+    return re.sub("[^0-9a-zA-Z_]", "", name)
+
+
+def unquote(text):
+    """Replace all percent-encoded entities in text."""
+    while '%' in text:
+        newtext = urllib.unquote(text)
+        if newtext == text:
+            break
+        text = newtext
+    return text
+
+
+def quote(text):
+    """Percent-encode given text."""
+    return urllib.quote(text)
+
+def strsize (b):
+    """Return human representation of bytes b. A negative number of bytes
+    raises a value error."""
+    if b < 0:
+        raise ValueError("Invalid negative byte number")
+    if b < 1024:
+        return "%dB" % b
+    if b < 1024 * 10:
+        return "%dKB" % (b // 1024)
+    if b < 1024 * 1024:
+        return "%.2fKB" % (float(b) / 1024)
+    if b < 1024 * 1024 * 10:
+        return "%.2fMB" % (float(b) / (1024*1024))
+    if b < 1024 * 1024 * 1024:
+        return "%.1fMB" % (float(b) / (1024*1024))
+    if b < 1024 * 1024 * 1024 * 10:
+        return "%.2fGB" % (float(b) / (1024*1024*1024))
+    return "%.1fGB" % (float(b) / (1024*1024*1024))
+
+
+def getDirname(name):
+    """Replace slashes with path separator of name."""
+    return name.replace('/', os.sep)
+
+
+def getFilename(name):
+    """Get a filename from given name without dangerous or incompatible characters."""
+    # first replace all illegal chars
+    name = re.sub(r"[^0-9a-zA-Z_\-\.]", "_", name)
+    # then remove double dots and underscores
+    while ".." in name:
+        name = name.replace('..', '.')
+    while "__" in name:
+        name = name.replace('__', '_')
+    # remove a leading dot or minus
+    if name.startswith((".", "-")):
+        name = name[1:]
+    return name
+
+
+def strlimit (s, length=72):
+    """If the length of the string exceeds the given limit, it will be cut
+    off and three dots will be appended.
+
+    @param s: the string to limit
+    @type s: string
+    @param length: maximum length
+    @type length: non-negative integer
+    @return: limited string, at most length+3 characters long
+    """
+    assert length >= 0, "length limit must be a non-negative integer"
+    if not s or len(s) <= length:
+        return s
+    if length == 0:
+        return ""
+    return "%s..." % s[:length]

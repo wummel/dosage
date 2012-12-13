@@ -4,15 +4,23 @@ Features:
 - cmdline: Added proper return codes for error conditions.
 - comics: Added more robust regular expressions for HTML tags.
   They match case insensitive and ignore whitespaces now.
+- comics: Use the python-requests module for HTTP requests.
+- comics: Respect the robots.txt of downloaded HTML pages
 
 Changes:
 - installation: Added support for dynamic configuration values.
+- installation: Require and use Python 2.7
 - comics: Removed the twisted and zope dependencies by adding
   an internal plugin search mechanism.
-- testing: Refactored the test comic routine in proper unit tests.
+- comics: Replace the disable mechanism with an adult option.
+- comcis: Add scripts to automate comic listings for Creators, Universal,
+  KeenSpot, GoComics and DrunkDuck.
+- testing: Refactored the test comic routine into fully automatic and
+  complete tests cases for every comic.
+- cmdline: Improved terminal feature detection.
 
 Fixes:
-- comics: Adjusted Xkcd href values.
+- comics: Fix all comics!
 - comics: Don't add empty URLs to the list of found URLs.
 
 

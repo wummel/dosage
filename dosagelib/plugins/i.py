@@ -1,19 +1,31 @@
-from re import compile, IGNORECASE
+# -*- coding: iso-8859-1 -*-
+# Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
+# Copyright (C) 2012 Bastian Kleineidam
 
-from ..helpers import _BasicScraper
+from re import compile
+from ..scraper import _BasicScraper
+from ..util import tagre
+
+
+class IanJay(_BasicScraper):
+    latestUrl = 'http://ianjay.net/'
+    stripUrl = latestUrl + '?p=%s'
+    imageSearch = compile(tagre("img", "src", r'(http://ianjay\.net/comics/\d+[^"]+)'))
+    prevSearch = compile(tagre("a", "href", r'(http://ianjay\.net/\?p=\d+)', after="Previous"))
+    help = 'Index foramt: nnn'
 
 
 class IDreamOfAJeanieBottle(_BasicScraper):
     latestUrl = 'http://jeaniebottle.com/'
-    imageUrl = 'http://jeaniebottle.com/review.php?comicID='
+    stripUrl = latestUrl + '?p=%s'
     imageSearch = compile(r'(/comics/.+?)"')
-    prevSearch = compile(r'First".+?(review.php.+?)".+?prev_a.gif')
+    prevSearch = compile(tagre("a", "href", r'(http://jeaniebottle\.com/\?p=\d+)', after="prev"))
     help = 'Index format: n (unpadded)'
 
 
 class IrregularWebcomic(_BasicScraper):
     latestUrl = 'http://www.irregularwebcomic.net/'
-    imageUrl = 'http://www.irregularwebcomic.net/cgi-bin/comic.pl?comic=%s'
+    stripUrl = latestUrl + '%s.html'
     imageSearch = compile(r'<img .*src="(.*comics/.*(png|jpg|gif))".*>')
     prevSearch = compile(r'<a href="(/\d+\.html|/cgi-bin/comic\.pl\?comic=\d+)">Previous ')
     help = 'Index format: nnn'
@@ -21,55 +33,15 @@ class IrregularWebcomic(_BasicScraper):
 
 class InsideOut(_BasicScraper):
     latestUrl = 'http://www.insideoutcomic.com/'
-    imageUrl = 'http://www.insideoutcomic.com/html/%s.html'
+    stripUrl = latestUrl + 'html/%s.html'
     imageSearch = compile(r'Picture12LYR.+?C="(.+?/assets/images/.+?)"')
     prevSearch = compile(r'Picture7LYR.+?F="(.+?/html/.+?)"')
     help = 'Index format: n_comic_name'
 
 
-
-class InkTank(_BasicScraper):
-    shortName = 'inktank'
-
-    def starter(self):
-        return self.baseUrl + self.shortName + '/'
-
-
-def inkTank(name, shortName):
-    @classmethod
-    def _namer(cls, imageUrl, pageUrl):
-        return '20%s-%s' % (imageUrl[-6:-4], imageUrl[-12:-7])
-
-    baseUrl = 'http://www.inktank.com/%s/' % (shortName,)
-    return type('InkTank_%s' % name,
-        (_BasicScraper,),
-        dict(
-        name='InkTank/' + name,
-        latestUrl=baseUrl,
-        imageUrl=baseUrl + 'd/%s.html',
-        imageSearch=compile(r'<IMG SRC="(/images/[^/]+/cartoons/\d{2}-\d{2}-\d{2}.+?)"'),
-        prevSearch=compile(r'<A HREF="(/[^/]+/index.cfm\?nav=\d+?)"><IMG SRC="/images/nav_last.gif"'),
-        help='Index format: n (unpadded)')
-    )
-
-
-at = inkTank('AngstTechnology', 'AT')
-ww = inkTank('WeakEndWarriors', 'WW')
-swo = inkTank('SorryWereOpen', 'SWO')
-
-
-
-class IlmanNaista(_BasicScraper):
-    latestUrl = 'http://kvantti.tky.fi/in/archive_end.shtml'
-    imageUrl = 'http://kvantti.tky.fi/in/%s.shtml'
-    imageSearch = compile(r'<img src="(kuvat/in_.+?)"', IGNORECASE)
-    prevSearch = compile(r'<a href="(\d+.shtml)"><img width="90" height="45" src="deco/edellinen.png" alt="Edellinen"/></a>')
-
-
-
-class ICantDrawFeet(_BasicScraper):
-    latestUrl = 'http://icantdrawfeet.com/'
-    imageUrl = 'http://icantdrawfeet.com/%s'
-    imageSearch = compile(r'src="(http://icantdrawfeet.com/comics/.+?)"')
-    prevSearch = compile(r'<a href="(http://icantdrawfeet.com/.+?)"><img src="http://icantdrawfeet.com/pageimages/prev.png"')
-    help = 'Index format: yyyy/mm/dd/stripname'
+class ItsWalky(_BasicScraper):
+    latestUrl = 'http://www.itswalky.com/'
+    stripUrl = latestUrl + 'd/%s.html'
+    imageSearch = compile(tagre("img", "src", r'(/comic[s|/][^"]+)'))
+    prevSearch = compile(tagre("a", "href", r'[^"]*(/d/\d+\.s?html)')+r"[^>]+/images/(?:nav_02|previous_day)\.gif")
+    help = 'Index format: yyyymmdd'

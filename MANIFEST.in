@@ -1,4 +1,7 @@
 include MANIFEST.in
-include COPYING doc/*.txt
-include Makefile
+include COPYING Makefile requirements.txt
+include *.bat
+include doc/Makefile doc/*.txt doc/*.1 doc/*.html
+include doc/css/*.css doc/js/*.js
+include scripts/*.py scripts/*.sh
 recursive-include tests *.py
