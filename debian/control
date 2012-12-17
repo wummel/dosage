@@ -17,5 +17,5 @@ Provides: ${python:Provides}
 Description: commandline webcomic downloader and archiver
  Dosage allows webcomics to be downloaded. It can retrieve just the latest
  strip in a comic, catch-up to the last strip downloaded, or download a
- strip for a particular date/index (if the webcomic's site layout
- makes this impossible).
+ strip for a particular date/index if the webcomic's site layout
+ allows it.
