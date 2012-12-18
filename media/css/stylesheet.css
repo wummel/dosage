@@ -63,10 +63,10 @@ header h1 a:hover {
   color: #eee;
 }
 
-#content-wrapper a {
+p a {
   color: #2879d0;
 }
-#content-wrapper a:hover {
+p a:hover {
   color: #2268b2;
 }
 
@@ -142,13 +142,16 @@ a.button {
   font-size: 23px;
   color: #fff;
   padding-left: 68px;
-  padding-top: 22px;
+  padding-top: 23px;
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
 }
-a.button small
-a.button span {
+a.button small {
   display: block;
   font-size: 11px;
+}
+a.button span {
+  display: block;
+  font-size: 18px;
 }
 header a.button {
   position: absolute;
@@ -163,6 +166,7 @@ aside a.button {
   background: transparent url(../images/download-button.png) 0 0 no-repeat;
   margin-bottom: 20px;
   font-size: 21px;
+  color: #fff;
 }
 
 code, pre {
@@ -346,6 +350,13 @@ ol li {
 dl dd {
   font-style: italic;
   font-weight: 100;
+}
+
+.failed {
+  color: #990000;
+}
+.ok {
+  color: #669900;
 }
 
 footer {
