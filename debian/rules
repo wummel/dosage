@@ -23,17 +23,17 @@ override_dh_auto_install:
 	dh_auto_install --buildsystem python_distutils
 
 override_dh_auto_install-arch:
-        dh_auto_install --buildsystem python_distutils
+	dh_auto_install --buildsystem python_distutils
 # install bash_completion script
-        install -m 644 doc/dosage-completion $(ETCDIR)/bash_completion.d
+	install -m 644 doc/dosage-completion $(ETCDIR)/bash_completion.d
 
 override_dh_clean:
 # clean generated files
 	dh_clean _Dosage_configdata.py
 
-# do not run test suite when building
 override_dh_auto_test:
+# do not run test suite when building
 
 override_dh_builddeb:
 # use xz for debian binary package compression
-        dh_builddeb -- -Zxz
+	dh_builddeb -- -Zxz

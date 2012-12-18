@@ -11,7 +11,7 @@ dosage (1.7-1) unstable; urgency=low
   * Use Debian source format v3.0
   * Use xz for debian binary package compression
 
- -- Bastian Kleineidam <calvin@debian.org>  Thu, 24 May 2012 16:38:22 +0200
+ -- Bastian Kleineidam <calvin@debian.org>  Tue, 18 Dec 2012 18:56:42 +0100
 
 dosage (1.6.0-1) unstable; urgency=low
 
