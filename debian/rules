@@ -21,9 +21,6 @@ ETCDIR=$(ROOTDIR)/etc
 override_dh_auto_install:
 # force usage of setup.py over Makefile
 	dh_auto_install --buildsystem python_distutils
-
-override_dh_auto_install-arch:
-	dh_auto_install --buildsystem python_distutils
 # install bash_completion script
 	install -m 644 doc/dosage-completion $(ETCDIR)/bash_completion.d
 
