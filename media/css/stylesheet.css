@@ -56,10 +56,17 @@ body {
   color: #666;
 }
 
-a {
+header h1 a {
+  color: #fff;
+}
+header h1 a:hover {
+  color: #eee;
+}
+
+#content-wrapper a {
   color: #2879d0;
 }
-a:hover {
+#content-wrapper a:hover {
   color: #2268b2;
 }
 
@@ -138,7 +145,8 @@ a.button {
   padding-top: 22px;
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
 }
-a.button small {
+a.button small
+a.button span {
   display: block;
   font-size: 11px;
 }
