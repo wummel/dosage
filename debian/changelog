@@ -1,3 +1,9 @@
+dosage (1.8-0calvin1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Bastian Kleineidam <calvin@debian.org>  Thu, 20 Dec 2012 14:21:02 +0100
+
 dosage (1.7-1) unstable; urgency=low
 
   * New upstream release.
