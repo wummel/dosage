@@ -1,8 +1,11 @@
-dosage (1.8-0calvin1) unstable; urgency=low
+dosage (1.8-1) unstable; urgency=low
 
   * New upstream release.
+  * Adopt the package (Closes: #698303)
+  * Add watch file.
+  * Updated Standards version to 3.9.4
 
- -- Bastian Kleineidam <calvin@debian.org>  Thu, 20 Dec 2012 14:21:02 +0100
+ -- Bastian Kleineidam <calvin@debian.org>  Thu, 17 Jan 2013 18:02:26 +0100
 
 dosage (1.7-1) unstable; urgency=low
 
