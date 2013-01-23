@@ -1,3 +1,9 @@
+dosage (1.9-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Bastian Kleineidam <calvin@debian.org>  Wed, 23 Jan 2013 13:55:24 +0100
+
 dosage (1.8-1) unstable; urgency=low
 
   * New upstream release.
