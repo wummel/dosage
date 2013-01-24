@@ -1,8 +1,10 @@
-dosage (1.9-1) UNRELEASED; urgency=low
+dosage (1.9-1) unstable; urgency=low
 
   * New upstream release.
+    - documents parallel download option with xargs
+      (Closes: #452484)
 
- -- Bastian Kleineidam <calvin@debian.org>  Wed, 23 Jan 2013 13:55:24 +0100
+ -- Bastian Kleineidam <calvin@debian.org>  Thu, 24 Jan 2013 07:55:05 +0100
 
 dosage (1.8-1) unstable; urgency=low
 
