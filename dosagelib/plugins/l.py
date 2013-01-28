@@ -1,6 +1,6 @@
 # -*- coding: iso-8859-1 -*-
 # Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
-# Copyright (C) 2012 Bastian Kleineidam
+# Copyright (C) 2012-2013 Bastian Kleineidam
 
 from re import compile
 from ..scraper import _BasicScraper
@@ -46,8 +46,8 @@ class LittleGamers(_BasicScraper):
 
 
 class LeastICouldDo(_BasicScraper):
-    latestUrl = 'http://www.leasticoulddo.com/'
+    latestUrl = 'http://leasticoulddo.com/'
     stripUrl = latestUrl + 'comic/%s'
-    imageSearch = compile(r'<img src="(http://cdn.leasticoulddo.com/comics/\d{8}.\w{1,4})" />')
+    imageSearch = compile(tagre("img", "src", r'(http://cdn\.leasticoulddo\.com/wp-content/uploads/\d+/\d+/\d{8}\.\w{1,4})'))
     prevSearch = compile(r'<a href="(/comic/\d{8})">Previous</a>')
     help = 'Index format: yyyymmdd'

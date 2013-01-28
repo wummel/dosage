@@ -1,6 +1,6 @@
 # -*- coding: iso-8859-1 -*-
 # Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
-# Copyright (C) 2012 Bastian Kleineidam
+# Copyright (C) 2012-2013 Bastian Kleineidam
 
 from re import compile, MULTILINE
 from ..util import tagre
@@ -102,6 +102,14 @@ class AltermetaOld(Altermeta):
     latestUrl = 'http://altermeta.net/oldarchive/index.php'
     stripUrl = 'http://altermeta.net/oldarchive/archive.php?comic=%s'
     prevSearch = compile(r'<a href="([^"]+)">Back')
+
+
+class AmazingSuperPowers(_BasicScraper):
+    latestUrl = 'http://www.amazingsuperpowers.com/'
+    stripUrl = latestUrl + '%s/'
+    imageSearch = compile(tagre("img", "src", r'(http://www\.amazingsuperpowers\.com/comics/[^"]+)'))
+    prevSearch = compile(tagre("a", "href", r'(http://www\.amazingsuperpowers\.com/[^"]+)', after="prev"))
+    help = 'Index format: yyyy/mm/name'
 
 
 class Angels2200(_BasicScraper):

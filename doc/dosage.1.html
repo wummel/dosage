@@ -4,7 +4,7 @@
 </HEAD><BODY>
 <H1>DOSAGE</H1>
 Section: User Commands  (1)<BR><A HREF="#index">Index</A>
-<A HREF="../index.html">Return to Main Contents</A><HR>
+<A HREF="index.html">Return to Main Contents</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
@@ -177,10 +177,21 @@ Retrieve the Penny Arcade strip for a given index:
 
 </DL>
 
+<P>
+
 Retrieve Calvin and Hobbes strips from a given index going backwards to
-the beginning until an existing file is found:
+the beginning.
 <DL COMPACT><DT><DD>
-<B>dosage -c calvinandhobbes:20120722</B>
+<B>dosage -a calvinandhobbes:20120722</B>
+
+</DL>
+
+<P>
+
+On Unix, <B><A HREF="../man1/xargs.1.html">xargs</A>(1)</B> can download several comic strips in parallel,
+for example using up to 4 processes:
+<DL COMPACT><DT><DD>
+<B>cd Comics &amp;&amp; find . -type d | xargs -n1 -P4 dosage -b . -v</B>
 
 </DL>
 
@@ -240,14 +251,14 @@ Jonathan Jacobs &lt;<A HREF="mailto:korpse@slipgate.za.net">korpse@slipgate.za.n
 Tristan Seligmann &lt;<A HREF="mailto:mithrandi@slipgate.za.net">mithrandi@slipgate.za.net</A>&gt;
 <BR>
 
-Bastian Kleineidam &lt;<A HREF="mailto:calvin@users.sourceforge.net">calvin@users.sourceforge.net</A>&gt;
+Bastian Kleineidam &lt;<A HREF="mailto:bastian.kleineidam@web.de">bastian.kleineidam@web.de</A>&gt;
 <A NAME="lbAN">&nbsp;</A>
 <H2>COPYRIGHT</H2>
 
 Copyright &#169; 2004-2005 Tristan Seligmann and Jonathan Jacobs
 <BR>
 
-Copyright &#169; 2012 Bastian Kleineidam
+Copyright &#169; 2012-2013 Bastian Kleineidam
 <P>
 
 <HR>
@@ -269,7 +280,7 @@ Copyright &#169; 2012 Bastian Kleineidam
 </DL>
 <HR>
 This document was created by
-<A HREF="/cgi-bin/man/man2html">man2html</A>,
+man2html,
 using the manual pages.<BR>
 
 </BODY>

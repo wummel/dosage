@@ -2,7 +2,7 @@
 # -*- coding: iso-8859-1 -*-
 # Dosage, the webcomic downloader
 # Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
-# Copyright (C) 2012 Bastian Kleineidam
+# Copyright (C) 2012-2013 Bastian Kleineidam
 from __future__ import print_function
 import os
 import sys
@@ -20,10 +20,11 @@ except ImportError:
     has_py2exe = False
 from distutils.core import setup, Distribution
 from distutils.command.install_lib import install_lib
+from distutils.command.register import register
 from distutils import util
 from distutils.file_util import write_file
 
-AppVersion = '1.7'
+AppVersion = '1.9'
 AppName = 'Dosage'
 
 py_excludes = ['doctest', 'unittest', 'Tkinter', 'pdb',
@@ -255,6 +256,7 @@ class InnoScript:
 
     def create(self, pathname=r"dist\omt.iss"):
         """Create Inno script."""
+        print("*** creating the inno setup script ***")
         self.pathname = pathname
         self.distfilebase = "%s-%s" % (self.name, self.version)
         self.distfile = self.distfilebase + ".exe"
@@ -297,18 +299,38 @@ class InnoScript:
 
     def compile (self):
         """Compile Inno script with iscc.exe."""
+        print("*** compiling the inno setup script ***")
         progpath = get_nt_platform_vars()[0]
         cmd = r'%s\Inno Setup 5\iscc.exe' % progpath
         subprocess.check_call([cmd, self.pathname])
 
     def sign (self):
         """Sign InnoSetup installer with local self-signed certificate."""
+        print("*** signing the inno setup installer ***")
         pfxfile = r'C:\dosage.pfx'
         if os.path.isfile(pfxfile):
-            cmd = ['signtool.exe', 'sign', '/f', pfxfile, self.distfile]
-            subprocess.check_call(cmd)
+            path = get_windows_sdk_path()
+            signtool = os.path.join(path, "bin", "signtool.exe")
+            if os.path.isfile(signtool):
+                cmd = [signtool, 'sign', '/f', pfxfile, self.distfile]
+                subprocess.check_call(cmd)
+            else:
+                print("No signed installer: signtool.exe not found.")
         else:
             print("No signed installer: certificate %s not found." % pfxfile)
+
+def get_windows_sdk_path():
+    """Return path of Microsoft Windows SDK installation, or None if
+    not found."""
+    try:
+        import _winreg as winreg
+    except ImportError:
+        import winreg
+    sub_key = r"Software\Microsoft\Microsoft SDKs\Windows"
+    with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, sub_key) as key:
+        name = "CurrentInstallFolder"
+        return winreg.QueryValueEx(key, name)[0]
+    return None
 
 try:
     from py2exe.build_exe import py2exe as py2exe_build
@@ -328,9 +350,7 @@ try:
             script = InnoScript(lib_dir, dist_dir, self.windows_exe_files,
                 self.console_exe_files, self.service_exe_files,
                 self.comserver_files, self.lib_files)
-            print("*** creating the inno setup script ***")
             script.create()
-            print("*** compiling the inno setup script ***")
             script.compile()
             script.sign()
 except ImportError:
@@ -339,15 +359,26 @@ except ImportError:
         pass
 
 
+class MyRegister (register, object):
+    """Custom register command."""
+
+    def build_post_data(self, action):
+        """Force application name to lower case."""
+        data = super(MyRegister, self).build_post_data(action)
+        data['name'] = data['name'].lower()
+        return data
+
+
 args = dict(
     name = AppName,
     version = AppVersion,
     description = 'a commandline webcomic downloader and archiver',
     author = 'Tristan Seligmann, Jonathan Jacobs, Bastian Kleineidam',
+    author_email = 'bastian.kleineidam@web.de',
     maintainer = 'Bastian Kleineidam',
-    maintainer_email = 'calvin@users.sourceforge.net',
+    maintainer_email = 'bastian.kleineidam@web.de',
     license = 'MIT',
-    url = 'https://github.com/wummel/dosage',
+    url = 'http://wummel.github.com/dosage/',
     packages = (
         'dosagelib',
         'dosagelib.plugins',
@@ -361,6 +392,7 @@ args = dict(
     cmdclass = {
         'install_lib': MyInstallLib,
         'py2exe': MyPy2exe,
+        'register': MyRegister,
     },
     options = {
         "py2exe": py2exe_options,

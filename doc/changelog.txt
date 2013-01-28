@@ -1,4 +1,41 @@
-Dosage 1.7 (released xx.xx.2012)
+Dosage 1.9 (released 28.1.2013)
+
+Features:
+- comics: Added AmazingSuperPowers comic strip.
+- comics: Added PandyLand comic strip.
+- comics: Added all comic strips from Arcamax (eg. including
+  Hagar the horrible).
+- documentation: Document parallel download example with xargs
+  on Unix systems.
+
+Changes:
+- comics: CyanideAndHappiness image filename now has the strip number prefixed.
+- comics: Indexed retrieval can now retrieve all (-a) or some (-n)
+  strips, not only one.
+
+Fixes:
+- comics: Fixed LeastICouldDo image URL.
+  Closes: GH bug #1
+- comics: Fix URL norming.
+  Closes: GH bug #2
+- documentation: Fix wrong option name: it's -a instead of -c.
+  Closes: GH bug #3
+- comics: Fix UnboundLocalError when using indexed retrieval.
+  Closes: GH bug #4
+- scripts: Ensure the generated comic names do not exceed 100 characters so
+  they do not cause problems with path length restrictions.
+- installation: Set correct homepage url so "pip install dosage" works.
+  Closes: GH bug #5
+
+
+Dosage 1.8 (released 20.12.2012)
+
+Changes:
+- comics: Add compatibility to requests module >= 1.0.
+- comics: Updated the comic list with the generator scripts.
+
+
+Dosage 1.7 (released 18.12.2012)
 
 Features:
 - cmdline: Added proper return codes for error conditions.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-# Copyright (C) 2012-2013 Bastian Kleineidam
+# Copyright (C) 2013 Bastian Kleineidam
 """
-Script to get universal comics and save the info in a JSON file for further processing.
+Script to get arcamax comics and save the info in a JSON file for further processing.
 """
 from __future__ import print_function
 import re
@@ -14,26 +14,10 @@ from scriptutil import contains_case_insensitive, capfirst, save_result, load_re
 
 json_file = __file__.replace(".py", ".json")
 
-#<li><a href="/comics/strip/9chickweedlane">9 Chickweed Lane</a>
-url_matcher = re.compile(r'<li><a href="(/comics/[^"]+)">([^<]+)</a>')
+url_matcher = re.compile(r'<li><b><a href="(/thefunnies/[^"]+)">([^<]+)</a>')
 
 # names of comics to exclude
 exclude_comics = [
-    "BusinessAndFinance", # not a comic
-    "ComicPanel", # not a comic
-    "ComicsAZ", # not a comic
-    "ComicStrip", # not a comic
-    "Espaol", # not a comic
-    "Family", # not a comic
-    "ForKids", # not a comic
-    "JamesBond", # not a comic
-    "Men", # not a comic
-    "NEA", # not a comic
-    "PeanutsPortuguese", # not found
-    "Pets", # not a comic
-    "SundayOnly", # not a comic
-    "WebExclusive", # not a comic
-    "Women", # not a comic
 ]
 
 
@@ -57,23 +41,30 @@ def handle_url(url, res):
             print("INFO: skipping possible duplicate", name, file=sys.stderr)
             continue
         res[name] = shortname
+    if not res:
+        print("ERROR:", "did not match any comics", file=sys.stderr)
 
 
 def get_results():
     """Parse all search result pages."""
     # store info in a dictionary {name -> shortname}
     res = {}
-    handle_url('http://www.universaluclick.com/comics/list', res)
+    handle_url('http://www.arcamax.com/comics', res)
     save_result(res, json_file)
 
 
 def has_comic(name):
     """Check if comic name already exists."""
-    cname = ("Creators/%s" % name).lower()
-    gname = ("GoComics/%s" % name).lower()
+    names = [
+        ("Creators/%s" % name).lower(),
+        ("DrunkDuck/%s" % name).lower(),
+        ("GoComics/%s" % name).lower(),
+        ("KeenSpot/%s" % name).lower(),
+        ("SmackJeeves/%s" % name).lower(),
+    ]
     for scraperclass in get_scrapers():
         lname = scraperclass.get_name().lower()
-        if lname == cname or lname == gname:
+        if lname in names:
             return True
     return False
 

@@ -1,6 +1,6 @@
 # -*- coding: iso-8859-1 -*-
 # Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
-# Copyright (C) 2012 Bastian Kleineidam
+# Copyright (C) 2012-2013 Bastian Kleineidam
 """
 The Universal comics only have some samples, but those samples are always the newest ones.
 """
@@ -61,9 +61,8 @@ add('Brevitystrip', '/comics/strip/brevity')
 #add('Cleats', '/comics/strip/cleats')
 #add('ClosetoHome', '/comics/panel/closetohome')
 #add('Cornered', '/comics/panel/cornered')
-#add('CowandBoy', '/comics/strip/cowandboy')
+#add('CowandBoyClassics', '/comics/strip/cowandboy')
 #add('CuldeSac', '/comics/strip/culdesac')
-add('Dilbert', '/comics/strip/dilbert')
 #add('Doonesbury', '/comics/strip/doonesbury')
 #add('Drabble', '/comics/strip/drabble')
 #add('FMinus', '/comics/strip/fminus')
@@ -96,7 +95,6 @@ add('Dilbert', '/comics/strip/dilbert')
 #add('Marmaduke', '/comics/panel/marmaduke')
 #add('ModeratelyConfused', '/comics/panel/moderately-confused')
 #add('Monty', '/comics/strip/monty')
-#add('MrGigiandtheSquid', '/comics/strip/mr-gigi-and-the-squid')
 #add('MuttAndJeff', '/comics/strip/muttandjeff')
 #add('Nancy', '/comics/strip/nancy')
 #add('NonSequitur', '/comics/strip/nonsequitur')
@@ -105,9 +103,9 @@ add('NonSequiturPanel', '/comics/panel/non-sequitur-panel')
 #add('Overboard', '/comics/strip/overboard')
 #add('OvertheHedge', '/comics/strip/overthehedge')
 #add('Peanuts', '/comics/strip/peanuts')
-add('PeanutsPortuguese', '/comics/strip/portuguese/peanuts-portuguese')
 #add('PearlsBeforeSwine', '/comics/strip/pearlsbeforeswine')
 #add('PoochCafe', '/comics/strip/poochcafe')
+add('Portuguese', '/comics/category/portuguese')
 #add('PricklyCity', '/comics/strip/pricklycity')
 #add('RealLifeAdventures', '/comics/panel/reallifeadventures')
 #add('RealityCheck', '/comics/panel/realitycheck')

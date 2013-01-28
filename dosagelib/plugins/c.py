@@ -1,6 +1,6 @@
 # -*- coding: iso-8859-1 -*-
 # Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
-# Copyright (C) 2012 Bastian Kleineidam
+# Copyright (C) 2012-2013 Bastian Kleineidam
 
 from re import compile
 
@@ -179,11 +179,18 @@ class CatAndGirl(_BasicScraper):
 
 
 class CyanideAndHappiness(_BasicScraper):
-    latestUrl = 'http://www.explosm.net/comics/'
-    stripUrl = latestUrl + '%s/'
-    imageSearch = compile(tagre("img", "src", r'(http://(?:www\.)?explosm\.net/db/files/Comics/[^"]+)'))
+    _latestUrl = 'http://www.explosm.net/comics/'
+    starter = bounceStarter(_latestUrl, compile(tagre("a", "href", r"(/comics/\d+/)", before="next")))
+    stripUrl = _latestUrl + '%s/'
+    imageSearch = compile(tagre("img", "src", r'(http://(?:www\.)?explosm\.net/db/files/[^"]+)', before="a daily webcomic"))
     prevSearch = compile(tagre("a", "href", r'(/comics/\d+/)', before="prev"))
     help = 'Index format: n (unpadded)'
+
+    @classmethod
+    def namer(cls, imageUrl, pageUrl):
+        imgname = imageUrl.split('/')[-1]
+        imgnum = pageUrl.split('/')[-2]
+        return '%s_%s' % (imgnum, imgname)
 
 
 class CrimsonDark(_BasicScraper):

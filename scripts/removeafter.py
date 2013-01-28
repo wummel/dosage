@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (C) 2012 Bastian Kleineidam
+# Copyright (C) 2012-2013 Bastian Kleineidam
 """Remove all lines after a given marker line.
 """
 from __future__ import print_function
@@ -7,6 +7,7 @@ import fileinput
 import sys
 
 def main(args):
+    """Remove lines after marker."""
     filename = args[0]
     marker = args[1]
     for line in fileinput.input(filename, inplace=1):

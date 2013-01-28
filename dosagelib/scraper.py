@@ -1,6 +1,6 @@
 # -*- coding: iso-8859-1 -*-
 # Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
-# Copyright (C) 2012 Bastian Kleineidam
+# Copyright (C) 2012-2013 Bastian Kleineidam
 import requests
 from . import loader
 from .util import fetchUrls
@@ -76,7 +76,7 @@ class _BasicScraper(object):
         if maxstrips:
             msg = 'Retrieving %d strips' % maxstrips
         elif self.indexes:
-            msg += "Retrieving %d strips for indexes %s" % (len(self.indexes), self.indexes)
+            msg = "Retrieving %d strips for indexes %s" % (len(self.indexes), self.indexes)
         else:
             msg = 'Retrieving all strips'
         if self.adult:
@@ -85,7 +85,7 @@ class _BasicScraper(object):
         if self.indexes:
             for index in self.indexes:
                 url = self.stripUrl % index
-                for strip in self.getStripsFor(url, 1):
+                for strip in self.getStripsFor(url, maxstrips):
                     yield strip
         else:
             url = self.getLatestUrl()

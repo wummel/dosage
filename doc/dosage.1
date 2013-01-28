@@ -39,7 +39,7 @@ Output brief help information.
 List available comic modules in multi\-column fashion.
 .TP
 \fB\-\-singlelist\fP
-List available comic modules in single-column fashion.
+List available comic modules in single\-column fashion.
 .TP
 \fB\-m\fP \fIMODULE\fP, \fB\-\-modulehelp=\fP\fIMODULE\fP
 Output module-specific help for \fIMODULE\fP.
@@ -128,10 +128,17 @@ Retrieve the Penny Arcade strip for a given index:
 .RS
 .B dosage pennyarcade:2004\-07\-22
 .RE
+.PP
 Retrieve Calvin and Hobbes strips from a given index going backwards to
-the beginning until an existing file is found:
+the beginning.
 .RS
-.B dosage \-c calvinandhobbes:20120722
+.B dosage \-a calvinandhobbes:20120722
+.RE
+.PP
+On Unix, \fBxargs(1)\fP can download several comic strips in parallel,
+for example using up to 4 processes:
+.RS
+.B cd Comics && find . -type d | xargs -n1 -P4 dosage -b . -v
 .RE
 .SH ENVIRONMENT
 .IP HTTP_PROXY
@@ -155,7 +162,7 @@ a program error occurred.
 .IP \(bu
 comics could not be found or downloaded
 .IP \(bu
-the program run was aborted with Ctrl-C
+the program run was aborted with Ctrl\-C
 .PP
 Else the return value is zero.
 .SH BUGS
@@ -166,8 +173,8 @@ Jonathan Jacobs <korpse@slipgate.za.net>
 .br
 Tristan Seligmann <mithrandi@slipgate.za.net>
 .br
-Bastian Kleineidam <calvin@users.sourceforge.net>
+Bastian Kleineidam <bastian.kleineidam@web.de>
 .SH COPYRIGHT
 Copyright \(co 2004-2005 Tristan Seligmann and Jonathan Jacobs
 .br
-Copyright \(co 2012 Bastian Kleineidam
+Copyright \(co 2012-2013 Bastian Kleineidam

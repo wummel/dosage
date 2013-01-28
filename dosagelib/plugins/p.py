@@ -1,11 +1,19 @@
 # -*- coding: iso-8859-1 -*-
 # Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
-# Copyright (C) 2012 Bastian Kleineidam
+# Copyright (C) 2012-2013 Bastian Kleineidam
 
 from re import compile
 from ..scraper import _BasicScraper
 from ..helpers import bounceStarter, queryNamer, indirectStarter
 from ..util import tagre
+
+
+class PandyLand(_BasicScraper):
+    latestUrl = 'http://pandyland.net/'
+    stripUrl = latestUrl + '%s/'
+    imageSearch = compile(tagre("img", "src", r'(http://pandyland\.net/comics/[^"]+)'))
+    prevSearch =  compile(tagre("a", "href", r'(http://pandyland\.net/\d+/)', after="prev"))
+    help = 'Index format: number'
 
 
 class PartiallyClips(_BasicScraper):

@@ -1,6 +1,6 @@
 # -*- coding: iso-8859-1 -*-
 # Copyright (C) 2004-2005 Tristan Seligmann and Jonathan Jacobs
-# Copyright (C) 2012 Bastian Kleineidam
+# Copyright (C) 2012-2013 Bastian Kleineidam
 
 from re import compile
 
@@ -83,7 +83,7 @@ class DoemainOfOurOwn(_BasicScraper):
 class DrFun(_BasicScraper):
     latestUrl = 'http://www.ibiblio.org/Dave/ar00502.htm'
     stripUrl = 'http://www.ibiblio.org/Dave/ar%s.htm'
-    imageSearch = compile(r'<A HREF= "(Dr-Fun/df\d{6}/df.+?)">')
+    imageSearch = compile(r'<A HREF= "(Dr-Fun/df\d+/df[^"]+)">')
     multipleImagesPerStrip = True
     prevSearch = compile(r'<A HREF="(.+?)">Previous Week,')
     help = 'Index format: nnnnn'
