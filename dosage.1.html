@@ -177,10 +177,21 @@ Retrieve the Penny Arcade strip for a given index:
 
 </DL>
 
+<P>
+
 Retrieve Calvin and Hobbes strips from a given index going backwards to
-the beginning until an existing file is found:
+the beginning.
 <DL COMPACT><DT><DD>
-<B>dosage -c calvinandhobbes:20120722</B>
+<B>dosage -a calvinandhobbes:20120722</B>
+
+</DL>
+
+<P>
+
+On Unix, <B><A HREF="../man1/xargs.1.html">xargs</A>(1)</B> can download several comic strips in parallel,
+for example using up to 4 processes:
+<DL COMPACT><DT><DD>
+<B>cd Comics &amp;&amp; find . -type d | xargs -n1 -P4 dosage -b . -v</B>
 
 </DL>
 
@@ -247,7 +258,7 @@ Bastian Kleineidam &lt;<A HREF="mailto:bastian.kleineidam@web.de">bastian.kleine
 Copyright &#169; 2004-2005 Tristan Seligmann and Jonathan Jacobs
 <BR>
 
-Copyright &#169; 2012 Bastian Kleineidam
+Copyright &#169; 2012-2013 Bastian Kleineidam
 <P>
 
 <HR>

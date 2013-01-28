@@ -63,10 +63,10 @@ header h1 a:hover {
   color: #eee;
 }
 
-p a {
+p a, td a {
   color: #2879d0;
 }
-p a:hover {
+p a:hover, td a:hover {
   color: #2268b2;
 }
 
@@ -387,6 +387,24 @@ footer a:hover {
 .clearfix {display: inline-block;}
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
+
+.comicinfo {
+  margin: 45px;
+  width: 480px;
+  border-collapse: collapse;
+}
+.comicinfo th {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+.comicinfo td {
+  padding: 6px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
 
 /* #Media Queries
 ================================================== */
