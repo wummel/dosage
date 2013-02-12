@@ -131,6 +131,14 @@ aside#sidebar p.repo-owner a {
   font-weight: bold;
 }
 
+aside#sidebar h2 {
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; 
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #474747;
+}
+
 #downloads {
   margin-bottom: 40px;
 }
