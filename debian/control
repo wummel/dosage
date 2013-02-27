@@ -13,7 +13,7 @@ Architecture: all
 Depends: python-requests,
          ${python:Depends},
          ${misc:Depends}
-Suggests: python-optcomplete
+Suggests: python-argcomplete
 Provides: ${python:Provides}
 Description: commandline webcomic downloader and archiver
  Dosage allows webcomics to be downloaded. It can retrieve just the latest
