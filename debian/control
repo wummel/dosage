@@ -15,7 +15,7 @@ Depends: python-requests,
          ${misc:Depends}
 Suggests: python-argcomplete
 Provides: ${python:Provides}
-Description: commandline webcomic downloader and archiver
- Dosage allows webcomics to be downloaded. It can retrieve just the latest
+Description: comic strip downloader and archiver
+ Dosage downloads comic strips. It can retrieve just the latest
  strip in a comic, catch-up to the last strip downloaded, or download a
  strip for a particular date/index if the website layout allows it.
