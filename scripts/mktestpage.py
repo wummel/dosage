@@ -8,15 +8,13 @@ import cgi
 import codecs
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from dosagelib.scraper import get_scraperclasses
-from scriptutil import load_result, save_result
+from dosagelib.util import getLangName
 
-json_file = __file__.replace(".py", ".json")
 
 class Status:
     """Status of a comic strip."""
-    ok = "ok"
-    error = "error"
-    orphan = "orphan"
+    ok = u"ok"
+    error = u"error"
 
 comicdata_template = u"""
 /* generated on %(date)s */
@@ -29,6 +27,7 @@ $(document).ready(function() {
     "aoColumns": [
       { "sTitle": "Name" },
       { "sTitle": "Genre" },
+      { "sTitle": "Language" },
       { "sTitle": "Status" }
     ]
   } );
@@ -53,6 +52,9 @@ title: Dosage comic %(name)s
 </tr>
 <tr>
 <th>Genre</th><td>%(genre)s</td>
+</tr>
+<tr>
+<th>Language</th><td>%(language)s</td>
 </tr>
 <tr>
 <th>Adult content</th><td>%(adult)s</td>
@@ -98,42 +100,37 @@ def get_testscraper(line):
 
 def get_testinfo(filename, modified):
     """Maintains a static list of comics which users can vote on.
-    The original set of comic strips is stored in a JSON file which gets
-    updated from the test results.
-    If a comic strip stored in JSON is not found in the test results, it is
-    orphaned.
     @return: {name -> {
                 "status": Status.*,
                 "url": string,
                 "description": string,
                 "error": string or None,
                 "genre": string,
+                "language": string,
                 "adult": bool,
                }
              }
     """
-    if os.path.isfile(json_file):
-        testinfo = load_result(json_file)
-    else:
-        testinfo = {}
+    testinfo = {}
     with open(filename, "r") as f:
         print("Tests parsed: 0", end=" ", file=sys.stderr)
         num_tests = 0
         add_error = False
         keys = []
         for line in f:
-            if line.startswith((". ", "F ")) and "test_comics" in line:
-                add_error = line.startswith("F ")
-                num_tests += 1
-                key, entry = get_testentry(line)
-                keys.append(key)
-                update_testentry(key, entry, testinfo)
-                if num_tests % 5 == 0:
-                    print(num_tests, end=" ", file=sys.stderr)
-            elif add_error and line.startswith(" E "):
-                entry["error"] = line[3:].strip()
-    orphan_entries(keys, testinfo)
-    save_result(testinfo, json_file)
+            try:
+                if line.startswith((". ", "F ")) and "test_comics" in line:
+                    add_error = line.startswith("F ")
+                    num_tests += 1
+                    key, entry = get_testentry(line)
+                    keys.append(key)
+                    update_testentry(key, entry, testinfo)
+                    if num_tests % 5 == 0:
+                        print(num_tests, end=" ", file=sys.stderr)
+                elif add_error and line.startswith(" E "):
+                    entry["error"] = line[3:].strip()
+            except ValueError as msg:
+                print(msg)
     return testinfo
 
 
@@ -141,26 +138,25 @@ def get_testentry(line):
     """Get one test entry."""
     scraper = get_testscraper(line)
     key = scraper.__name__
-    name = scraper.get_name()
+    name = scraper.getName()
     if len(name) > 40:
-        name = name[:37] + "..."
+        name = name[:37] + u"..."
+    genres = u",".join(scraper.genres)
+    if isinstance(scraper.description, unicode):
+        desc = scraper.description
+    else:
+        desc = scraper.description.decode("utf-8", "ignore")
     entry = {
-        "status": Status.ok if line.startswith(". ") else Status.error,
+        "status": Status.ok if line.startswith(u". ") else Status.error,
         "name": name,
         "url": scraper.url,
-        "description": scraper.description,
-        "genre": "Other", # XXX
+        "description": desc,
+        "genre": genres,
+        "language": getLangName(scraper.lang),
         "error": None,
         "adult": scraper.adult,
     }
     return key, entry
-
-
-def orphan_entries(keys, testinfo):
-    """Mark all entries that are in testinfo but not in keys as orphaned."""
-    for key, entry in testinfo.items():
-        if key not in keys:
-            entry["status"] = Status.orphan
 
 
 def update_testentry(key, entry, testinfo):
@@ -178,9 +174,10 @@ def get_comicdata(testinfo):
             "url": quote(url),
             "status": quote(entry["status"]),
             "name": quote(entry["name"]),
-            "genre": quote(entry.get("genre", "Other")),
+            "language": quote(entry["language"]),
+            "genre": quote(entry["genre"]),
         }
-        row = '["<a href=\\"%(url)s\\">%(name)s</a>", "%(genre)s", "%(status)s"]' % args
+        row = u'["<a href=\\"%(url)s\\">%(name)s</a>", "%(genre)s", "%(language)s", "%(status)s"]' % args
         rows.append(row)
     return u",\n".join(rows)
 
@@ -188,7 +185,7 @@ def get_comicdata(testinfo):
 def write_html(testinfo, outputdir, modified):
     """Write index page and all comic pages."""
     content = get_comicdata(testinfo)
-    date = strdate(modified)
+    date = unicode(strdate(modified))
     args = {"date": quote(date), "content": content}
     fname = os.path.join(outputdir, "media", "js", "comicdata.js")
     with codecs.open(fname, 'w', 'utf-8') as fp:
@@ -205,8 +202,9 @@ def write_html_comic(key, entry, outputdir, date):
     args = {
         "url": quote(entry["url"]),
         "name": quote(entry["name"]),
-        "adult": quote("yes" if entry["adult"] else "no"),
-        "genre": quote(entry.get("genre", "Other")),
+        "adult": quote(u"yes" if entry["adult"] else u"no"),
+        "genre": quote(entry["genre"]),
+        "language": quote(entry["language"]),
         "description": quote(entry["description"]),
         "status": quote(entry["status"]),
         "date": quote(date),
@@ -218,7 +216,7 @@ def write_html_comic(key, entry, outputdir, date):
 
 def quote(arg):
     """CGI-escape and jinja-escape the argument."""
-    return cgi.escape(arg.replace('{', '').replace('}', ''), quote=True)
+    return cgi.escape(arg.replace(u'{', u'').replace(u'}', u''), quote=True)
 
 
 def main(args):
