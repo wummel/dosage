@@ -3,162 +3,149 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="a comic strip downloader and archiver">
+  <meta name="description" content="">
   <meta name="keywords" content="comic,webcomic,strip,downloader,archiver">
   <meta name="author" content="Bastian Kleineidam">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Dosage by Bastian Kleineidam</title>
   <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="media/css/stylesheet.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="media/css/pygment_trac.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="media/css/print.css" media="print" />
-
+  <link rel="stylesheet" type="text/css" href="/css/stylesheet.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/css/pygment_trac.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
   <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-    <title>Dosage by Bastian Kleineidam</title>
+
 </head>
 
 <body>
-  <header>
-    <div class="inner">
-      <h1><a href="index.html">Dosage </a></h1>
-      <h2>a comic downloader and archiver</h2>
-      <a href="https://github.com/wummel/dosage"
-       class="button"><small>View project on</small> GitHub</a>
-    </div>
-  </header>
+<header>
+  <div class="inner">
+    <h1><a href="index.html">Dosage</a></h1>
+    <h2>a comic downloader and archiver</h2>
+    <a href="https://github.com/wummel/dosage"
+     class="button"><small>View project on</small> GitHub</a>
+  </div>
+</header>
 
-  <div id="content-wrapper">
-  <div class="inner clearfix">
-  <section id="main-content">
+<div id="content-wrapper">
+<div class="inner clearfix">
 
+<section id="main-content">
 <h2>Introduction</h2>
-
 <p>Dosage is designed to keep a local copy of specific webcomics
 and other picture-based content such as Picture of the Day sites.
 With the dosage commandline script you can get the latest strip of
 a webcomic, or catch-up to the last strip downloaded, or download a
 strip for a particular date/index (if the webcomic's site layout
 allows this).</p>
-
 <h2>Notice</h2>
-
 <p>This software is in no way intended to publically "broadcast" comic strips,
 it is purely for personal use. Please be aware that by making downloaded
 strips publically available (without the explicit permission of the author)
 you may be infringing upon various copyrights.</p>
-
-<p>Additionally, Dosage respects the robots.txt exclusion protocol. This
-makes sure no content is accessed in an automatic way without consent
+<p>Additionally, Dosage respects the robots.txt exclusion protocol.
+This makes sure no content is accessed in an automatic way without consent
 by the publishers.</p>
-
 <p>If you are a publisher of comics and want Dosage to access your files,
 add the following entry to your robotst.txt file:</p>
+<div class="codehilite"><pre><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span> <span class="n">Dosage</span>
+<span class="n">Allow</span><span class="p">:</span> <span class="o">*</span>
+</pre></div>
 
-<pre><code>User-agent: Dosage
-Allow: *
-</code></pre>
 
 <h2>Adult content</h2>
-
 <p>Some comics contain adult content and require age confirmation.
 These comics can only be downloaded by using the --adult option,
-which confirms that you are old enough to view them.</p>
-
+which confirms that you are old enough to view them.</p></p>
 <h2>Usage</h2>
-
 <p>List available comics (ca. 3000 at the moment):</p>
+<div class="codehilite"><pre><span class="nv">$ </span>dosage --list
+</pre></div>
 
-<p><code>$ dosage --list</code></p>
 
 <p>Get the latest comic of for example CalvinAndHobbes and save it in the "Comics"
 directory:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>dosage CalvinAndHobbes
+</pre></div>
 
-<p><code>$ dosage CalvinAndHobbes</code></p>
 
 <p>If you already have downloaded several comics and want to get the latest
 strip of all of them:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>dosage @
+</pre></div>
 
-<p><code>$ dosage @</code></p>
 
 <p>For advanced options and features execute <code>dosage --help</code> or look at the
 <a href="dosage.1.html">dosage(1) manual page</a>.</p>
-
 <p>Note that the old commandline program <code>maintool</code> has been renamed to
-<code>dosage</code>.
-
+<code>dosage</code>.</p>
 <h2>Dependencies</h2>
-
 <p>Python version 2.7 or higher, which can be downloaded
-from <a href="http://www.python.org/">http://www.python.org/</a></p>
-
+from http://www.python.org/</p>
 <p>Also the python-requests module must be installed, which can be downloaded
-from <a href="http://docs.python-requests.org/en/latest/">http://docs.python-requests.org/en/latest/</a></p>
-
+from http://docs.python-requests.org/en/latest/</p>
 <h2>Installation</h2>
+<p>You can invoke Dosage directly from the source code as 
+<code>./dosage</code>. Alternatively,
+you can install Dosage using python distutils by invoking
+setup.py in the root of the distribution. For example:</p>
+<div class="codehilite"><pre><span class="n">python</span> <span class="n">setup</span><span class="p">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
 
-<p>You can invoke Dosage directly from the source code as "./dosage". Alternatively,
-you can install Dosage using python distutils by invoking setup.py in
-the root of the distribution. For example:</p>
-
-<p><code>python setup.py install</code></p>
 
 <p>or if you do not have root permissions:</p>
+<div class="codehilite"><pre><span class="n">python</span> <span class="n">setup</span><span class="p">.</span><span class="n">py</span> <span class="n">install</span> <span class="o">--</span><span class="n">home</span><span class="p">=</span>$<span class="n">HOME</span>
+</pre></div>
 
-<p><code>python setup.py install --home=$HOME</code></p>
 
 <p>Another option is to use pip:</p>
+<div class="codehilite"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">dosage</span>
+</pre></div>
 
-<p><code>pip install dosage</code></p>
 
 <h2>Technical Description</h2>
-
 <p>Dosage is written in Python and relies on regular expressions to
 do most of the grunt work.</p>
-
-<p>For each webcomic Dosage has a plugin module, found in the "plugins"
-subdirectory of the dosagelib directory. Each module is a subclass of
-the _BasicComic class and specifies where to download its comic images.
+<p>For each webcomic Dosage has a plugin module, found in the
+<code>dosagelib/plugins</code> subdirectory. Each module is a subclass of
+the <code>_BasicComic</code> class and specifies where to download its comic images.
 Some comic syndicates (ucomics for example) have a standard layout for all
-comics. For such cases there are general base classes derived from _BasicComic
-which help define the plugins for all comics of this syndicate.</p>
-
+comics. For such cases there are general base classes derived from
+<code>_BasicComic</code> which help define the plugins for all comics of this syndicate.</p>
 <h2>Extending Dosage</h2>
-
 <p>In order to add a new webcomic, a new module class has to be created in
-one of the *.py files in the dosagelib/plugins subdirectory.
+one of the *.py files in the <code>dosagelib/plugins</code> subdirectory.
 Look at the existing module classes for examples.</p>
-
 <h2>Reporting Bugs</h2>
-
 <p>You can report bugs, patches or requests at the Github issue tracker at
-<a href="https://github.com/wummel/dosage/issues">https://github.com/wummel/dosage/issues</a></p>
-
-<p>Dosage currently supports a large number of comics and that number grows on
-a regular basis. If you feel that there are comics that Dosage does not
-currently support but should support, please feel free to request them.</p>
+https://github.com/wummel/dosage/issues</p>
+<p>Dosage currently supports a large number of comics and that number
+grows on a regular basis. If you feel that there are comics that
+Dosage does not currently support but should support, please
+feel free to request them.</p>
 </section>
 
-  <aside id="sidebar">
-  <h2>Downloads</h2>
-  <p>
-  <a href="http://github.com/downloads/wummel/dosage/dosage-1.14.tar.gz"
-    title="Download source .tar.gz package"
-    class="button"><span>Dosage.tar.gz version 1.14</span></a>
-  <a href="http://github.com/downloads/wummel/dosage/dosage-1.14.exe"
-    title="Download Windows .exe installer"
-    class="button"><span>Dosage.exe version 1.14</span></a>
-  </p>
-  <p><a href="https://github.com/wummel/dosage/blob/master/doc/changelog.txt">Changelog</a></p>
-  <p class="repo-owner"><a href="https://github.com/wummel/dosage">Dosage</a> is
+<aside id="sidebar">
+<h2>Downloads</h2>
+<p>
+<a href="http://github.com/downloads/wummel/dosage/dosage-1.14.tar.gz"
+  title="Download source .tar.gz package"
+  class="button"><span>Dosage.tar.gz version 1.14</span></a>
+<a href="http://github.com/downloads/wummel/dosage/dosage-1.14.exe"
+  title="Download Windows .exe installer"
+  class="button"><span>Dosage.exe version 1.14</span></a>
+</p>
+<p><a href="https://github.com/wummel/dosage/blob/master/doc/changelog.txt">Changelog</a></p>
+<p class="repo-owner"><a href="https://github.com/wummel/dosage">Dosage</a> is
 maintained
 by <a href="https://github.com/wummel">Bastian Kleineidam</a>.</p>
-  <h2>Donations</h2>
+<h2>Donations</h2>
 <p>
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="VJD3LAL4QMHYY">
-<input type="image" src="media/images/paypal-donate-button.png" border="0" name="submit" alt="PayPal donation">
+<input type="image" src="/images/paypal-donate-button.png" border="0" name="submit" alt="PayPal donation">
 </form>
 </p>
 <p>
@@ -168,8 +155,8 @@ by <a href="https://github.com/wummel">Bastian Kleineidam</a>.</p>
 <a href="http://flattr.com/thing/1136936/Dosage" target="_blank">
 <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a>
 </p>
-  </aside>
-  </div>
-  </div>
+</aside>
+</div>
+</div>
 </body>
 </html>
