@@ -14,7 +14,8 @@ configure|reconfigure|abort-upgrade|abort-remove|abort-deconfigure)
 esac
 
 # remove old plugin cache files
-# this code can be removed after the next stable release after wheezy
+# this code can be removed after Debian 8.0 "jessie" is released, since
+# the dropin.cache files are still in Debian 7.0 "wheezy".
 for pyver in $(pyversions -s); do
   f=/usr/lib/${pyver}/dist-packages/dosage/plugins/dropin.cache
   if [ -f $f ]; then
