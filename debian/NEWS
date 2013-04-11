@@ -1,6 +1,6 @@
 dosage (2.0-1) unstable; urgency=low
 
-  * The deprecated /usr/bin/maintool script has been removed.
+  * The deprecated /usr/bin/mainline script has been removed.
     Use /usr/bin/dosage instead.
 
  -- Bastian Kleineidam <calvin@debian.org>  Tue, 02 Apr 2013 23:02:00 +0200
