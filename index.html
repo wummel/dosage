@@ -60,7 +60,7 @@ add the following entry to your robotst.txt file:</p>
 These comics can only be downloaded by using the --adult option,
 which confirms that you are old enough to view them.</p></p>
 <h2>Usage</h2>
-<p>List available comics (ca. 3000 at the moment):</p>
+<p>List <a href="comics-index.html">available comics</a> (ca. 3000 at the moment):</p>
 <div class="codehilite"><pre><span class="nv">$ </span>dosage --list
 </pre></div>
 
@@ -74,6 +74,12 @@ directory:</p>
 <p>If you already have downloaded several comics and want to get the latest
 strip of all of them:</p>
 <div class="codehilite"><pre><span class="nv">$ </span>dosage @
+</pre></div>
+
+
+<p>To help others find good <a href="comics-index.html">comics</a>, you can vote for your
+favourite ones:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>dosage --vote @
 </pre></div>
 
 
@@ -99,7 +105,7 @@ setup.py in the root of the distribution. For example:</p>
 
 
 <p>Another option is to use pip:</p>
-<div class="codehilite"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span> <span class="n">dosage</span>
+<div class="codehilite"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">dosage</span>
 </pre></div>
 
 
@@ -108,10 +114,10 @@ setup.py in the root of the distribution. For example:</p>
 do most of the grunt work.</p>
 <p>For each webcomic Dosage has a plugin module, found in the
 <code>dosagelib/plugins</code> subdirectory. Each module is a subclass of
-the <code>_BasicComic</code> class and specifies where to download its comic images.
+the <code>_BasicScraper</code> class and specifies where to download its comic images.
 Some comic syndicates (ucomics for example) have a standard layout for all
 comics. For such cases there are general base classes derived from
-<code>_BasicComic</code> which help define the plugins for all comics of this syndicate.</p>
+<code>_BasicScraper</code> which help define the plugins for all comics of this syndicate.</p>
 <h2>Extending Dosage</h2>
 <p>In order to add a new webcomic, a new module class has to be created in
 one of the *.py files in the <code>dosagelib/plugins</code> subdirectory.
@@ -123,17 +129,22 @@ Look at the existing module classes for examples.</p>
 grows on a regular basis. If you feel that there are comics that
 Dosage does not currently support but should support, please
 feel free to request them.</p>
+<h2>Test suite status</h2>
+<p>Dosage has extensive unit tests to ensure the code quality.
+<a href="https://travis-ci.org/">Travis CI</a> is used for continuous build
+and test integration.</p>
+<p><a href="https://travis-ci.org/wummel/dosage"><img alt="Build Status" src="https://travis-ci.org/wummel/dosage.png" /></a></p>
 </section>
 
 <aside id="sidebar">
 <h2>Downloads</h2>
 <p>
-<a href="http://github.com/downloads/wummel/dosage/dosage-1.15.tar.gz"
+<a href="http://github.com/downloads/wummel/dosage/dosage-2.0.tar.gz"
   title="Download source .tar.gz package"
-  class="button"><span>Dosage.tar.gz version 1.15</span></a>
-<a href="http://github.com/downloads/wummel/dosage/dosage-1.15.exe"
+  class="button"><span>Dosage.tar.gz version 2.0</span></a>
+<a href="http://github.com/downloads/wummel/dosage/dosage-2.0.exe"
   title="Download Windows .exe installer"
-  class="button"><span>Dosage.exe version 1.15</span></a>
+  class="button"><span>Dosage.exe version 2.0</span></a>
 </p>
 <p><a href="https://github.com/wummel/dosage/blob/master/doc/changelog.txt">Changelog</a></p>
 <p class="repo-owner"><a href="https://github.com/wummel/dosage">Dosage</a> is
@@ -157,5 +168,15 @@ by <a href="https://github.com/wummel">Bastian Kleineidam</a>.</p>
 </aside>
 </div>
 </div>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40031754-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 </body>
 </html>
