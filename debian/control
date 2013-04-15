@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 9),
                python-all (>= 2.7)
 X-Python-Version: >= 2.7
 Standards-Version: 3.9.4
-Homepage: http://wummel.github.com/dosage/
+Homepage: http://wummel.github.io/dosage/
 
 Package: dosage
 Architecture: all
