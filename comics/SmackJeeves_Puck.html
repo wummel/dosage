@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/Puck</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Puck is a weekly webcomic that, in the words of one fan, is &quot;mostly irreverent humor concerning a pretty girl with freckles and a hot she-devil who wears fan-service costumes.&quot; That's about right. Surreal fantasy slice-of-life crazy-type stuff about the world's funniest redhead! Updates Tuesday.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_Puck_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

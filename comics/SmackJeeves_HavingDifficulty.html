@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/HavingDifficulty</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Robby is starting high school. In his mind, he's having difficulty fitting in. He barely knows anyone. Will the next four years change his attitude? Oh, I should probably tell you that this story will turn out to be a BL... but nothing will really happen. it's just a lot of frustrating scenes of ALMOST things. Updates twice per day. Midnight and noon.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_HavingDifficulty_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

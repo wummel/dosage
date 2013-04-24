@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/BlueWell</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Leif Kavanaugh grew up in the country-side and came to the city to attend college. He moves into &quot;The Blue Well&quot; boarding home, which houses several other college students just like himself. While he hopes everything will go smoothly, Leif learns it's not the city that makes life crazy, it's the people.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_BlueWell_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

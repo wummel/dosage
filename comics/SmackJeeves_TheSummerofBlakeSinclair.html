@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/TheSummerofBlakeSinclair</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>A slice of life comic set in the summer of a student's university life. about hipsters, Punks, and ultimately self reflection and 'honesty'. This comic is Apparently what you would call a 'social comedy' and a sattire on generation Y. loosely based on my recently passed student experiences =) Hopefuly this comic will remind you of summer when you read it; enjoy!</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_TheSummerofBlakeSinclair_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/KaitoShuno</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>a man named Kaito goes to commit suicide after living a boring, loveless, cubicle job. He meets a strange guy named Shuno...and Shuno immediatly takes a liking to him...almost too fast to be real XD Kaito quickly makes it clear that he isnt gay...but will Shuno's actions toward him make him alittle...'confused'? lol Kaito's been in such a need for love that maybe Shuno's affection doesnt look THAT bad...or does it?:P YAOI!!</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_KaitoShuno_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

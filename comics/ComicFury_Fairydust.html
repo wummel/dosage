@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic ComicFury/Fairydust</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>A world where fantasy creatures are real ought to feel a little complicated. Should you want to visit it, start with the cities, they're full of humans and modern comfort, if you don't mind having a leprechaun for neighbour or a troll driver. But you're not a racist, right?</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="ComicFury_Fairydust_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

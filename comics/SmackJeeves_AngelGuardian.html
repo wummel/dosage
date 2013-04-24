@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/AngelGuardian</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Kyrsiel is a young apprentice of Guardian Angel. His teacher, Gersiel, is responsible he achieves a successful test mission to graduate. Moreover, Gersiel may not continue his evolution as Angel until Kyrsiel, who is his last student, graduates. And this is not easy! Both will play an important mission on Earth: Protect Midori, a young student girl, from the demons that are chasing her. . Will Kyrsiel do it successfully or will he fail again? Story and drawings: © Reenave http://reenave.deviantart.com Translated into English by: Louise Brown http://cast-into-the-abyss.deviantart.com/</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_AngelGuardian_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

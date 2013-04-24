@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic ComicFury/SoFunnyIForgotToLaugh</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>One day, a neurotic artist decided to create a stick figure comic. Then God said, LET THERE BE CHARACTERS; then appeared Suds, a cynical drinking smartass, Perry, a shy guy lost in his thoughts, and Avital, the dumb creator herself. Together, they will overcome horrifying obstacles. Like CVS.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="ComicFury_SoFunnyIForgotToLaugh_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

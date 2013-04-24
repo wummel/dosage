@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/SonicClub</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>****RETIRED/DEAD/COMPLETED**** The Characters: Sonic Shadow Amy Tails Knuckles Rouge Capuchino(me) Nikomy(Capuchino's girlfriend) Lola(Capuchino's little sister) Lanz(Capuchino's older brother) Andry(I made him up... he's just a Shadow android) Xavier (Xevious) Degreenfreak Miles-XD(Just Miles) Stochi The Vampire Chao Crackuchino The Hedgehog Crazy China Crappuchino Ghost the Echidna(inlove with Knuckles.. XD) Green Darkness Flame the demon hedgehog Glandor the hedgehog and his brother cendar the fox</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_SonicClub_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

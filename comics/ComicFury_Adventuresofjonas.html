@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic ComicFury/Adventuresofjonas</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>These short, scribbely orange comics are excerpts from my life through my own slanted viewpoint .. they are totally out of context. Its mostly disjointed vignettes, relationships, inside jokes, a couple nifty thoughts and dumb adventures sprinkled on over that. somewhere between a soapdrama and a gag strip and a traffic accident. Life. whatever. if you prefer to read it in spanish, check out 'las Aventuras de JONAS!' at http://jonas.subcultura.es/</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="ComicFury_Adventuresofjonas_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

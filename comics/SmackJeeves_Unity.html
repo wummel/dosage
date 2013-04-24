@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/Unity</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>The Master Painter, Drawcia of Kirby Canvas Curse, has recovered from her defeat from Kirby and is much more powerful than before. She seeks revenge on Popstar itself and everyone is threatened by her wrath. Drawcia begins her revenge at Ripple star, and soon after, Kirby and Drawcia have a battle. Kirby is defeated easily, and now, he will have to unite both friend and foe to fight Drawcia and defeat her once more. The return of the old and new.... It gets &quot;Shockingly Violent&quot; and &quot;Confusing&quot;(Luigi_96) at some points.But please sit tight...I'll get better! Updates: Whenever Accepting criticism as long as you don't pester me every.single.page.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_Unity_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

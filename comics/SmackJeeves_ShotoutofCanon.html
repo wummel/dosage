@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/ShotoutofCanon</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Shot out of Canon is the new direction for the former Fallout Shelter Comics. Like the Fallout Shelter Comics, it'll be about the forums (and sometimes comics) I go to. Unlike the former Fallout Shelter Comics, this will deal with things besides there. And unlike that, it won't be Canon with my Main Comics. Formerly: My Fallout Shelter Comics I do for the Fallout Shelter: http://z1.invisionfree.com/forums/The_Fallout_Shelter/index.php?act=idx</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_ShotoutofCanon_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

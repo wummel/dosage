@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/Cramberries</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Lucinda is just a normal girl who lives with her roommate in an apartment... until her childhood friend came back to visit here. Now, she has been cursed with a demonic eye and almost everyone seems to be after her. Could it be her eye that everyone is after or is it there something more to it? Follow Lucinda and her friends as they uncover dark secrets and traverse their way along a perilous journey filled with all manners of action, humour, evil and good, love and stupidity. Updates are now Mondays and (occasionally) Thursdays! KitKatMuffin: Artist and Creator Seranatis: Editor and Assistant</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_Cramberries_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

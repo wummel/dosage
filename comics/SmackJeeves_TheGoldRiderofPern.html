@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/TheGoldRiderofPern</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>I started this comic a little over a year ago, and it's been going strong ever since. Taking place in the 3rd pass of Pernese history, K'mlar, a young genius Masterweaver was placed at Ista Weyr as his first appointment after being given the station of Master. There he impresses a young Gold hatchling, an event completely unheard of in Pernese history. Despite being aggressively anti-social, he manages to make a place for himself at the Weyr that he never would have dreamed possible.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_TheGoldRiderofPern_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

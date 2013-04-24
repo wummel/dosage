@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic ComicFury/Seconds</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>All the comics here are primarily made in [i]Second Life[/i] and other virtual worlds, using crews of avatars to pose for and shoot the images used in each panel. It follows different stories with different characters over time. The initial story, [i]Return to Second Life[/i], is about what happens when avatars meet their owner in-world. General schedule is one page a day when reprinting , and about one page every two days when in production.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="ComicFury_Seconds_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

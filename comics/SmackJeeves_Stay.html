@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/Stay</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Stay is a comic I started in 2008 and I'm just now uploading it in 2012 &gt;_&gt;; It is a Yaoi comic Description: Lee is just an ordinary dude, he's very studious, studies on the weekends and does well in school, but then he meets Jude - a punk guy with streaks in his hair, piercings and tattoos -- his total opposite! Jude is a mysterious guy with a mysterious past that for some reason wants to be all over Lee the nerd, and as he makes his moves hy-jinks ensue!</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_Stay_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

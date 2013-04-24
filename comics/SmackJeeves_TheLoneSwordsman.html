@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/TheLoneSwordsman</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Heaven has fallen, including its Leader, Aven, thanks to the Demon King Shutendoji's new Elite Demons. Now Shutendoji has his eyes set on Earth. Can a Lone Swordsman wielding Aven's sword stand a chance against such hopeless odds? Or will the madness of the souls he must absorb destroy him from the inside? Rated PG-13 due to cartoon violence, blood and mild language. The Lone Swordsman and all related subsidiaries are property of Sol's Dawning Creations. The use of such without permission for the purpose of monetary gain is illegal and will be met with legal action.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_TheLoneSwordsman_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/AYuriCollab</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Alright, so this is a collab, welcome to as many people who want to join. :3 This is a Yuri collab, so in other words, it's girl on girl. Don't like it, don't join it. Basic Story: Humans can have spirit protectors that arrive when they have life bad enough to protect them in partial human form (their spirit animal can be anything). Rules: Max of 3 characters State who you wish to reply to in comments When you apply, send a link for an example of your art NO FURRIES Thank you, and have fun. :3 I have the mature content warning on already just in case ;)</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_AYuriCollab_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

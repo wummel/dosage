@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/DeadFishComics</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>I just put random comics I draw here. Mostly: Fancomics (Tiger and Bunny, video games etc) Also: a lot of original comic series: Adventures of a Supervillain In Love: Mad scientist meets guy who won't take off his helmet. Love ensues! Moira Adventures: girl get new job, meets crazies. Wat Ghost Hunter: Guy gets stalked by ghost who wants to take him to Tim Hortons. Succubooks: In a videogame world the tale of a man and his succubus/incubus/book. Pretty much anything could end up here. Contains Bl, yaoi, M/M sex, and nudity of both sexes.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_DeadFishComics_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

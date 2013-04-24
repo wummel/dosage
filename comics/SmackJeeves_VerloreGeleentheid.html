@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/VerloreGeleentheid</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>&quot;Verlore Geleentheid&quot; is 'n wetenskapfiksie strokiesprent wat hom deur van die ouer wetenskapfiksie soos &quot;All the Way Back&quot; (Michael Shaara) en &quot;Die Oorlewendes&quot; en &quot;Ruimteskip Celeste&quot; (albei deur Johan Bredell) laat inspireer. &quot;Lost Opportunity&quot; is a sci-fi webcomic which is inspired by older SF like &quot;All the Way Back&quot; (Michael Shaara) and &quot;The Survivors&quot; and &quot;Spaceship Celeste&quot; (both by Johan Bredell). It is in Afrikaans. At the moment no English version is planned, although a translation will be provided on the website.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_VerloreGeleentheid_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

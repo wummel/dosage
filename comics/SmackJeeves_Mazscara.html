@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/Mazscara</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>After her tragic suicide, Hollywood celebrity elite Victoria Starfield is ressurected and assigned by a secret supernatural organization called Crowd Control ,to protect five specific children (and her fans) from a slew of demons, serial killers, hellraisers and fallen angels. Her only weapon, 250 feet of razor sharp, flesh splitting barbed wire and an infinite trail of black tears. Call her, Mazscara. WARNING: Mazscara is rated +18 for Graphic Violence, Profanity and Mature Themes.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_Mazscara_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

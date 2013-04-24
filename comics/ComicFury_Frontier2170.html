@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic ComicFury/Frontier2170</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Life as an independent spaceship crew isn't easy. In addition to the astronomical cost of fuel, supplies and repairs, it seems like the big corporate outfits get all the well-paying jobs, leaving the petty runs they don't want to people like you. Those jobs don't pay well enough to make ends meet, and there never seem to be enough of them, so sometimes you have to break the law to put fuel in the tanks and food on the table. If that wasn't bad enough, there's a war going on, and that means cargo inspections and surveillance...</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="ComicFury_Frontier2170_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

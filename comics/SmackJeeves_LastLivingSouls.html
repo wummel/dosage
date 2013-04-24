@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/LastLivingSouls</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>It's probably safe to assume you know what a zombie is; A living corpse with an insatiable craving for human flesh that mindlessly acts on primal instincts. But, what would happen...if a zombie became able to think? Along side an empty road, a teenager named Eddie awakens, confused and fearful due to his inability to remember anything. He heads towards the nearest city in hopes of getting some help, but realizes it is nearly empty of residents and is instead being slowly consumed by a group of undead. It quickly becomes his purpose to survive and also to understand why these creatures are plaguing the city...and why he is one of them.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_LastLivingSouls_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

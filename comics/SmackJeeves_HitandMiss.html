@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/HitandMiss</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>It's a autobiographic comic about, well, me and my daily life! Doesn't it sound like fun? WARNING: Comic may contain a lot of the following; misspelling, weird situations, nerdiness, gaming, horrible puns, cats, and occasionally lovey dovey stuff http://www.drunkduck.com/Hit_and_Miss/ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ The link to DrunkDuck Hit and Miss!</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_HitandMiss_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

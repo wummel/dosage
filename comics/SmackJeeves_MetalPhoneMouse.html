@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/MetalPhoneMouse</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>History Metal Phone Mouse (MPM) is the result of several years of roleplaying forum activity turned into a weekly updated webcomic. MPM deals with everything, Action, Comedy, Drama, Adventure, and Fantasy. Our webcomic slowly grew some popularity on Deviant art where most of our work is put up, but now we feel its time to expand into our own website with the help of Smack jeeves. Story An adventure story of a disbanded group of Mercenaries comprising of Demon hunters, Mythological creatures, and beings of mysterious powers set in the modern world. Although lost loves, betrayals and mistrusts separated their group, they gather again to create a new team including new members. Filled with mythology of all forms: Demons, Angels, Vampires, Gods and Tyrants of heaven and hell, and twisted creatures from nightmares challenge the MPM team with originally created Lore. MPM is a new up and coming webcomic that's well worth a spot on your bookmark menu!</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_MetalPhoneMouse_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

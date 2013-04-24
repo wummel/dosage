@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/RequiemShadowbornPariah</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>A bad job, a betrayed assassin. Now she's on the run from the very people with whom she once worked. Locked into the world of the Immortals, Anastasia Vãduva has lived in the shadows of Eastern Europe for over two centuries. Forced to flee to the New World with the promises of shelter - she finds no salvation. The New Kingdoms are possibly even more dangerous than anything existing within the Elder Illuminati demesnes. Armies march to the drums of the Requiem, nations rise and fall to the whim of the Illuminati - and they want her dead. Updated Sundays and Thursdays</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_RequiemShadowbornPariah_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

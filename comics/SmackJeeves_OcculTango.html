@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/OcculTango</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>OcculTango official site: http://occultango.comicgenesis.com Imagine waking up in the middle of a forest with no memory but your name. Add on top of that, being captured by a native tribe and having a heavy, irremovable chain stuck around your arm. To make matters worse, once you manage to escape the tribe, you're attacked by a giant falcon monster and saved by your captors. That's Kael's life now--or death, as Duscan likes to point out. OcculTango is a story about Kael exploring the purgatory he has now become citizen to in order to solve the mystery of his death and bring his soul to its final resting place. OcculTango is a graphic novel about revenge, forgiveness, and saving your soul. More than that, it is an exploration on when--or if--it becomes too late to say, &quot;I'm sorry.&quot;</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_OcculTango_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

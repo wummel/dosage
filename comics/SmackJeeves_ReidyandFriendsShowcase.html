@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/ReidyandFriendsShowcase</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>A general showcase where pretty much anyone can post anything they want, barring porn. Maybe. Probably. We also try to be civil whenever possible, so don't go out of your way to piss people off. Other than that just sit back, relax, and enjoy the showcase. Anyways, you should have at least SOME experience spriting before applying to join, should you want to. We don't accept recolors and are very much against sprite thieves. Send all applications to Reidy. Hah, no. He's dead. Just hit the apply button.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_ReidyandFriendsShowcase_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

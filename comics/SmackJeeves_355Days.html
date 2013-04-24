@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/355Days</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>This was originally a comic where I attempted to make an homage to Kurt Vonnegut's Timequake, but it slowly evolved into A Dada Humor comic, which has now evolved onto a actual storyline that has gone on since April 1st 2012. This is my experimental comic where I attempt to post a comic daily with anything I can get my hands on, just attempting to get at least one page up! ***ENDED AS OF 9/2/12*** If you liked this comic check out my new comic: Euphemistic Eephus. http://www.smackjeeves.com/comicprofile.php?id=127121</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_355Days_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

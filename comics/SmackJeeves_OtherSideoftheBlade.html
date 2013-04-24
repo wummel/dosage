@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/OtherSideoftheBlade</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>All Sergius wants is to be left alone in the Vatican library with the hundreds of tomes he has acquired during his exile. All Garter wants to do is flirt with cute girls, eat great food, live his life, and kill whatever monster of the day the Vatican sends him. The last thing they want to do is deal with each other. Warnings: Blood &amp; gore, some sexy stuff, a pinch of religion, and crabby librarians. Additional OSOTB Content at: http://sergijournal.smackjeeves.com/ OSOTB LJ Fansite: http://osotb-official.livejournal.com/ Currently Updating on FRIDAYS</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_OtherSideoftheBlade_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

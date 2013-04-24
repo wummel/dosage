@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic ComicFury/Savemegebus</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Gebus considers himself the True Saviour of Humanity, though he rarely does anything about that. The comic revolves around him and his adventures which are often written as multiple-strip fabricated stories in order to explain changes in Gebus' appearance. As a comic straight out of the minds of the authors with little or no forethought, what plot or general continuity there is exists largely as an excuse for the authors to keep making comic strips. The fourth wall is broken regularly, and characters are taken directly from the authors' real life, though the storylines are not. The comic's style is taken from the comic it was spun from, Pixel-Sapiens, which features blocky characters with little to no curves or movement, and simple or absent backgrounds.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="ComicFury_Savemegebus_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

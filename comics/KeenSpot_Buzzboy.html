@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic KeenSpot/Buzzboy</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Buzzboy is the world's coolest super sidekick, a cheeseburger-chomping, pop culture-quoting dynamo! But what happens when his mentor, Captain Ultra, and all the top adult superheroes disappear, and Buzzboy and friends are left to save a world where sidekicks rule?</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="KeenSpot_Buzzboy_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

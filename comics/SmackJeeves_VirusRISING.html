@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/VirusRISING</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>INFO A deadly virus that deteriorates the brain is wiping out the city. Armed with enhanced stamina, uncontrollable rage, and insanity, an infected canine turns against its captors and flees to the streets. Left to his own agenda, Katzbalger spreads the infection and builds up a pack bent upon slaughtering humans and 'impure' dogs alike for the sake of &quot;evolution.&quot; A small group of street dogs have banded together in a struggle for survival, and those few with a natural immunity to the virus stand as the only defense against devastation. read all current issues on virusrising.com UPDATES i forget to post the pages here sometimes but i draw a new page usually on the weekends! WARNINGS some blood and violence</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_VirusRISING_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

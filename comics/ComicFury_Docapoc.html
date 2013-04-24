@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic ComicFury/Docapoc</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>A useful* resource for surviving** and thriving during*** the end of life as we know it at the &quot;hands&quot;**** of zombies, aliens, robots, boredom, plague, asteroids, the weather, ninjas, clowns, [redacted by National Security], war, global warming, giant creatures from the deep or vampire enslavement. *No &quot;actual&quot; usefulness, either real or implied, is guaranteed. **No &quot;actual&quot; survival, either real or implied, is guaranteed. ***No &quot;actual&quot; thriving, either real or implied, is guaranteed. ****Many forms of apocalyptic doom do not have hands.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="ComicFury_Docapoc_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

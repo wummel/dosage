@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic ComicFury/Jamiejupiter</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Jamie Jupiter is a member of the Galactic Squadron-a team of intergalactic &quot;space cops&quot; who help protect the galaxy. After tracking a villain to Earth, she saves the lives of two teenagers and shares her secret with them. She now vows to use her cosmic superpowers to protect her new friends and her new home, while learning what planet Earth is all about. Monsters of all shapes and sizes threaten our way of life, but with a brave and determined alien; a deadpan snarker photographer, and her comic book-loving geeky boyfriend, no task is simple, and every day is an adventure.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="ComicFury_Jamiejupiter_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

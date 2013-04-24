@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic ComicFury/Freakingawfulpuns</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>FAP is a most of the time very random, somewhat poorly drawn, and sometimes political webcomic. Check us out on Facebook! [url]http://www.facebook.com/pages/Freaking-Awful-Puns-Webcomic/189101684454482[/url] &quot;Laim is pretty cool I guess&quot; -DSW &quot;It can be funny enough to get suscribers&quot; -MattWL &quot;a quasi-ripoff of Cyanide and Happiness&quot; -MrWeatherby &quot;In general your site design is good... Thank you for letting me review your comic.&quot; -Bill Kloppenburg &quot;You get nothing! You lose! Good day sir!&quot; -Willy Wonka</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="ComicFury_Freakingawfulpuns_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

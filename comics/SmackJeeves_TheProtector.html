@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/TheProtector</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>A story about a boy and his protector. Set in the country of Senobia, a young boy is set on the path of destiny. His companion is one of the country's most celebrated heroes. What adventures awaits the two of them? Started in 2008 and continued in 2010. This is not a BL, it contains little to no sexual scenes at all, this is an adventure story. If you want porn linked to this story (only between adults of course), then please feel free to read my companion story, Sacrifices. Updates Sundays http://sacrificescomic.smackjeeves.com/</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_TheProtector_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

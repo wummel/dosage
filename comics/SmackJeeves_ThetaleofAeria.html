@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/ThetaleofAeria</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Official website: http://www.Aeria-comic.com A tale of adventure, excitement and danger. Well, most of the time at least. But ever so often Fabraz, our chaotic protagonist, finds himself in rather silly situations. Be prepared to be wowed and get ready to follow Fabraz on his epic adventure. You can also buy the first chapter as a printed comic book, if you want to support us! :) http://www.indyplanet.com/store/product_info.php?products_id=4243</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_ThetaleofAeria_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

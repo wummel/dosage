@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/Animayhem</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Twelve-year-old social reject Vera and her best friend Maggie love anime more than life itself. Too bad they live in a world that's hostile to the magic of Japanese cartoons. And go to a school that contains a portal to the Underworld. And have to fight demons when they could be cosplaying or watching a Princess Neko-chan marathon... Vera and Maggie's adventures with the occult are twisted, gory...and so absurd, they can only result in total Animayhem! Written and illustrated by JoJo, currently set to update every other day until there ain't no more pages!</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_Animayhem_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/PokemonXDegree</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Pokemon XDegree is a drawn and fully coloured Pokemon comic. A new and exciting, funny and romantic, mysterious and action packed story you would love to read. If you like battles, actions, or even just cute and colourful Pokemon, add Pokemon XDegree to your watch list ;D Lecus is a Pokemon Trainer, read to embark on a new adventure, however..... Any favourites are highly appreciated. Contain minor course language and some violence. Updates every Sunday :D -Lucazke</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_PokemonXDegree_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

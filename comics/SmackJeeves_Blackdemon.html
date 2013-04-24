@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/Blackdemon</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>everyone has a demon inside them, even the nicest people in the world has a demon. what happens if the demon inside takes total control of you? it could effect your life style, personality, and for artist's; imagination. that's what this comic is about. a girl with poor social skills and a large imagination, how will she fix both problems? (WARNING:some chapters in this comic are based on real events that occurred in the author's life) comic updates:Monday's, Wednesday's, and Friday's(if not updated, that means i got a LOT of HW or my laptop is damaged)</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_Blackdemon_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

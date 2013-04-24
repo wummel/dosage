@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/PokemonnoRakuen</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Summery- Gray has NEVER had a single girlfriend in his 17 years of life. His mother gets him a Totodile and then weird things happen... The Totodile becomes a human! What's going on?! Will going on a Pokemon journey give Gray the answers to his questions? Why did the Totodile become a human? What does Gray's father have to do with any of this? Will Gray EVER get a girlfriend? (Unlikely) Read to find out For ages 13 and up Warning- May contain death, blood and Implications</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_PokemonnoRakuen_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

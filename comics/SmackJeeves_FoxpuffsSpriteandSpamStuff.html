@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/FoxpuffsSpriteandSpamStuff</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Here's where I post random stuff, like sprites and other things. Because I'm getting better with sprite making, I might do sprite requests, too. I'm getting even better now so I'll be able to do more complicated requests, but only with foxes currently. I can't do hair yet, so don't bother asking for that. Also, when requesting for sprites you have to be specific or I'll get confused. Also, any plots that only involves my characters go here until further notice.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_FoxpuffsSpriteandSpamStuff_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

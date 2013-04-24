@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/Entreeuxdeux</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>&quot;Entre eux deux&quot; est une bande-dessinée amateur qui sent bon la poudre, les fusillades et la mafia, mais qui en fait se préoccupe plus des deux destins qui y ont difficilement trouvée leur place. Deux êtres que tout sépare, mais finalement pas tant que ça... Je poste les pages par quatre (quand j'y arrive) tous les 15 jour, le dimanche. Merci à tous ceux qui passent par ici. &gt;w&lt;</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_Entreeuxdeux_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic ComicFury/Sonichuredone</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Remember Sonichu? Well, start forgeting it, because Sonichu: RE-Done is here. An all new version of sonichu, made from obselete paint programs and cheap photoshops. Join Dash Sonichu and his friends as they journey through CWCville in adventures that involve beating up Jerkops, or trying to get rid of Chris. It's the first Sonichu comic made for multiple languages, so everyone can read the failtastic tales of Dash Sonichu. As of March 12, 2012, Chris-chan himself has, for some reason, declared this comic as an official Sonichu re-make. As of July 2012, Chris-chan has given the official Sonichu rights to Screws Enterprises, as he is soon to be shown in court on 10th July. As of December 20th 2012, Sonichu: RE-Done in English has been completed, and will no longer publish new adventures any time soon. Please check the blog for further updates...</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="ComicFury_Sonichuredone_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic KeenSpot/SomethingHappens</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>&quot;Something Happens&quot; is a weekly comic emphasizing surreal sketch humor, as if 'The Far Side' were filtered through 'Monty Python.' The only guarantee made is that the comic will live up to the title, especially if you squint.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="KeenSpot_SomethingHappens_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

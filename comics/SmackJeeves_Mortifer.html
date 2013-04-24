@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/Mortifer</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>This comic has been completed! RATED WEB14 and up for gore and foul language! A mercenary team compiled of three men, Valentine, the asian prostitute obsessed with money, Mathew, a bloodlusting vampire with an anger problem, and Joey, an intellegent, but very odd, mercenary who always smiles. Things go well, until the presidency of the mercenary company is handed over to Joey, after mysterious death's of his competitors. Things slowly begin to get dangerous... and people's secrets begin to get exposed. Is Joey actually planning good things for the company... or something much more horrible?</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_Mortifer_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

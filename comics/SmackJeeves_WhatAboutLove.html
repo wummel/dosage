@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/WhatAboutLove</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Takao has had a secret crush on his classmate, Hisoka, since he first entered high school. Now it's Takao's last year and he figures it's now or never so he does the crazy thing and confesses. Much to his surprise, Hisoka agrees to be his boyfriend. Takao is in pure bliss... until he realizes Hisoka has different aims. While Takao wants an actual relationship all Hisoka seems to be interested in is, well, physical stuff. So now Takao has to figure out a way to make Hisoka see him in a different way, but that's not easy since other men (realizing Hisoka goes that way) have taken an interest. Can Takao fend off potential rivals and get the guy he loves to love him back while facing all the other drama that comes with high school? Probably not, but that won't stop him from trying! Warning: - This is a Yaoi comic. I think that should be self-explanatory, but that means man on man action.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_WhatAboutLove_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/HiddenStrengthAWhiteNuzlocke</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Clover, Cheren, and Belle graduate from trainer school, looking forward to finally being able to go on a pokemon journey of their own. Things start out like any other adventure, however soon the trio becomes entangled in the mess that is Team Plasma, finding out secrets that have been hiding in plain sight all their lives. How will their adventure unfold? This is a Nuzlocke story comic. [THIS COMIC IS FINISHED]</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_HiddenStrengthAWhiteNuzlocke_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

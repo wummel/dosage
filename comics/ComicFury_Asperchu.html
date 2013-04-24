@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic ComicFury/Asperchu</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Welcome to the grand world of ASPERCHU, the electric/aspergers type hedgehog pokemon! Join ASPERCHU in his adventures to save Albville from the evils of evil villains of the PVCC and more. I am so greatful to have my TRUE and LOYAL fanbase, which I would never have had if not for the leadership and artistic genius shown to guide me by Christian Weston Chandler. I welcome all fans who wish to contribute to ASPERCHU'S adventures, as without them my power would be none!</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="ComicFury_Asperchu_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

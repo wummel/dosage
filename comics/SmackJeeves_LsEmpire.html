@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/LsEmpire</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Luigi has left Mario, and gone out to prove he himself. With the help of Dimentio, Geminiman and Void; will his dreams of recognition come to fruition, or is he doomed to being second banana? Either way, we can be sure that it will be very silly. Updated 8:00am every day. Specials go up at 12:00am. Check out our TV Tropes page at http://tvtropes.org/pmwiki/pmwiki.php/Webcomic/LsEmpire Also Check out the offical L's Empire Youtube Channel at http://www.youtube.com/user/LsEmpireOfficial Or E-mail us at MrLandCo@hotmail.com</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_LsEmpire_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic KeenSpot/Superosity</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>A lovably insane man-child in a cape. A super-intelligent board-shaped creature. An angry teenager yearning for fame. A century-old turtle who is America's hottest non-white movie star. What do you get when you put them all together? SUPEROSITY! Or hilarity, possibly. One of those.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="KeenSpot_Superosity_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

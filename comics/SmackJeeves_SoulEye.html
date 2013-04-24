@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/SoulEye</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>In the pitch black dead of the night, Make sure that you're tucked in tight. If you aren't, you'll surely be A victim to the demon's teeth... The Reaper swoops down in the dark, Hungry for a child's heart. If you see him, don't you scream, Or he'll rip you from your seams... Most of all, though you are scared, Don't once glance upon his face, For if you see his eye of death, Darcia will devour your soul's breath. ----- UPDATES EVERY SATURDAY. *WARNING: Contains BL. For Mature viewers ;A;</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_SoulEye_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

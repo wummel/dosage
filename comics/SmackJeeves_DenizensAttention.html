@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic SmackJeeves/DenizensAttention</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>Alicka and her little brother Winston are sent to Winterkill Boarding School. The number one dumping ground of unwanted troubled teens. A miniature Gormenghast filled with bad seeds and black sheep. +++++++ Winterkill: to kill by or die from exposure to cold winter weather. ++++++ This comic will update when i can. i'm trying for once a week, but not always managing. ++++ Denizens! Attention! how has its very own tumblr http://confessionsofawannabecomicartist.tumblr.com for updates, news and random comic making thoughts and sketches.</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="SmackJeeves_DenizensAttention_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>

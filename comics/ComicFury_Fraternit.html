@@ -34,6 +34,16 @@
 
 <section id="main-content">
 <h2>Dosage comic ComicFury/Fraternit</h2>
+<p id="msg"></p>
+
+<script type="text/javascript">
+if (window.location.search === '?edit_info_mail=sent_ok') {
+  var elem = document.getElementById("msg");
+  elem.innerHTML = 'Edited information sucessfully sent.';
+  elem.className = 'ok';
+}
+</script>
+
 <table class="comicinfo">
 <tr>
 <th>Description</th><td>A comic strip about life, love, long-lost brothers, and everything else a high school girl has to deal with! THIS COMIC STRIP IS SEMI-AUTOBIOGRAPHICAL, WHICH MEANS MOST OF IT IS BASED ON THE IMAGINATION OF THE AUTHOR. ANY CHARACTERS THAT MAY BE BASED ON REAL PEOPLE HAVE HAD THEIR NAMES CHANGED. Special thanks to Jimmy Gownley, author of Amelia Rules! and cofounder of Kids Love Comics. Also, thanks to Bill Wahl, Nikki, my parents and friends. I couldn't have done it without you!</td>
@@ -57,14 +67,6 @@
 <th>Votes</th><td>0</td>
 </tr>
 </table>
-
-<div id="msg"></div>
-
-<script type="text/javascript">
-if (window.location.search === '?edit_info_mail=sent_ok') {
-  $('#msg').append('Edit information sucessfully sent.');
-}
-</script>
 
 <p><a href="ComicFury_Fraternit_edit.html">Edit this info</a> or go back to the <a href="../comic-index.html">comic list</a>.</p>
 </section>
