@@ -5,7 +5,7 @@ python:
 # whitelist
 branches:
   only:
-    - master
+    - travis
 # install libjpeg-dev for PIL to handle JPEGs
 before_install:
   - sudo apt-get update -qq
