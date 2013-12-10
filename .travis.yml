@@ -16,7 +16,6 @@ before_install:
 # command to install dependencies
 install:
   - pip install -r requirements.txt --use-mirrors
-  - ls -al /usr/bin/python*
   - scripts/install_pil.sh
   - pip install pytest-xdist --use-mirrors
 # command to run tests

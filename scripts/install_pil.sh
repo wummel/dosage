@@ -3,6 +3,6 @@
 set -e
 set -u
 
-if [ ! -f /usr/bin/python3.3 ]; then
+if python -c 'import sys; sys.exit(0 if sys.hexversion<0x03000000 else 1)'; then
   pip install PIL
 fi
