@@ -1,8 +1,9 @@
-dosage (2.11-1) UNRELEASED; urgency=low
+dosage (2.11-1) unstable; urgency=low
 
   * New upstream release.
+  * Updated Standards version to 3.9.5
 
- -- Bastian Kleineidam <calvin@debian.org>  Mon, 06 Jan 2014 09:46:02 +0100
+ -- Bastian Kleineidam <calvin@debian.org>  Wed, 08 Jan 2014 18:05:37 +0100
 
 dosage (2.10-1) unstable; urgency=low
 
