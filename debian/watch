@@ -1,4 +1,5 @@
+# dosage-(.*)\.tar\.gz
 # watch control file for uscan
 version=3
 http://wummel.github.io/dosage/ \
-  http://github.io/downloads/wummel/dosage/dosage-(.*).tar.gz
+  http://wummel\.github\.io/dosage/dist/dosage-(.*)\.tar\.gz
