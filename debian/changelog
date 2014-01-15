@@ -2,8 +2,9 @@ dosage (2.11-1) unstable; urgency=low
 
   * New upstream release.
   * Updated Standards version to 3.9.5
+  * Updated debian/watch file.
 
- -- Bastian Kleineidam <calvin@debian.org>  Wed, 08 Jan 2014 18:05:37 +0100
+ -- Bastian Kleineidam <calvin@debian.org>  Wed, 15 Jan 2014 19:41:12 +0100
 
 dosage (2.10-1) unstable; urgency=low
 
