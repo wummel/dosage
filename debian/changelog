@@ -1,3 +1,11 @@
+dosage (2.12-1) unstable; urgency=low
+
+  * New upstream release.
+  * Unused files removed from upstream tarball.
+    (Closes: #735768)
+
+ -- Bastian Kleineidam <calvin@debian.org>  Fri, 24 Jan 2014 23:20:45 +0100
+
 dosage (2.11-1) unstable; urgency=low
 
   * New upstream release.
