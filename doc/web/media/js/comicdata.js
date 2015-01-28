@@ -1768,7 +1768,7 @@ $(document).ready(function() {
 ["<a href=\"comics/Wondermark.html\">Wondermark</a>", "Other", "English", "ok", "0"],
 ["<a href=\"comics/WorldOfMrToast.html\">WorldOfMrToast</a>", "Other", "English", "ok", "1"],
 ["<a href=\"comics/WormWorldSaga.html\">WormWorldSaga</a>", "Other", "English", "ok", "1"],
-["<a href=\"comics/WormWorldSagaFrench.html\">WormWorldSagaFrench</a>", "Other", "French", "ok", "0"],
+["<a href=\"comics/WormWorldSagaFrench.html\">WormWorldSagaFrench</a>", "Other", "French", "ok", "1"],
 ["<a href=\"comics/WormWorldSagaGerman.html\">WormWorldSagaGerman</a>", "Other", "German", "ok", "0"],
 ["<a href=\"comics/WormWorldSagaSpanish.html\">WormWorldSagaSpanish</a>", "Other", "Spanish; Castilian", "ok", "0"],
 ["<a href=\"comics/WotNow.html\">WotNow</a>", "Other", "English", "ok", "0"],
