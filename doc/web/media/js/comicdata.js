@@ -1048,7 +1048,7 @@ $(document).ready(function() {
 ["<a href=\"comics/GoblinsComic.html\">GoblinsComic</a>", "Other", "English", "ok", "0"],
 ["<a href=\"comics/GoneWithTheBlastwave.html\">GoneWithTheBlastwave</a>", "Other", "English", "ok", "1"],
 ["<a href=\"comics/GrrlPower.html\">GrrlPower</a>", "Other", "English", "ok", "1"],
-["<a href=\"comics/GunnerkrigCourt.html\">GunnerkrigCourt</a>", "Other", "English", "ok", "5"],
+["<a href=\"comics/GunnerkrigCourt.html\">GunnerkrigCourt</a>", "Other", "English", "ok", "6"],
 ["<a href=\"comics/Gunshow.html\">Gunshow</a>", "Other", "English", "ok", "0"],
 ["<a href=\"comics/HagarTheHorrible.html\">HagarTheHorrible</a>", "Other", "English", "ok", "3"],
 ["<a href=\"comics/HarkAVagrant.html\">HarkAVagrant</a>", "Other", "English", "ok", "1"],
@@ -1780,7 +1780,7 @@ $(document).ready(function() {
 ["<a href=\"comics/ZenPencils.html\">ZenPencils</a>", "Other", "English", "ok", "0"],
 ["<a href=\"comics/ZombieHunters.html\">ZombieHunters</a>", "Other", "English", "ok", "0"],
 ["<a href=\"comics/Zwarwald.html\">Zwarwald</a>", "Other", "German", "ok", "1"],
-["<a href=\"comics/xkcd.html\">xkcd</a>", "Other", "English", "ok", "7"]
+["<a href=\"comics/xkcd.html\">xkcd</a>", "Other", "English", "ok", "8"]
     ],
     "aoColumns": [
       { "sTitle": "Name" },
