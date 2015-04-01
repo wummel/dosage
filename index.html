@@ -24,7 +24,7 @@
   <div class="inner">
     <h1><a href="./index.html">dosage</a></h1>
     <h2>a comic downloader and archiver</h2>
-    <a href="https://github.com/wummel/dosage"
+    <a href="https://github.com/webcomics/dosage"
      class="button"><small>View project on</small> GitHub</a>
   </div>
 </header>
@@ -33,153 +33,15 @@
 <div class="inner clearfix">
 
 <section id="main-content">
-<h2>Introduction</h2>
-<p>Dosage is designed to keep a local copy of specific webcomics
-and other picture-based content such as Picture of the Day sites.
-With the dosage commandline script you can get the latest strip of
-a webcomic, or catch-up to the last strip downloaded, or download a
-strip for a particular date/index (if the webcomic's site layout
-allows this).</p>
-<p>Multiple webcomics can be downloaded in parallel, making the update
-of comic strips faster.</p>
-<h2>Notice</h2>
-<p>This software is in no way intended to publically "broadcast" comic strips,
-it is purely for personal use. Please be aware that by making downloaded
-strips publically available (without the explicit permission of the author)
-you may be infringing upon various copyrights.</p>
-<p>Additionally, Dosage respects the robots.txt exclusion protocol.
-This makes sure no content is accessed in an automatic way without consent
-by the publishers.</p>
-<p>In any case you should support the authors of the comics you are
-downloading, either by buying some of their products or even donating
-them some money since they provide the comics you like and read.</p>
-<p>If you are a publisher of comics and want Dosage to access your files,
-add the following entry to your robotst.txt file:</p>
-<div class="codehilite"><pre><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span> <span class="n">Dosage</span>
-<span class="n">Allow</span><span class="p">:</span> <span class="o">*</span>
-</pre></div>
 
+<h2>Moved...</h2>
+<p>It seems you have reached the old homepage of the <a
+	href="http://dosage.rocks/">dosage project</a>. Please update your
+bookmarks, we are now at:</p>
+<blockquote><a href="http://dosage.rocks/">http://dosage.rocks/</a></blockquote>
 
-<h2>Adult content</h2>
-<p>Some comics contain adult content and require age confirmation.
-These comics can only be downloaded by using the --adult option,
-which confirms that you are old enough to view them.</p>
-<h2>Usage</h2>
-<p>List <a href="comic-index.html">available comics</a> (ca. 2000 at the moment):</p>
-<div class="codehilite"><pre><span class="nv">$ </span>dosage --list
-</pre></div>
-
-
-<p>Get the latest comic of for example CalvinAndHobbes and save it in the "Comics"
-directory:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>dosage CalvinAndHobbes
-</pre></div>
-
-
-<p>If you already have downloaded several comics and want to get the latest
-strip of all of them:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>dosage @
-</pre></div>
-
-
-<p>To help others find good <a href="comic-index.html">comics</a>, you can vote for your
-favourite ones:</p>
-<div class="codehilite"><pre><span class="nv">$ </span>dosage --vote @
-</pre></div>
-
-
-<p>For advanced options and features execute <code>dosage --help</code> or look at the
-<a href="dosage.1.html">dosage(1) manual page</a>.</p>
-<p>Note that the old commandline program <code>maintool</code> has been renamed to
-<code>dosage</code>.</p>
-<h2>Dependencies</h2>
-<p><a href="http://www.python.org/">Python</a>: for Python 2.x at least 2.7.0, for Python 3.x at least Python 3.3.</p>
-<p>Also the <a href="http://docs.python-requests.org/en/latest/">python-requests module</a> must be installed</p>
-<h2>Installation</h2>
-<p>The easy way with pip:</p>
-<div class="codehilite"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">dosage</span>
-</pre></div>
-
-
-<p>You can invoke Dosage directly from the source code as 
-<code>./dosage</code>. Alternatively,
-you can install Dosage using python distutils by invoking
-setup.py in the root of the distribution. For example:</p>
-<div class="codehilite"><pre><span class="n">python</span> <span class="n">setup</span><span class="p">.</span><span class="n">py</span> <span class="n">install</span>
-</pre></div>
-
-
-<p>or if you do not have root permissions:</p>
-<div class="codehilite"><pre><span class="n">python</span> <span class="n">setup</span><span class="p">.</span><span class="n">py</span> <span class="n">install</span> <span class="o">--</span><span class="n">home</span><span class="p">=</span>$<span class="n">HOME</span>
-</pre></div>
-
-
-<h2>Reporting Bugs</h2>
-<p>You can report bugs, patches or requests at the
-<a href="https://github.com/wummel/dosage/issues">Github issue tracker</a></p>
-<p>Dosage currently supports a large number of comics and that number
-grows on a regular basis. If you feel that there are comics that
-Dosage does not currently support but should support, please
-feel free to request them.</p>
-<h2>Technical Description</h2>
-<p>Dosage is written in Python and relies on regular expressions to
-do most of the grunt work.</p>
-<p>For each webcomic Dosage has a plugin module, found in the
-<code>dosagelib/plugins</code> subdirectory. Each module is a subclass of
-the <code>_BasicScraper</code> class and specifies where to download its comic images.
-Some comic syndicates (ucomics for example) have a standard layout for all
-comics. For such cases there are general base classes derived from
-<code>_BasicScraper</code> which help define the plugins for all comics of this syndicate.</p>
-<h2>Extending Dosage</h2>
-<p>In order to add a new webcomic, a new module class has to be created in
-one of the *.py files in the <code>dosagelib/plugins</code> subdirectory.
-Look at the
-<a href="https://github.com/wummel/dosage/blob/master/doc/adding_new_comics.md">documentation for adding modules</a>
-and at
-<a href="https://github.com/wummel/dosage/tree/master/dosagelib/plugins">existing module classes</a>
-for examples.</p>
-<h2>Test suite status</h2>
-<p>Dosage has extensive unit tests to ensure the code quality.
-<a href="https://travis-ci.org/">Travis CI</a> is used for continuous build
-and test integration.</p>
-<p><a href="https://travis-ci.org/wummel/dosage"><img alt="Build Status" src="https://travis-ci.org/wummel/dosage.png" /></a></p>
 </section>
 
-<aside id="sidebar">
-<h2>Downloads</h2>
-<p>
-<a href="https://pypi.python.org/packages/source/d/dosage/dosage-2.15.tar.gz"
-  title="Source .tar.gz package"
-  class="button"><span>Source dosage-2.15.tar.gz</span></a>
-<a href="http://wummel.github.io/dosage/dist/dosage-2.15.exe"
-  title="Windows .exe installer"
-  class="button"><span>Windows dosage-2.15.exe</span></a>
-</p>
-<p><a href="https://github.com/wummel/dosage/blob/master/doc/changelog.txt">Changelog</a></p>
-<p class="repo-owner"><a href="https://github.com/wummel/dosage">dosage</a> is
-maintained
-by <a href="https://github.com/wummel">Bastian Kleineidam</a>.</p>
-<h2>Recommended reading</h2>
-<p>
-<a href="http://www.amazon.de/gp/product/006097625X/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=006097625X&linkCode=as2&tag=bkleineidam-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=006097625X&Format=_SL160_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=bkleineidam-21" ></a><img src="http://ir-de.amazon-adsystem.com/e/ir?t=bkleineidam-21&l=as2&o=3&a=006097625X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-<a href="http://www.amazon.de/gp/product/188896314X/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=188896314X&linkCode=as2&tag=bkleineidam-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=188896314X&Format=_SL160_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=bkleineidam-21" ></a><img src="http://ir-de.amazon-adsystem.com/e/ir?t=bkleineidam-21&l=as2&o=3&a=188896314X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-<!--
-<a href="http://www.amazon.de/gp/product/1401222668/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=1401222668&linkCode=as2&tag=bkleineidam-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1401222668&Format=_SL160_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=bkleineidam-21" ></a><img src="http://ir-de.amazon-adsystem.com/e/ir?t=bkleineidam-21&l=as2&o=3&a=1401222668" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
--->
-</p>
-<h2>Support dosage</h2>
-<p>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="VJD3LAL4QMHYY">
-<input type="image" src="./images/paypal-donate-button.png" border="0" name="submit" alt="PayPal donation">
-</form>
-</p>
-<p>
-<a href="http://flattr.com/thing/1136936/Dosage" target="_blank">
-<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a>
-</p>
-</aside>
 </div>
 </div>
 <script type="text/javascript">
