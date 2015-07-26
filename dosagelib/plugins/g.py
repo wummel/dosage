@@ -8,26 +8,6 @@ from ..scraper import _BasicScraper
 from ..helpers import indirectStarter
 from ..util import tagre
 
-class Gaia(_BasicScraper):
-    description = u'Gaia, a story about the nature of reality, and the answer to Lilith?s simple, meek, world-shattering question: ?Will you come along??'
-    url = 'http://www.sandraandwoo.com/gaia/'
-    rurl = escape(url)
-    stripUrl = url + '%s/'
-    firstStripUrl = stripUrl % '2000/01/01/welcome-to-gaia/'
-    imageSearch = compile(tagre("img", "src", r'(%scomics/\d+-\d+-\d+-[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s\d+/\d+/\d+/[^"]+/)' % rurl, after="prev"))
-    help = 'Index format: yyyy/mm/dd/number-stripname'
-
-class GaiaGerman(_BasicScraper):
-    description = u'Gaia, eine Geschichte über das Wesen der Wirklichkeit und die Antwort auf Liliths einfache, bescheidene, welterschütternde Frage: ?Kommt ihr mit??'
-    url = 'http://www.sandraandwoo.com/gaiade/'
-    rurl = escape(url)
-    stripUrl = url + '%s/'
-    firstStripUrl = stripUrl % '2000/01/01/welcome-to-gaia/'
-    imageSearch = compile(tagre("img", "src", r'(%scomics/\d+-\d+-\d+-[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s\d+/\d+/\d+/[^"]+/)' % rurl, after="prev"))
-    help = 'Index format: yyyy/mm/dd/number-stripname'
-    lang = 'de'
 
 class Galaxion(_BasicScraper):
     description = u'Galaxion - Life. Love. Hyperspace.'
@@ -189,16 +169,16 @@ class GoneWithTheBlastwave(_BasicScraper):
 
 class GrrlPower(_BasicScraper):
     description = u'Grrl Power - A webcomic about superheroines.'
-    url = 'http://www.grrlpowercomic.com/'
+    url = 'http://grrlpowercomic.com/'
     rurl = escape(url)
     stripUrl = url + 'archives/%s'
     firstStripUrl = stripUrl % '48'
-    imageSearch = compile(tagre("img", "src", r'(%scomics/[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%sarchives/\d+)' % rurl, after="navi-prev"))
+    imageSearch = compile(tagre("img", "src", r'(.*/comics/[^"]+)'))
+    prevSearch = compile(tagre("a", "href", r'(.*/archives/\d+)', after="navi-prev"))
     help = 'Index format: number'
 
 
-class GunnerkrigCourt(_BasicScraper):
+class GunnerkriggCourt(_BasicScraper):
     description = u'Gunnerkrigg Court is a science-fantasy webcomic created by Tom Siddell. It is updated online three days a week.'
     url = 'http://www.gunnerkrigg.com/'
     stripUrl = url + '?p=%s'

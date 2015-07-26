@@ -46,8 +46,7 @@ class Carciphona(_BasicScraper):
     stripUrl = url + 'view.php?page=%s&chapter=%s'
     imageSearch = compile(tagre("div", "style", r'background-image:url\((_pages[^)]*)\)'))
     prevSearch = compile(tagre("a", "href", r'(view\.php\?[^"]*)', after="prevarea"))
-    latestSearch = compile(tagre("a", "href", r'(view\.php\?[^"]*)') +
-      tagre("span", "class", "linkslast"))
+    latestSearch = compile(tagre("a", "href", r'(view\.php\?page=[0-9]+[^"]*)'))
     help = 'Index format: None'
     starter = indirectStarter(url, latestSearch)
 
@@ -385,8 +384,8 @@ class Curtailed(_BasicScraper):
     stripUrl = url + '%s/'
     firstStripUrl = stripUrl % '2012/04/08/sneeze'
     rurl = escape(url)
-    imageSearch = compile(tagre("img", "src", r'(%scomics/[^"]*)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s\d{4}/[^"]*)' % rurl, after="navi-prev"))
+    imageSearch = compile(tagre("img", "src", r'(%swp-content/uploads/[0-9]+/[^"]*)' % rurl))
+    prevSearch = compile('<a href="([^"]*)" class="comic-nav-base comic-nav-previous"')
     help = 'Index format: yyyy/mm/dd/stripname'
 
 
@@ -412,11 +411,11 @@ class Curvy(_BasicScraper):
 
 class CyanideAndHappiness(_BasicScraper):
     url = 'http://www.explosm.net/comics/'
-    starter = bounceStarter(url, compile(tagre("a", "href", r"(/comics/\d+/)", before="next")))
+    starter = bounceStarter(url, compile(tagre("a", "href", r"(/comics/\d+/)", after="next-comic")))
     stripUrl = url + '%s/'
     firstStripUrl = stripUrl % '15'
-    imageSearch = compile(tagre("img", "src", r'(http://(?:www\.)?explosm\.net/db/files/[^"]+)', before="a daily webcomic"))
-    prevSearch = compile(tagre("a", "href", r'(/comics/\d+/)', before="prev"))
+    imageSearch = compile(tagre("img", "src", r'(//files.explosm.net/comics/[^"]+)', before="main-comic"))
+    prevSearch = compile(tagre("a", "href", r'(/comics/\d+/)', after="previous-comic"))
     help = 'Index format: n (unpadded)'
 
     def shouldSkipUrl(self, url, data):

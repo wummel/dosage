@@ -183,20 +183,18 @@ class DieselSweeties(_BasicScraper):
 
 class Dilbert(_BasicScraper):
     url = 'http://dilbert.com/'
-    stripUrl = url + '%s/'
+    stripUrl = url + '/strip/%s/'
     firstStripUrl = stripUrl % '1989-04-16'
-    starter = bounceStarter(url,
-        compile(tagre("a", "href", r'(/\d+-\d+-\d+/)', after="STR_Next")))
-    prevSearch = compile(tagre("a", "href", r'(/\d+-\d+-\d+/)', after="STR_Prev"))
-    imageSearch = compile(tagre("img", "src", r'(/dyn/str_strip/[^"]+\.strip\.zoom\.gif)'))
+    starter = indirectStarter(url, compile(tagre("a", "href", r'(http://dilbert.com/strip/[0-9-]*)', after="Click to see")))
+    prevSearch = compile(tagre("a", "href", r'(/strip/\d+-\d+-\d+)', after="Older Strip"))
+    imageSearch = compile(tagre("img", "src", r'(http://assets.amuniversal.com/\w+)'))
     help = 'Index format: yyyy-mm-dd'
     description = u'A comic featuring satirical office humor about a white-collar, micromanaged office featuring the engineer Dilbert as the title character.'
 
     @classmethod
     def namer(cls, imageUrl, pageUrl):
-        ext = imageUrl.rsplit(".", 1)[1]
-        name = pageUrl.rsplit("/", 2)[1]
-        return "%s.%s" % (name, ext)
+        name = pageUrl.rsplit("/", 1)[1]
+        return "%s" % name
 
 
 class DMFA(_BasicScraper):
@@ -243,7 +241,7 @@ class DorkTower(_BasicScraper):
     rurl = escape(url)
     stripUrl = url + '%s/'
     firstStripUrl = stripUrl % '1997/01/01/shadis-magazine-strip-1'
-    imageSearch = compile(tagre("img", "src", r'(%sfiles/\d+/\d+/[^"]+\.gif)' % rurl))
+    imageSearch = compile(tagre("div", "class", "entry-content") + "\s*<p>\s*" + tagre("img", "src", r'(%sfiles/[0-9]+/[0-9]+/[^"]*Dork[^"]+\.(?:gif|jpg))' % rurl, after=' alt'))
     prevSearch = compile(tagre("a", "href", r'(%s[^"]+)' % rurl)+"Previous")
     help = 'Index format: yyyy/mm/dd/stripname-dd-mm-yy'
 
@@ -289,6 +287,17 @@ class DrFun(_BasicScraper):
     help = 'Index format: nnnnn'
     description = u'A series of bizarre one-panel gags. Topics range from the mundane to the obscure.'
     endOfLife = True
+
+
+class Drive(_BasicScraper):
+    description = u'DRIVE tells the story of a second Spanish empire, a galactic empire, and its looming war with a race called The Continuum of Makers.'
+    url = 'http://www.drivecomic.com/'
+    rurl = escape(url)
+    stripUrl = url + 'archive/%s.html'
+    firstStripUrl = stripUrl % '090815'
+    imageSearch = compile(tagre("img", "src", r'(http://cdn\.drivecomic\.com/strips/main/[^"]+)'))
+    prevSearch = compile(tagre("a", "href", r'(%sarchive/\d+\.html)' % rurl) + "Previous")
+    help = 'Index format: yymmdd'
 
 
 # XXX navigation works only with JavaScript

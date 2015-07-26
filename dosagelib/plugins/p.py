@@ -112,8 +112,8 @@ class PennyArcade(_BasicScraper):
 
     @classmethod
     def namer(cls, imageUrl, pageUrl):
-        dummy, yyyy, mm, dd = pageUrl.rsplit('/', 3)
-        return '%04d%02d%02d' % (int(yyyy), int(mm), int(dd))
+        p = pageUrl.split('/')
+        return '%04d%02d%02d' % (int(p[4]), int(p[5]), int(p[6]))
 
 
 class PeppermintSaga(_BasicScraper):
@@ -167,12 +167,12 @@ class Pixel(_BasicScraper):
 
 
 class PiledHigherAndDeeper(_BasicScraper):
-    url = 'http://www.phdcomics.com/comics/archive.php'
-    starter = bounceStarter(url, compile(r'<a href=(archive\.php\?comicid=\d+)><img height=52 width=49 src=images/next_button\.gif border=0 align=middle>'))
+    url = 'http://www.phdcomics.com/comics.php'
+    starter = bounceStarter(url, compile(r'<a href=(archive\.php\?comicid=\d+)>.*<img [^>]*next_button\.gif'))
     stripUrl = url + '?comicid=%s'
     firstStripUrl = stripUrl % '1'
-    imageSearch = compile(tagre("img", "src", r'(http://www\.phdcomics\.com/comics/archive/phd\d+s?\.\w{3,4})', quote=""))
-    prevSearch = compile(r'<a href=(archive\.php\?comicid=\d+)><img height=52 width=49 src=images/prev_button\.gif border=0 align=middle>')
+    imageSearch = compile(tagre("img", "src", r'(http://www\.phdcomics\.com/comics/archive/phd\d+s\d?\.\w{3,4})', quote=""))
+    prevSearch = compile(r'<a href=((comics/)?archive\.php\?comicid=\d+)>.*<img [^>]*prev_button\.gif')
     help = 'Index format: n (unpadded)'
     namer = queryNamer('comicid', usePageUrl=True)
 
@@ -266,5 +266,5 @@ class PvPonline(_BasicScraper):
     url = 'http://pvponline.com/comic'
     stripUrl = url + '%s'
     imageSearch = compile(tagre("img", "src", r'(http://s3[^"]+\.amazonaws\.com/pvponlinenew/img/comic/\d+/\d+/pvp[^"]+\.jpg)'))
-    prevSearch = compile(tagre("a", "href", r'(/comic/[^"]+)', after="Previous"))
+    prevSearch = compile(tagre("a", "href", r'(/comic/[^"]+)', after="left divider"))
     help = 'Index format: yyyy/mm/dd/stripname'

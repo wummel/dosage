@@ -57,29 +57,6 @@ class SamAndFuzzy(_BasicScraper):
     prevSearch = compile(r'"><a href="(.+?)"><img src="imgint/nav_prev.gif"')
     help = 'Index format: nnnn'
 
-
-class SandraAndWoo(_BasicScraper):
-    description = u'Sandra and Woo: a webcomic about friendship, life and the art of (not) eating squirrels, featuring the girl Sandra and her pet raccoon Woo.'
-    url = 'http://www.sandraandwoo.com/'
-    rurl = escape(url)
-    stripUrl = url + '%s/'
-    firstStripUrl = stripUrl % '2000/01/01/welcome-to-sandra-and-woo'
-    imageSearch = compile(tagre("img", "src", r'(%scomics/\d+-\d+-\d+-[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s\d+/\d+/\d+/[^"]+/)' % rurl, after="prev"))
-    help = 'Index format: yyyy/mm/dd/number-stripname'
-
-
-class SandraAndWooGerman(_BasicScraper):
-    description = u'Sandra und Woo: ein Webcomic \xfcber Freundschaft, das Leben und die Kunst (keine) Eichh\xf6rnchen zu essen; mit dem M\xe4dchen Sandra und ihrem Waschb\xe4ren Woo in den Hauptrollen'
-    url = 'http://www.sandraandwoo.com/woode/'
-    rurl = escape(url)
-    stripUrl = url + '%s/'
-    firstStripUrl = stripUrl % '2008/10/19/ein-ausgefuchster-waschbar'
-    imageSearch = compile(tagre("img", "src", r'(%scomics/\d+-\d+-\d+-[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s\d+/\d+/\d+/[^"]+/)' % rurl, after="prev"))
-    help = 'Index format: yyyy/mm/dd/number-stripname'
-    lang = 'de'
-
 class SandraOnTheRocks(_BasicScraper):
     url = 'http://www.sandraontherocks.com/'
     stripUrl = url + 'strips-sotr/%s'
@@ -218,17 +195,18 @@ class Sheldon(_BasicScraper):
 class ShermansLagoon(_BasicScraper):
     description = u"Sherman's Lagoon by Jim Toomey"
     url = 'http://shermanslagoon.com/'
-    rurl = escape(url)
     stripUrl = url + 'comics/%s'
     firstStripUrl = stripUrl % '/december-29-2003/'
-    imageSearch = compile(tagre("img", "src", r'(http://safr\.kingfeatures\.com/idn/etv/zone/xml/content.php\?file=[^"]+)'))
-    prevSearch = compile(tagre("a", "href", r'(%scomics/[^"]+/)' % rurl) + '&laquo; previous')
-    starter = bounceStarter(url,
-        compile(tagre("a", "href", r'(%scomics/[^"]+/)' % rurl, after="next")))
+    imageSearch = compile(tagre("img", "src", r'(http://safr\.kingfeatures\.com/idn/test/zone/xml/content\.php\?file=.+?)'))
+    prevSearch = compile(r'id="previouscomic" class="button white"><a href="(%scomics/[a-z0-9-]+/)"' % url)
+    help = 'Index format: monthname-day-year'
 
     @classmethod
     def namer(cls, imageUrl, pageUrl):
-        name = pageUrl.split('/')[-2]
+        name = pageUrl.rsplit('/', 3)[2]
+        if name == "shermanslagoon.com":
+            import datetime
+            name = datetime.date.today().strftime("%B-%d-%Y").lower()
         # name is monthname-day-year
         month, day, year = name.split('-')
         return "%s-%s-%s" % (year, month, day)
@@ -254,14 +232,24 @@ class _Shortpacked(_BasicScraper):
     help = 'Index format: yyyy/comic/book-nn/mm-name1/name2'
 
 
+class ShotgunShuffle(_BasicScraper):
+    description = u'adventures of the Seven Buckingham sisters, a fat cat, an irritable roommate, a dirty hippy'
+    url = 'http://shotgunshuffle.com/'
+    stripUrl = url + 'comic/%s'
+    firstStripUrl =  stripUrl % 'pilot/'
+    imageSearch = compile(tagre("img", "src", r'(http://shotgunshuffle.com/wp-content/uploads/\d+/\d+/\d+-[^"]+)'))
+    prevSearch = compile(tagre("a", "href", r'([^"]+)', after="navi navi-prev"))
+    help = 'Index format: stripname'
+
+
 class SinFest(_BasicScraper):
     description = u'Strip dealing with contemporary issues and religion. Created by Tatsuya Ishida.'
     name = 'KeenSpot/SinFest'
     url = 'http://www.sinfest.net/'
-    stripUrl = url + 'archive_page.php?comicID=%s'
-    imageSearch = compile(r'<img src=".+?(/comikaze/comics/.+?)"')
-    prevSearch = compile(r'(/archive_page.php\?comicID=.+?)".+?prev_a')
-    help = 'Index format: n (unpadded)'
+    stripUrl = url + 'view.php?date=%s'
+    imageSearch = compile(tagre("img","src", r'(btphp/comics/.+)', after="alt"))
+    prevSearch = compile(tagre("a", "href", r'(view\.php\?date=.+)') + '\\s*' + tagre("img", "src", r'\.\./images/prev\.gif'))
+    help = 'Index format: yyyy-mm-dd'
 
 
 # XXX disallowed by robots.txt
