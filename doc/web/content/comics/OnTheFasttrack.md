@@ -17,7 +17,7 @@ if (window.location.search === '?edit_info_mail=sent_ok') {
 <th>Description</th><td>On The Fasttrack by Bill Holbrook</td>
 </tr>
 <tr>
-<th>Website</th><td><a href="http://www.onthefastrack.com/">http://www.onthefastrack.com/</a></td>
+<th>Website</th><td><a href="http://onthefastrack.com/">http://onthefastrack.com/</a></td>
 </tr>
 <tr>
 <th>Genre</th><td>Other</td>

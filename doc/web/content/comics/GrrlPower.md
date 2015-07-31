@@ -17,7 +17,7 @@ if (window.location.search === '?edit_info_mail=sent_ok') {
 <th>Description</th><td>Grrl Power - A webcomic about superheroines.</td>
 </tr>
 <tr>
-<th>Website</th><td><a href="http://www.grrlpowercomic.com/">http://www.grrlpowercomic.com/</a></td>
+<th>Website</th><td><a href="http://grrlpowercomic.com/">http://grrlpowercomic.com/</a></td>
 </tr>
 <tr>
 <th>Genre</th><td>Other</td>

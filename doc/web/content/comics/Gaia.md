@@ -14,7 +14,7 @@ if (window.location.search === '?edit_info_mail=sent_ok') {
 </script>
 <table class="comicinfo">
 <tr>
-<th>Description</th><td>Gaia, a story about the nature of reality, and the answer to Lilith?s simple, meek, world-shattering question: ?Will you come along??</td>
+<th>Description</th><td>-</td>
 </tr>
 <tr>
 <th>Website</th><td><a href="http://www.sandraandwoo.com/gaia/">http://www.sandraandwoo.com/gaia/</a></td>

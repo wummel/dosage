@@ -14,7 +14,7 @@ if (window.location.search === '?edit_info_mail=sent_ok') {
 </script>
 <table class="comicinfo">
 <tr>
-<th>Description</th><td>Gaia, eine Geschichte über das Wesen der Wirklichkeit und die Antwort auf Liliths einfache, bescheidene, welterschütternde Frage: ?Kommt ihr mit??</td>
+<th>Description</th><td>-</td>
 </tr>
 <tr>
 <th>Website</th><td><a href="http://www.sandraandwoo.com/gaiade/">http://www.sandraandwoo.com/gaiade/</a></td>

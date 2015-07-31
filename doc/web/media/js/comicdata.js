@@ -1048,7 +1048,6 @@ $(document).ready(function() {
 ["<a href=\"comics/GoblinsComic.html\">GoblinsComic</a>", "Other", "English", "ok", "0"],
 ["<a href=\"comics/GoneWithTheBlastwave.html\">GoneWithTheBlastwave</a>", "Other", "English", "ok", "1"],
 ["<a href=\"comics/GrrlPower.html\">GrrlPower</a>", "Other", "English", "ok", "1"],
-["<a href=\"comics/GunnerkrigCourt.html\">GunnerkrigCourt</a>", "Other", "English", "ok", "6"],
 ["<a href=\"comics/Gunshow.html\">Gunshow</a>", "Other", "English", "ok", "0"],
 ["<a href=\"comics/HagarTheHorrible.html\">HagarTheHorrible</a>", "Other", "English", "ok", "3"],
 ["<a href=\"comics/HarkAVagrant.html\">HarkAVagrant</a>", "Other", "English", "ok", "1"],

@@ -14,7 +14,7 @@ if (window.location.search === '?edit_info_mail=sent_ok') {
 </script>
 <table class="comicinfo">
 <tr>
-<th>Description</th><td>Sandra and Woo: a webcomic about friendship, life and the art of (not) eating squirrels, featuring the girl Sandra and her pet raccoon Woo.</td>
+<th>Description</th><td>-</td>
 </tr>
 <tr>
 <th>Website</th><td><a href="http://www.sandraandwoo.com/">http://www.sandraandwoo.com/</a></td>

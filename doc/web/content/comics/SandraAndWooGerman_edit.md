@@ -6,7 +6,7 @@ Edit info for comic SandraAndWooGerman
 <form name="comic" action="http://gaepostmail.appspot.com/comic/" method="post">
 <table class="comicinfo">
 <tr>
-<th>Description</th><td><textarea name="description" cols="40" rows="3">Sandra und Woo: ein Webcomic über Freundschaft, das Leben und die Kunst (keine) Eichhörnchen zu essen; mit dem Mädchen Sandra und ihrem Waschbären Woo in den Hauptrollen</textarea></td>
+<th>Description</th><td><textarea name="description" cols="40" rows="3">-</textarea></td>
 </tr>
 <tr>
 <th>Website</th><td><input type="text" name="url" value="http://www.sandraandwoo.com/woode/" size="40"/></td>
