@@ -3,21 +3,18 @@
 # Copyright (C) 2012-2014 Bastian Kleineidam
 
 from re import compile, escape
-from ..scraper import _BasicScraper
+from ..scraper import _BasicScraper, _ParserScraper
 from ..helpers import indirectStarter
 from ..util import tagre
 
 
-class OctopusPie(_BasicScraper):
+class OctopusPie(_ParserScraper):
     url = 'http://www.octopuspie.com/'
     rurl = escape(url)
-    starter = indirectStarter(url,
-        compile(tagre("a", "href", r'(%s[^"]+)' % rurl) +
-                tagre("img", "src", r'%sjunk/latest\.png' % rurl)))
     stripUrl = url + '%s/'
     firstStripUrl = stripUrl % '2007-05-14/001-pea-wiggle'
-    imageSearch = compile(tagre("img", "src", r'(%sstrippy/[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s[^"]+)' % rurl, after="prev"))
+    imageSearch = '//img[@title]'
+    prevSearch = '//a[@rel="prev"]'
     help = 'Index format: yyyy-mm-dd/nnn-strip-name'
 
 
@@ -45,7 +42,6 @@ class Oglaf(_BasicScraper):
     adult = True
 
 
-
 class OhJoySexToy(_BasicScraper):
     url = 'http://www.ohjoysextoy.com/'
     rurl = escape(url)
@@ -69,35 +65,22 @@ class OkCancel(_BasicScraper):
     help = 'Index format: yyyymmdd'
 
 
-class OmakeTheater(_BasicScraper):
-    url = 'http://omaketheater.com/'
-    rurl = escape(url)
-    stripUrl = url + 'comic/%s/'
+class OmakeTheater(_ParserScraper):
+    url = 'http://omaketheater.com/comics/'
+    stripUrl = url + '%s/'
     firstStripUrl = stripUrl % '1'
-    imageSearch = compile(tagre("img", "src", r'(http://media\.omaketheater\.com/4koma/[^"]+)'))
-    prevSearch = compile(tagre("a", "href", r'(%scomic/\d+/)' % rurl, after="prev"))
-    starter = indirectStarter(url,
-        compile(tagre("a", "href", r'(%scomic/\d+/)' % rurl)))
+    css = True
+    imageSearch = ".comicImage img"
+    prevSearch = ".previous a"
     help = 'Index format: number (unpadded)'
 
 
-class OnTheEdge(_BasicScraper):
-    url = 'http://ontheedgecomics.com/'
-    rurl = escape(url)
-    stripUrl = url + 'comic/%s/'
-    firstStripUrl = stripUrl % 'ote0001'
-    imageSearch = compile(r'<img src="(%scomics/.+?)"' % rurl)
-    prevSearch = compile(r'<a href="([^"]+)" rel="prev">')
-    help = 'Index format: nnn (unpadded)'
-
-
-class OnTheFasttrack(_BasicScraper):
+class OnTheFastrack(_BasicScraper):
     url = 'http://onthefastrack.com/'
     stripUrl = url + 'comics/%s'
     firstStripUrl = stripUrl % 'november-13-2000'
-    imageSearch = compile(tagre("img", "src", r'(http://safr\.kingfeatures\.com/idn/test/zone/xml/content\.php\?file=.+?)'))
+    imageSearch = compile(r'(http://safr\.kingfeatures\.com/idn/cnfeed/zone/js/content\.php\?file=.+)"')
     prevSearch = compile(r'id="previouscomic" class="button white"><a href="(%scomics/[a-z0-9-]+/)"' % url)
-    description = u'On The Fasttrack by Bill Holbrook'
     help = 'Index format: monthname-dd-yyyy'
     
     @classmethod
@@ -121,7 +104,6 @@ class OneQuestion(_BasicScraper):
 
 
 class Optipess(_BasicScraper):
-    description = u'a word you.d maybe end up with if you combined the two words "optimism" and "pessimism"'
     url = 'http://www.optipess.com/'
     stripUrl = url + '%s'
     firstStripUrl =  url + '2008/12/01/jason-friend-of-the-butterflies/'
@@ -152,7 +134,6 @@ class OurHomePlanet(_BasicScraper):
 
 
 class OverCompensating(_BasicScraper):
-    description = u'OVERCOMPENSATING: The Journal Comic With a Seething Disdain for Reality.'
     url = 'http://www.overcompensating.com/'
     stripUrl = url + 'oc/index.php?comic=%s'
     firstStripUrl = stripUrl % '0'

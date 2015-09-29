@@ -3,8 +3,8 @@
 # Copyright (C) 2012-2014 Bastian Kleineidam
 
 from re import compile, escape
-from ..scraper import _BasicScraper
-from ..helpers import indirectStarter, bounceStarter
+from ..scraper import _BasicScraper, _ParserScraper
+from ..helpers import indirectStarter
 from ..util import tagre
 
 
@@ -23,7 +23,6 @@ class Namesake(_BasicScraper):
 
 
 class NamirDeiter(_BasicScraper):
-    description = u'Namir Deiter, by Isabel Marks'
     url = 'http://www.namirdeiter.com/'
     rurl = escape(url)
     stripUrl = url + 'comics/index.php?date=%s'
@@ -34,7 +33,6 @@ class NamirDeiter(_BasicScraper):
 
 
 class NatalieDee(_BasicScraper):
-    description = u"America's Favorite Cracker"
     url = 'http://www.nataliedee.com/'
     rurl = escape(url)
     stripUrl = url + '%s'
@@ -49,18 +47,7 @@ class NatalieDee(_BasicScraper):
         return '%s-%s' % (date, filename)
 
 
-class Nedroid(_BasicScraper):
-    url = 'http://nedroid.com/'
-    rurl = escape(url)
-    stripUrl = url + '%s/'
-    firstStripUrl = stripUrl % '2005/09/2210-whee'
-    imageSearch = compile(tagre("img", "src", r'(%scomics/[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s\d+/\d+/[^"]+)' % rurl, after="prev"))
-    help = 'Index format: yyyy/mm/dd/name'
-
-
 class NeoEarth(_BasicScraper):
-    description = u'Neo-Earth - Web comic by Bryan King - Updated Every Monday'
     url = 'http://www.neo-earth.com/NE/'
     stripUrl = url + 'index.php?date=%s'
     firstStripUrl = stripUrl % '2007-03-23'
@@ -85,16 +72,6 @@ class NewWorld(_BasicScraper):
     help = 'Index format: yyyy/mm/dd/stripn'
 
 
-class Nicky510(_BasicScraper):
-    url = 'http://www.nickyitis.com/'
-    rurl = escape(url)
-    stripUrl = url + '%s/'
-    firstStripUrl = stripUrl % 'close-enough'
-    imageSearch = compile(tagre("img", "src", r'(%scomics/[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%scomic/[^"]+)' % rurl, after="Previous"))
-    help = 'Index format: stripname'
-
-
 class NekkoAndJoruba(_BasicScraper):
     url = 'http://www.nekkoandjoruba.com/'
     stripUrl = url + '?p=%s'
@@ -104,17 +81,12 @@ class NekkoAndJoruba(_BasicScraper):
     help = 'Index format: nnn'
 
 
-class NekoTheKitty(_BasicScraper):
+class NekoTheKitty(_ParserScraper):
     url = 'http://www.nekothekitty.net/'
-    rurl = escape(url)
     stripUrl = url + 'comics/%s'
     firstStripUrl = stripUrl % '936393/001-video-games'
-    starter = bounceStarter(url, compile(tagre("a", "href", r'(%scomics/[^"]+)' % rurl) +
-      tagre("img", "src", r'%sfiles/smallnext\.png' % rurl)))
-    imageSearch = compile(tagre("img", "src", r'(http://(?:img\d+|www)\.smackjeeves\.com/images/uploaded/comics/[^"]+)'))
-    prevSearch = compile(tagre("a", "href", r'(%scomics/[^"]+)' % rurl) +
-      tagre("img", "src", r'%sfiles/smallprev\.png' % rurl))
-    help = 'Index format: n/n-name'
+    imageSearch = '//a[@id="comic_image"]/img'
+    prevSearch = '//a[text()="<-"]'
 
 
 class NichtLustig(_BasicScraper):
@@ -148,9 +120,12 @@ class Nnewts(_BasicScraper):
     prevSearch = compile(tagre("a", "href", r'(%s(?:nnewts-)?page-\d+/)' % rurl, after="navi-prev"))
     help = 'Index format: page-number'
 
+    @classmethod
+    def getDisabledReasons(cls):
+        return {'cannotReadOnline': 'Comic is not available for reading online.'}
+
 
 class NobodyScores(_BasicScraper):
-    description = u'Nobody Scores! A little comic about inevitable disaster'
     url = 'http://nobodyscores.loosenutstudio.com/'
     rurl = escape(url)
     stripUrl = url + 'index.php?id=%s'
@@ -175,7 +150,6 @@ class NoNeedForBushido(_BasicScraper):
        compile(tagre("a", "href", r'(%s\?webcomic1=[^"]+)' % rurl, after="last-webcomic")))
 
 class NotInventedHere(_BasicScraper):
-    description = u'Not Invented Here'
     url = 'http://notinventedhe.re/'
     rurl = escape(url)
     stripUrl = url + '%s/'
@@ -185,7 +159,6 @@ class NotInventedHere(_BasicScraper):
     help = 'Index format: yyyy-mm-dd'
 
 class Nukees(_BasicScraper):
-    description = u'Nukees, The Atomic Comic Strip'
     url = 'http://www.nukees.com/'
     stripUrl = url + 'd/%s'
     firstStripUrl = stripUrl % '19970121'

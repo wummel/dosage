@@ -5,21 +5,20 @@
 from re import compile, escape, IGNORECASE
 
 from ..helpers import indirectStarter
-from ..scraper import _BasicScraper
+from ..scraper import _BasicScraper, _ParserScraper
 from ..util import tagre
 
 
-class EarthsongSaga(_BasicScraper):
-    description = u'Earthsong - An Online Graphic Novel by Crystal Yates'
-    url = 'http://www.earthsongsaga.com/'
-    starter = indirectStarter(url, compile(tagre("a", "href", r'([^"]+)') + tagre("img", "src", r'[^"]+current\.jpg')))
-    stripUrl = None
-    firstStripUrl = url + 'vol1/vol1cover.html'
-    imageSearch = (
-      compile(tagre("img", "src", r'((?:\.\./)?images/vol\d+/ch\d+/\d+\.\w+)')),
-      compile(tagre("img", "src", r'((?:\.\./)?images/vol\d+/ch\d+/ch\d+cover\.\w+)')),
-    )
-    prevSearch = compile(tagre("a", "href", r'([^"]+)', after="Previous"))
+class EarthsongSaga(_ParserScraper):
+    url = 'http://earthsongsaga.com/index.php'
+    starter = indirectStarter(url, '//div[@id="leftmenu"]/span[1]/a[1]')
+    imageSearch = '//div[@id="comic"]//img'
+    prevSearch = '//a[@title="Previous"]'
+
+    @classmethod
+    def fetchUrls(cls, url, data, urlSearch):
+        urls = super(EarthsongSaga, cls).fetchUrls(url, data, urlSearch)
+        return [x.replace('earthsongsaga.com/../', 'earthsongsaga.com/') for x in urls]
 
     @classmethod
     def namer(cls, imageUrl, pageUrl):
@@ -36,7 +35,6 @@ class EarthsongSaga(_BasicScraper):
 
 
 class EatLiver(_BasicScraper):
-    description = u'Crazy funny pictures of insane internet'
     url = 'http://www.eatliver.com/'
     rurl = escape(url)
     starter = indirectStarter(url, compile(tagre("a", "href", r'(i\.php\?n=\d+)') +
@@ -59,7 +57,6 @@ class EatThatToast(_BasicScraper):
 
 
 class EdibleDirt(_BasicScraper):
-    description = u'Edible Dirt, by Matt Rosemier'
     url = 'http://eddirt.frozenreality.co.uk/'
     stripUrl = url + 'index.php?id=%s'
     firstStripUrl = stripUrl % '0'
@@ -68,7 +65,6 @@ class EdibleDirt(_BasicScraper):
     help = 'Index format: number'
 
 class EdmundFinney(_BasicScraper):
-    description = u"Edmund Finney's Quest to Find the Meaning of Life"
     url = 'http://eqcomics.com/'
     rurl = escape(url)
     stripUrl = url + '%s/'
@@ -100,6 +96,15 @@ class Eriadan(_BasicScraper):
         )
 
 
+class Erstwhile(_ParserScraper):
+    url = 'http://www.erstwhiletales.com/'
+    stripUrl = url + '%s/'
+    css = True
+    imageSearch = 'div.comicpane a img'
+    prevSearch = 'a.navi-prev'
+    help = 'Index format: title-nn'
+
+
 class ElfOnlyInn(_BasicScraper):
     url = 'http://www.elfonlyinn.net/'
     stripUrl = url + 'd/%s.html'
@@ -111,7 +116,6 @@ class ElfOnlyInn(_BasicScraper):
 
 
 class ElGoonishShive(_BasicScraper):
-    description = u'Fantasy sci-fi comic about a group of teenagers and the bizarre, strange and supernatural circumstances of their lives.'
     name = 'KeenSpot/ElGoonishShive'
     url = 'http://www.egscomics.com/'
     stripUrl = url + 'index.php?id=%s'
@@ -130,7 +134,6 @@ class ElGoonishShiveNP(_BasicScraper):
 
 
 class Ellerbisms(_BasicScraper):
-    description = u'Ellerbisms - A diary comic by Marc Ellerby'
     url = 'http://www.ellerbisms.com/'
     rurl = escape(url)
     stripUrl = url + '?p=%s'
@@ -149,8 +152,7 @@ class EmergencyExit(_BasicScraper):
     help = 'Index format: n'
 
 
-# XXX disallowed by robots.txt
-class _ErrantStory(_BasicScraper):
+class ErrantStory(_BasicScraper):
     url = 'http://www.errantstory.com/'
     stripUrl = url + '%s'
     imageSearch = compile(r'<img[^>]+?src="([^"]*?comics/.+?)"')
@@ -175,11 +177,9 @@ class EverydayBlues(_BasicScraper):
     prevSearch = compile(tagre("a", "href", r'(%s\d+/\d+/\d+/[^"]+/)' % rurl, after="navi-prev"))
     imageSearch = compile(tagre("img", "src", r'(%scomics/\d+-\d+-\d+-[^"]+)' % rurl))
     help = 'Index format: yyyy/mm/dd/stripname'
-    description = u'A daily webcomic about the ups and downs of love, relationships and singledom.'
 
 
 class EvilDiva(_BasicScraper):
-    description = u'Evil Diva'
     url = 'http://www.evildivacomics.com/'
     stripUrl = url + '?p=%s'
     firstStripUrl = stripUrl % '145'
@@ -189,7 +189,6 @@ class EvilDiva(_BasicScraper):
 
 
 class EvilInc(_BasicScraper):
-    description = u'Evil Inc. by Brad Guigar - Daily Super-Villain Webcomic and Comics Blog'
     url = 'http://evil-inc.com/'
     stripUrl = url + 'comic/%s'
     firstStripUrl = stripUrl % 'monday-3'
@@ -202,7 +201,6 @@ class EvilInc(_BasicScraper):
 
 
 class Exiern(_BasicScraper):
-    description = u'Barbarian Typhan-Knee defeated the wizard...and became Tiffany!'
     url = 'http://www.exiern.com/'
     rurl = escape(url)
     stripUrl = url + '%s/'
@@ -213,7 +211,6 @@ class Exiern(_BasicScraper):
 
 
 class ExploitationNow(_BasicScraper):
-    description = u'Exploitation Now - That somewhat naughty webcomic classic by Michael Poe'
     url = 'http://www.exploitationnow.com/'
     rurl = escape(url)
     stripUrl = url + '%s'
@@ -242,7 +239,6 @@ class ExtraOrdinary(_BasicScraper):
 
 
 class EyeOfRamalach(_BasicScraper):
-    description = u'The Eye of Ramalach'
     url = 'http://theeye.katbox.net/'
     rurl = escape(url)
     stripUrl = url + 'comic/%s/'

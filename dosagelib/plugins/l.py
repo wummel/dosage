@@ -3,13 +3,12 @@
 # Copyright (C) 2012-2014 Bastian Kleineidam
 
 from re import compile, escape
-from ..scraper import _BasicScraper
+from ..scraper import _BasicScraper, _ParserScraper
 from ..helpers import bounceStarter, indirectStarter
 from ..util import tagre
 
 
 class Lackadaisy(_BasicScraper):
-    description = u'Alcohol-running cats in prohibition St. Louis'
     baseUrl = 'http://lackadaisy.foxprints.com/'
     url = baseUrl + 'comic.php'
     stripUrl = baseUrl + 'comic.php?comicid=%s'
@@ -39,7 +38,6 @@ class LasLindas(_BasicScraper):
 
 
 class LeastICouldDo(_BasicScraper):
-    description = u'A daily webcomic series about the life of Rayne Summers. Created by Ryan Sohmer and Lar deSouza.'
     url = 'http://www.leasticoulddo.com/'
     rurl = escape(url)
     stripUrl = url + 'comic/%s'
@@ -62,7 +60,6 @@ class Lint(_BasicScraper):
 
 
 class LinuxComFridayFunnies(_BasicScraper):
-    description = u"Linux.com: Friday Funnies"
     url = 'https://www.linux.com/news/friday-funnies/'
     stripUrl = url + '%s'
     firstStripUrl = stripUrl % 'the-road-to-japan'
@@ -72,7 +69,6 @@ class LinuxComFridayFunnies(_BasicScraper):
 
 
 class LittleGamers(_BasicScraper):
-    description = u'The comic everyone knows, but no one reads'
     url = 'http://www.little-gamers.com/'
     stripUrl = url + '%s/'
     firstStripUrl = stripUrl % '2000/12/01/99'
@@ -81,26 +77,19 @@ class LittleGamers(_BasicScraper):
     help = 'Index format: yyyy/mm/dd/name'
 
 
-class LoadingArtist(_BasicScraper):
-    description = u'A webcomic by Gregor Czaykowski'
-    url = 'http://www.loadingartist.com/'
-    rurl = escape(url)
-    stripUrl = url + '%s/'
-    firstStripUrl = stripUrl % '2011/01/04/born'
-    imageSearch = compile(tagre("img", "src", r'(%swp-content/uploads/\d+/\d+/[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s\d+/\d+/\d+/[^"]+/)' % rurl, after="prev"))
-    help = 'Index format: yyyy/mm/dd/stripname'
+class LoadingArtist(_ParserScraper):
+    url = 'http://www.loadingartist.com/comic/new-update/'
+    imageSearch = '//div[@class="comic"]//img'
+    prevSearch = "//a[contains(concat(' ', @class, ' '), ' prev ')]"
 
-
-class LookingForGroup(_BasicScraper):
+class LookingForGroup(_ParserScraper):
     url = 'http://www.lfgcomic.com/'
     rurl = escape(url)
     stripUrl = url + 'page/%s/'
     firstStripUrl = stripUrl % '1'
-    imageSearch = compile(tagre("img", "src", r'(http://(?:www|cdn)\.lfgcomic\.com/wp-content/uploads/\d+/\d+/lfg[^"]+)'))
-    #http://www.lfgcomic.com/wp-content/uploads/2014/06/lfg2827-787-jun30-14.gif
-    prevSearch = compile(tagre("a", "href", r'(%spage/[-0-9]+/)' % rurl, after="comic-nav-prev"))
-    starter = indirectStarter(url,
-        compile(tagre("a", "href", r'(%spage/[-0-9]+/)' % rurl, after="feature-item-link")))
+    css = True
+    imageSearch = '#comic img'
+    prevSearch = '#comic-left > a'
+    starter = indirectStarter(url, '#header-dropdown-comic-lfg > a:nth-of-type(2)')
     nameSearch = compile(r'/page/([-0-9]+)/')
     help = 'Index format: nnn'

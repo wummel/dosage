@@ -2,8 +2,8 @@
 # Copyright (C) 2012-2014 Bastian Kleineidam
 
 from re import compile, escape
-from ..scraper import _BasicScraper
-from ..util import tagre, getPageContent, fetchUrls
+from ..scraper import _BasicScraper, _ParserScraper
+from ..util import tagre
 from ..helpers import bounceStarter
 
 
@@ -21,9 +21,9 @@ class HagarTheHorrible(_BasicScraper):
     def starter(cls):
         """Return last gallery link."""
         url = 'http://www.hagardunor.net/comics.php'
-        content = getPageContent(url, cls.session)[0]
+        data = cls.getPage(url)
         pattern = compile(tagre("a", "href", cls.prevUrl))
-        for starturl in fetchUrls(url, content, url, pattern):
+        for starturl in cls.fetchUrls(url, data, pattern):
             pass
         return starturl
 
@@ -46,28 +46,6 @@ class HarkAVagrant(_BasicScraper):
         filename = imageUrl.rsplit('/', 1)[1]
         num = pageUrl.rsplit('=', 1)[1]
         return '%s-%s' % (num, filename)
-
-
-class HijinksEnsue(_BasicScraper):
-    description = u'HijiNKS ENSUE is a geek pop culture webcomic that makes fun of the latest news in tv, movies, Sci-Fi, technology and the Internet'
-    url = 'http://hijinksensue.com/'
-    rurl = escape(url)
-    stripUrl = url + '%s/'
-    firstStripUrl = stripUrl % '2007/05/11/a-soul-as-black-as-eyeliner'
-    imageSearch = compile(tagre("img", "src", r'(%scomics/\d+-\d+-\d+[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s\d+/\d+/\d+/[^"]+)' % rurl, after="navi-prev"))
-    help = 'Index format: yyyy/mm/dd/stripname'
-
-
-class Hipsters(_BasicScraper):
-    description = u'a weekly webcomic series by Adrian vom Baur - Hipsters vs. Vampires - Hipsters vs. Dinosaurs - Hipsters vs. Robots'
-    url = 'http://www.hipsters-comic.com/'
-    rurl = escape(url)
-    stripUrl = url + '%s/'
-    firstStripUrl = stripUrl % '2010/08/hip01'
-    imageSearch = compile(tagre("img", "src", r'(%scomics/\d+-\d+-\d+[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s\d+/\d+/[^"]+)' % rurl, after="prev"))
-    help = 'Index format: yyyy/dd/stripname'
 
 
 class HorribleVille(_BasicScraper):

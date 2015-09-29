@@ -17,7 +17,7 @@ import pydoc
 from io import StringIO
 from dosagelib import events, configuration, singleton, director
 from dosagelib.output import out
-from dosagelib.util import internal_error, strlimit, getLangName
+from dosagelib.util import internal_error, strlimit
 from dosagelib.ansicolor import get_columns
 
 
@@ -74,7 +74,10 @@ def setupOptions():
     parser.add_argument('-m', '--modulehelp', action='store_true', help='display help for comic modules')
     parser.add_argument('-t', '--timestamps', action='store_true', help='print timestamps for all output at any info level')
     parser.add_argument('-o', '--output', action='append', dest='handler', choices=events.getHandlerNames(), help='sets output handlers for downloaded comics')
+    parser.add_argument('--no-downscale', action='store_false', dest='allowdownscale', help='prevent downscaling when using html or rss handler')
+    parser.add_argument('-p', '--parallel', action='store', type=int, default=1, help='fetch comics in parallel. Specify the number of connections')
     parser.add_argument('--adult', action='store_true', help='confirms that you are old enough to view adult content')
+    parser.add_argument('--allow-multiple', action='store_true', help='allows multiple instances to run at the same time. Use if you know what you are doing.')
     # used for development testing prev/next matching
     parser.add_argument('--dry-run', action='store_true', help=argparse.SUPPRESS)
     # multimatch is only used for development, eg. testing if all comics of a scripted plugin are working
@@ -136,7 +139,7 @@ def displayHelp(options):
     """Print help for comic strips."""
     errors = 0
     try:
-        for scraperobj in director.getScrapers(options.comic, options.basepath):
+        for scraperobj in director.getScrapers(options.comic, options.basepath, listing=True):
             errors += displayComicHelp(scraperobj)
     except ValueError as msg:
         out.exception(msg)
@@ -145,17 +148,17 @@ def displayHelp(options):
 
 
 def displayComicHelp(scraperobj):
-    """Print description and help for a comic."""
+    """Print help for a comic."""
     orig_context = out.context
-    out.context = getScraperName(scraperobj)
+    out.context = scraperobj.getName()
     try:
         out.info(u"URL: " + scraperobj.url)
-        if scraperobj.description:
-            out.info(u"Description: " + scraperobj.description)
-        if scraperobj.lang:
-            out.info(u"Language: " + getLangName(scraperobj.lang))
-        if scraperobj.genres:
-            out.info(u"Genres: " + ", ".join(scraperobj.genres))
+        out.info(u"Language: " + scraperobj.language())
+        if scraperobj.adult:
+            out.info(u"Adult comic, use option --adult to fetch.")
+        disabled = scraperobj.getDisabledReasons()
+        if disabled:
+            out.info(u"Disabled: " + " ".join(disabled.values()))
         if scraperobj.help:
             for line in scraperobj.help.splitlines():
                 out.info(line)
@@ -183,7 +186,7 @@ def voteComic(scraperobj):
     """Vote for given comic scraper."""
     errors = 0
     orig_context = out.context
-    out.context = getScraperName(scraperobj)
+    out.context = scraperobj.getName()
     try:
         name = scraperobj.getName()
         answer = scraperobj.vote()
@@ -209,7 +212,8 @@ def run(options):
     """Execute comic commands."""
     setOutputInfo(options)
     # ensure only one instance of dosage is running
-    me = singleton.SingleInstance()
+    if not options.allow_multiple:
+        me = singleton.SingleInstance()
     if options.version:
         return displayVersion(options.verbose)
     if options.list:
@@ -239,12 +243,17 @@ def doList(columnList=True, verbose=False):
         out.info(u'Available comic scrapers:')
         out.info(u'Comics tagged with [%s] require age confirmation with the --adult option.' % TAG_ADULT)
         out.info(u'Non-english comics are tagged with [%s].' % TAG_LANG)
-        scrapers = sorted(director.getAllScrapers(), key=lambda s: s.getName())
+        scrapers = sorted(director.getAllScrapers(listing=True), key=lambda s: s.getName())
         if columnList:
-            num = doColumnList(scrapers)
+            num, disabled = doColumnList(scrapers)
         else:
-            num = doSingleList(scrapers, verbose=verbose)
+            num, disabled = doSingleList(scrapers, verbose=verbose)
         out.info(u'%d supported comics.' % num)
+        if disabled:
+            out.info('')
+            out.info(u'Some comics are disabled, they are tagged with [%s:REASON], where REASON is one of:' % TAG_DISABLED)
+            for k in disabled:
+                out.info(u'  %-10s %s' % (k, disabled[k]))
         if page:
             pydoc.pager(fd.getvalue())
         return 0
@@ -254,38 +263,46 @@ def doList(columnList=True, verbose=False):
 
 def doSingleList(scrapers, verbose=False):
     """Get list of scraper names, one per line."""
+    disabled = {}
     for num, scraperobj in enumerate(scrapers):
         if verbose:
             displayComicHelp(scraperobj)
         else:
-            out.info(getScraperName(scraperobj))
-    return num
+            out.info(getTaggedScraperName(scraperobj, reasons=disabled))
+    return num, disabled
 
 
 def doColumnList(scrapers):
     """Get list of scraper names with multiple names per line."""
+    disabled = {}
     screenWidth = get_columns(sys.stdout)
     # limit name length so at least two columns are there
     limit = (screenWidth // 2) - 8
-    names = [getScraperName(scraperobj, limit=limit) for scraperobj in scrapers]
+    names = [getTaggedScraperName(scraperobj, limit=limit, reasons=disabled) for scraperobj in scrapers]
     num = len(names)
     maxlen = max(len(name) for name in names)
     namesPerLine = max(screenWidth // (maxlen + 1), 1)
     while names:
         out.info(u''.join(name.ljust(maxlen) for name in names[:namesPerLine]))
         del names[:namesPerLine]
-    return num
+    return num, disabled
 
 TAG_ADULT = "adult"
 TAG_LANG = "lang"
+TAG_DISABLED = "dis"
 
-def getScraperName(scraperobj, limit=None):
+def getTaggedScraperName(scraperobj, limit=None, reasons=None):
     """Get comic scraper name."""
     tags = []
     if scraperobj.adult:
         tags.append(TAG_ADULT)
     if scraperobj.lang != "en":
         tags.append("%s:%s" % (TAG_LANG, scraperobj.lang))
+    disabled = scraperobj.getDisabledReasons()
+    if disabled and reasons is not None:
+        reasons.update(disabled)
+    for reason in disabled:
+        tags.append("%s:%s" % (TAG_DISABLED, reason))
     if tags:
         suffix = " [" + ", ".join(tags) + "]"
     else:

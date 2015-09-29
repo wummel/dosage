@@ -2,3 +2,6 @@
 requests
 # optional:
 argcomplete
+lxml
+cssselect
+Pillow

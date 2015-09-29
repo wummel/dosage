@@ -4,7 +4,7 @@
 
 from re import compile, escape, IGNORECASE
 
-from ..scraper import _BasicScraper
+from ..scraper import _BasicScraper, _ParserScraper
 from ..util import tagre
 
 
@@ -24,6 +24,16 @@ class MadamAndEve(_BasicScraper):
     multipleImagesPerStrip = True
 
 
+class Magellan(_ParserScraper):
+    description = u'A comic strip about Superheroes and Not-Superheroes'
+    url = 'http://magellanverse.com/'
+    stripUrl = url + '%s/'
+    css = True
+    imageSearch = '#comic-1 > a:first-child img'
+    prevSearch = '.nav-previous > a'
+    help = 'Index format: stripname'
+
+	
 class MagickChicks(_BasicScraper):
     url = 'http://www.magickchicks.com/'
     stripUrl = url + 'strips-mc/%s'
@@ -33,15 +43,23 @@ class MagickChicks(_BasicScraper):
     help = 'Index format: name'
 
 
-class ManlyGuysDoingManlyThings(_BasicScraper):
-    description = u'Manly Guys Doing Manly Things \xbb Updated Mondays or whenever I feel like it'
+class ManlyGuysDoingManlyThings(_ParserScraper):
     url = 'http://thepunchlineismachismo.com/'
-    rurl = escape(url)
     stripUrl = url + 'archives/comic/%s'
     firstStripUrl = stripUrl % '02222010'
-    imageSearch = compile(tagre("img", "src", r'(%swp-content/uploads/\d+/\d+/\d+-\d+-\d+[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%sarchives/comic/[^"]+)' % rurl, after="previous"))
+    css = True
+    imageSearch = "#comic img"
+    prevSearch = ".comic-nav-previous"
     help = 'Index format: ddmmyyyy'
+
+
+class MareInternum(_ParserScraper):
+    description = u'Mare Internum is an online science fiction graphic novel about the isolated inhabitants of the planet Mars. '
+    url = 'http://marecomic.com/'
+    stripUrl = url + 'comics/ch%s'
+    imageSearch = '//div[@id="comic"]//img'
+    prevSearch = '//a[@class="comic-nav-base comic-nav-previous"]'
+    help = 'Index format: <chapter>-page-<pagenum>'
 
 
 class Marilith(_BasicScraper):
@@ -54,7 +72,6 @@ class Marilith(_BasicScraper):
 
 
 class MarriedToTheSea(_BasicScraper):
-    description = u'comics by Drew & Natalie Dee - Updates daily at midnight'
     url = 'http://www.marriedtothesea.com/'
     rurl = escape(url)
     stripUrl = url + '%s'
@@ -68,14 +85,13 @@ class MarriedToTheSea(_BasicScraper):
         unused, date, filename = imageUrl.rsplit('/', 2)
         return '%s-%s' % (date, filename)
 
-
-class Meek(_BasicScraper):
-    url = 'http://www.meekcomic.com/'
-    stripUrl = url + '%s'
-    firstStripUrl = stripUrl % '2008/12/27/chapter-1-cover '
-    imageSearch = compile(r'meekcomic.com(/comics/.+?)"')
-    prevSearch = compile(r'\s.+?(http://www.meekcomic.com/.+?)".+?Previous<')
-    help = 'Index format: yyyy/mm/dd/ch-p/'
+class MaxOveracts(_ParserScraper):
+    url = 'http://occasionalcomics.com/'
+    stripUrl = url + '%s/'
+    css = True
+    imageSearch = '#comic img'
+    prevSearch = '.nav-previous > a'
+    help = 'Index format: nnn'
 
 
 class MegaTokyo(_BasicScraper):
@@ -87,16 +103,6 @@ class MegaTokyo(_BasicScraper):
     help = 'Index format: nnnn'
 
 
-class Meiosis(_BasicScraper):
-    url = 'http://meiosiswebcomic.com/'
-    rurl = escape(url)
-    stripUrl = url + '%s/'
-    firstStripUrl = stripUrl % '2006/10/10142006'
-    imageSearch = compile(tagre("img", "src", r'(%scomics/[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s[^"]+)' % rurl, after="navi-prev"))
-    help = 'Index format: yyyy/mm/ddmmyyyy'
-
-
 class MenageA3(_BasicScraper):
     adult = True
     url = 'http://www.ma3comic.com/'
@@ -104,17 +110,6 @@ class MenageA3(_BasicScraper):
     imageSearch = compile(tagre("img", "src", r'([^"]*/comics/[^"]+)'))
     prevSearch = compile(tagre("a", "href", r'([^"]*/strips-ma3/[^"]+)', before="cn[id]prev"))
     help = 'Index format: name'
-
-
-class Melonpool(_BasicScraper):
-    description = u"Star Trek Meets Gilligan's Island"
-    url = 'http://www.melonpool.com/'
-    rurl = escape(url)
-    stripUrl = url + '?p=%s'
-    firstStripUrl = stripUrl % '41'
-    imageSearch = compile(tagre("img", "src", r'(%scomics/[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s\?p=\d+)' % rurl, after="prev"))
-    help = 'Index format: n'
 
 
 class Misfile(_BasicScraper):
@@ -126,8 +121,15 @@ class Misfile(_BasicScraper):
     help = 'Index format: yyyy-mm-dd'
 
 
+class Moonsticks(_ParserScraper):
+    url = "http://moonsticks.org/"
+    stripUrl = url
+    imageSearch = "//div[@class='entry']//img"
+    prevSearch = u"//a[text()='« Previous']"
+    help = 'Index format: stripname'
+
+
 class MonsieurLeChien(_BasicScraper):
-    description = u'Le blog de Monsieur le Chien, rÃ©flexions vaines et assertions sans fondements d\'un contribuable moyen.'
     url = 'http://www.monsieur-le-chien.fr/'
     stripUrl = url + 'index.php?planche=%s'
     firstStripUrl = stripUrl % '2'
@@ -166,11 +168,8 @@ class MyCartoons(_BasicScraper):
     lang = 'de'
 
 
-class MysteriesOfTheArcana(_BasicScraper):
+class MysteriesOfTheArcana(_ParserScraper):
     url = 'http://mysteriesofthearcana.com/'
-    rurl = escape(url)
-    stripUrl = url + 'index.php?action=comics&cid=%s'
-    firstStripUrl = stripUrl % '1'
-    imageSearch = compile(tagre("img", "src", r'(%simage\.php\?type=com&i=[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(/index\.php[^"]+)', after="navprevious"))
+    imageSearch = '//div[@id="comic"]//img'
+    prevSearch = '//a[@class="navprevious"]'
     help = 'Index format: n (unpadded)'

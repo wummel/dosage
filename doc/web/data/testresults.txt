@@ -1,0 +1,2748 @@
+. tests/test_comicnames.py::TestComicNames::test_names
+. tests/test_comics.py::TestViiviJaWagner::test_comic
+. tests/test_comics.py::TestGoComics_StrangeBrew::test_comic
+. tests/test_comics.py::TestComicGenesis_Flounderville::test_comic
+. tests/test_comics.py::TestSmackJeeves_Lifeonpaper::test_comic
+. tests/test_comics.py::TestComicFury_ArachnidGoddess::test_comic
+. tests/test_comics.py::TestSmackJeeves_LOKI::test_comic
+. tests/test_comics.py::TestDamnLol::test_comic
+. tests/test_comics.py::TestComicFury_Angryfaerie::test_comic
+. tests/test_comics.py::TestComicFury_Nojetpack::test_comic
+. tests/test_comics.py::TestSmackJeeves_BlueYonder::test_comic
+F tests/test_comics.py::TestSmackJeeves_Codearth::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:48: in _starter
+ >       data, baseUrl = getPageContent(url1, cls.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://codearth.smackjeeves.com/comics/ failed: 404 Client Error
+. tests/test_comics.py::TestSmackJeeves_Ingloriousbasterds::test_comic
+F tests/test_comics.py::TestSmackJeeves_EvilPlan::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SmackJeeves/EvilPlan http://evilplan.thewebcomic.com/comics/1879245/chapter-12-page-12-looks-like-you-smudged-it/ Traversed 4 strips instead of 5. Check the prevSearch pattern at http://evilplan.thewebcomic.com/comics/1862770/chapter-12-page-9-the-big-time/
+. tests/test_comics.py::TestSmackJeeves_GayBacon::test_comic
+. tests/test_comics.py::TestGoComics_BoundandGagged::test_comic
+. tests/test_comics.py::TestSmackJeeves_AGirlAndHerShadow::test_comic
+. tests/test_comics.py::TestWebcomicsNation_AgnesQuill::test_comic
+F tests/test_comics.py::TestAxeCop::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/helpers.py:34: in _starter
+ >       url1 = fetchUrl(url, data, baseUrl, cls.prevSearch)
+ dosagelib/util.py:251: in fetchUrl
+ >       return fetchUrls(url, data, baseUrl, urlSearch)[0]
+ dosagelib/util.py:245: in fetchUrls
+ >           raise ValueError("Patterns %s not found at URL %s." % (patterns, url))
+ E           ValueError: Patterns ['<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"(http\\:\\/\\/axecop\\.com\\/comic/[^"]+/)"[^>]*nav-prev[^>]*>'] not found at URL http://axecop.com/.
+F tests/test_comics.py::TestSmackJeeves_SlashMaximum::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SmackJeeves/SlashMaximum http://slashmanga.smackjeeves.com/comics/1829344/page-1-2/ Traversed 4 strips instead of 5. Check the prevSearch pattern at http://slashmanga.smackjeeves.com/comics/1829340/page18/
+. tests/test_comics.py::TestSmackJeeves_Behindtheglasscurtain::test_comic
+. tests/test_comics.py::TestHagarTheHorrible::test_comic
+. tests/test_comics.py::TestComicFury_Doublejump::test_comic
+. tests/test_comics.py::TestComicGenesis_DoodleDiaries::test_comic
+. tests/test_comics.py::TestNoNeedForBushido::test_comic
+. tests/test_comics.py::TestSmackJeeves_UnicampaLapis::test_comic
+. tests/test_comics.py::TestGoComics_ViewsAfrica::test_comic
+. tests/test_comics.py::TestComicFury_RumfAdventures::test_comic
+. tests/test_comics.py::TestComicGenesis_LabBratz::test_comic
+. tests/test_comics.py::TestGoComics_ScaryGary::test_comic
+F tests/test_comics.py::TestSmackJeeves_MorphE::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:49: in _starter
+ >       url2 = fetchUrl(url1, data, baseUrl, cls.prevSearch)
+ dosagelib/util.py:251: in fetchUrl
+ >       return fetchUrls(url, data, baseUrl, urlSearch)[0]
+ dosagelib/util.py:245: in fetchUrls
+ >           raise ValueError("Patterns %s not found at URL %s." % (patterns, url))
+ E           ValueError: Patterns ['<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>(?:<img[^>]+alt="[^"]*[pP][rR][eE][vV]|<img[^>]+(?:button_previous|naviButtons_Previous|nav_prev4|prev|previous|webbuttonback|PrevArrow)\\.|[^<]*[bB][aA][cC][kK]|\\s*<<? (?:[bB][aA][cC][kK]|[pP][rR][eE][vV])|[^<]*[pP][rR][eE][vV])', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>[^<]*Atras<', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/(?:backrg|JZj4a3C|b5175a677Zd6b)\\.png"[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*\'[^\']+/(?:backnav)\\.png\'[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>\\s*<\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/prev\\.jpg"[^>]*[^>]*>'] not found at URL http://morphe.thewebcomic.com/comics/.
+. tests/test_comics.py::TestOddFish::test_comic
+. tests/test_comics.py::TestSmackJeeves_AtArmsLength::test_comic
+. tests/test_comics.py::TestSmackJeeves_ShapeshifterAtaleyetuntold::test_comic
+. tests/test_comics.py::TestBiggerThanCheeses::test_comic
+. tests/test_comics.py::TestGoComics_PetFood::test_comic
+. tests/test_comics.py::TestSmackJeeves_KirbiesoftheAlternateDimension::test_comic
+. tests/test_comics.py::TestComicFury_Residentweirdo::test_comic
+. tests/test_comics.py::TestComicFury_Dead::test_comic
+. tests/test_comics.py::TestComicFury_HIRI::test_comic
+. tests/test_comics.py::TestChester5000XYV::test_comic
+. tests/test_comics.py::TestGoComics_DiamondLil::test_comic
+. tests/test_comics.py::TestComicFury_Isonacia::test_comic
+. tests/test_comics.py::TestBrentalFlossFit::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheMitchellEffect::test_comic
+. tests/test_comics.py::TestArcamax_BabyBlues::test_comic
+. tests/test_comics.py::TestStandStillStaySilent::test_comic
+. tests/test_comics.py::TestGoComics_JenSorensen::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheJosephComics::test_comic
+. tests/test_comics.py::TestSmackJeeves_9ChancesforLove::test_comic
+. tests/test_comics.py::TestEllerbisms::test_comic
+. tests/test_comics.py::TestSmackJeeves_ERRORERROR::test_comic
+. tests/test_comics.py::TestGoComics_InkPen::test_comic
+F tests/test_comics.py::TestComicGenesis_CryHavoc::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:85: in _test_comic
+ >               self.save(image)
+ tests/test_comics.py:131: in save
+ >           self.check(False, 'could not save %s at %s to %s: %s' % (image.url, image.referrer, self.tmpdir, msg))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: ComicGenesis/CryHavoc http://cryhavoc.comicgenesis.com/ could not save http://cryhavoc.comicgenesis.com/comics/20110328.jpg at http://cryhavoc.comicgenesis.com/ to /tmp/tmpqc7N2H: URL retrieval of http://cryhavoc.comicgenesis.com/comics/20110328.jpg failed: 404 Client Error
+. tests/test_comics.py::TestAntics::test_comic
+. tests/test_comics.py::TestGoComics_BloomCounty::test_comic
+. tests/test_comics.py::TestComicGenesis_Laserwing::test_comic
+. tests/test_comics.py::TestComicGenesis_LumiasKingdom::test_comic
+. tests/test_comics.py::TestGoComics_HalfFull::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheDump::test_comic
+. tests/test_comics.py::TestGoComics_TheOtherCoast::test_comic
+. tests/test_comics.py::TestGoComics_ForBetterorForWorse::test_comic
+. tests/test_comics.py::TestSmackJeeves_SeriousTimes::test_comic
+. tests/test_comics.py::TestSmackJeeves_PokemonMysteryDungeonAdventurersofLight::test_comic
+. tests/test_comics.py::TestPiledHigherAndDeeper::test_comic
+. tests/test_comics.py::TestSmackJeeves_TEN::test_comic
+. tests/test_comics.py::TestCreators_HopeAndDeath::test_comic
+. tests/test_comics.py::TestGoComics_Think::test_comic
+. tests/test_comics.py::TestGoComics_RogueSymmetry::test_comic
+. tests/test_comics.py::TestComicGenesis_TemplarArizona::test_comic
+. tests/test_comics.py::TestDilbert::test_comic
+. tests/test_comics.py::TestMeek::test_comic
+. tests/test_comics.py::TestGoComics_UncleArtsFunland::test_comic
+. tests/test_comics.py::TestGoComics_RobbieandBobby::test_comic
+. tests/test_comics.py::TestSmackJeeves_GuardiansoftheGalaxialSpaceways::test_comic
+. tests/test_comics.py::TestCreators_Recess::test_comic
+. tests/test_comics.py::TestFirstWorldProblems::test_comic
+. tests/test_comics.py::TestSmackJeeves_ScrappedProject::test_comic
+. tests/test_comics.py::TestSmackJeeves_Troublenextdoor::test_comic
+. tests/test_comics.py::TestComicGenesis_KungFounded::test_comic
+. tests/test_comics.py::TestAlienShores::test_comic
+. tests/test_comics.py::TestSmackJeeves_Dasien::test_comic
+. tests/test_comics.py::TestForLackOfABetterComic::test_comic
+. tests/test_comics.py::TestGoComics_HerbandJamaal::test_comic
+. tests/test_comics.py::TestGoComics_ShirleyandSonClassics::test_comic
+. tests/test_comics.py::TestGoComics_RonWarren::test_comic
+F tests/test_comics.py::TestComicFury_Maddog::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/helpers.py:33: in _starter
+ >       data, baseUrl = getPageContent(url, cls.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://maddog.webcomic.ws/ failed: Request timed out.
+. tests/test_comics.py::TestKatzenfutterGeleespritzer::test_comic
+. tests/test_comics.py::TestGoComics_FMinus::test_comic
+. tests/test_comics.py::TestComicGenesis_RandomAxeOfKindness::test_comic
+F tests/test_comics.py::TestComicFury_Drifting::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/helpers.py:33: in _starter
+ >       data, baseUrl = getPageContent(url, cls.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://Drifting.webcomic.ws/ failed: Request timed out.
+. tests/test_comics.py::TestSmackJeeves_GhostsTaleACrossover::test_comic
+. tests/test_comics.py::TestGoComics_GreenPieces::test_comic
+. tests/test_comics.py::TestSmackJeeves_RuderiQuest::test_comic
+. tests/test_comics.py::TestSmackJeeves_QueerQueen::test_comic
+. tests/test_comics.py::TestAlsoBagels::test_comic
+. tests/test_comics.py::TestGoComics_TheGoldenKid::test_comic
+. tests/test_comics.py::TestCreators_MickeyMouse::test_comic
+F tests/test_comics.py::TestComicFury_Dictatorship::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:81: in _test_comic
+ >       for strip in scraperobj.getStrips(max_strips):
+ dosagelib/scraper.py:155: in getStrips
+ >           for strip in self.getStripsFor(url, maxstrips):
+ dosagelib/scraper.py:165: in getStripsFor
+ >           data, baseUrl = getPageContent(url, self.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://dictatorship.webcomic.ws/comics/122 failed: Request timed out.
+F tests/test_comics.py::TestComicFury_Jamiejupiter::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/helpers.py:33: in _starter
+ >       data, baseUrl = getPageContent(url, cls.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://jamiejupiter.webcomic.ws/ failed: Request timed out.
+. tests/test_comics.py::TestCaptainSNES::test_comic
+. tests/test_comics.py::TestComicGenesis_BlindSight::test_comic
+. tests/test_comics.py::TestSpaceTrawler::test_comic
+. tests/test_comics.py::TestSmackJeeves_CafeSuada::test_comic
+. tests/test_comics.py::TestArcamax_Blondie::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheLifeofMagFlamequill::test_comic
+. tests/test_comics.py::TestSmackJeeves_AddictiveScience::test_comic
+. tests/test_comics.py::TestCowboyJedi::test_comic
+. tests/test_comics.py::TestGoComics_PhilHands::test_comic
+F tests/test_comics.py::TestGoComics_Inkytown::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:90: in _test_comic
+ >               self.check_stripurl(strip)
+ tests/test_comics.py:125: in check_stripurl
+ >       self.check(mo is not None, 'strip URL %r does not match stripUrl pattern %s' % (strip.stripUrl, urlmatch))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: GoComics/Inkytown http://www.gocomics.com/heavenly-nostrils/2014/01/18 strip URL u'http://www.gocomics.com/heavenly-nostrils/2014/01/17' does not match stripUrl pattern ^http\:\/\/www\.gocomics\.com\/inkytown\/.+$
+. tests/test_comics.py::TestJoeAndMonkey::test_comic
+. tests/test_comics.py::TestVGCatsSuper::test_comic
+. tests/test_comics.py::TestSmackJeeves_EvD::test_comic
+. tests/test_comics.py::TestZapComic::test_comic
+F tests/test_comics.py::TestSmackJeeves_TheLessThanEpicAdventuresofTJandAmal::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:49: in _starter
+ >       url2 = fetchUrl(url1, data, baseUrl, cls.prevSearch)
+ dosagelib/util.py:251: in fetchUrl
+ >       return fetchUrls(url, data, baseUrl, urlSearch)[0]
+ dosagelib/util.py:245: in fetchUrls
+ >           raise ValueError("Patterns %s not found at URL %s." % (patterns, url))
+ E           ValueError: Patterns ['<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>(?:<img[^>]+alt="[^"]*[pP][rR][eE][vV]|<img[^>]+(?:button_previous|naviButtons_Previous|nav_prev4|prev|previous|webbuttonback|PrevArrow)\\.|[^<]*[bB][aA][cC][kK]|\\s*<<? (?:[bB][aA][cC][kK]|[pP][rR][eE][vV])|[^<]*[pP][rR][eE][vV])', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>[^<]*Atras<', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/(?:backrg|JZj4a3C|b5175a677Zd6b)\\.png"[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*\'[^\']+/(?:backnav)\\.png\'[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>\\s*<\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/prev\\.jpg"[^>]*[^>]*>'] not found at URL http://www.smackjeeves.com/mature.php?ref=http%3A//tjandamal.smackjeeves.com/comics/.
+. tests/test_comics.py::TestSmackJeeves_LetsBreakitforReals::test_comic
+. tests/test_comics.py::TestGoComics_DudeandDude::test_comic
+. tests/test_comics.py::TestSmackJeeves_FalconersDailyStrips::test_comic
+. tests/test_comics.py::TestSmackJeeves_BettencourtHotel::test_comic
+. tests/test_comics.py::TestSmackJeeves_Glasshearts::test_comic
+. tests/test_comics.py::TestGoComics_Cleats::test_comic
+. tests/test_comics.py::TestAchewood::test_comic
+. tests/test_comics.py::TestGoComics_AskShagg::test_comic
+. tests/test_comics.py::TestGoComics_CafconLeche::test_comic
+. tests/test_comics.py::TestLittleGamers::test_comic
+. tests/test_comics.py::TestSmackJeeves_Animayhem::test_comic
+. tests/test_comics.py::TestCraftedFables::test_comic
+. tests/test_comics.py::TestGoComics_Hbenson7::test_comic
+. tests/test_comics.py::TestSmackJeeves_Bl3::test_comic
+. tests/test_comics.py::TestGoComics_ScairyTalesthenotsoscaryfairytales::test_comic
+F tests/test_comics.py::TestComicFury_ProjectGTH::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/helpers.py:33: in _starter
+ >       data, baseUrl = getPageContent(url, cls.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://ProjectGTH.webcomic.ws/ failed: Request timed out.
+. tests/test_comics.py::TestGoComics_DoodleDaysComics::test_comic
+. tests/test_comics.py::TestSmackJeeves_Spellcross::test_comic
+. tests/test_comics.py::TestNnewts::test_comic
+F tests/test_comics.py::TestKeenSpot_Skullkickers::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: KeenSpot/Skullkickers http://skullkickers.keenspot.com/ Traversed 1 strips instead of 5. Check the prevSearch pattern at http://skullkickers.keenspot.com/
+. tests/test_comics.py::TestGoComics_PricklyCity::test_comic
+. tests/test_comics.py::TestComicGenesis_NightwolfCentral::test_comic
+. tests/test_comics.py::TestGoComics_GoComicsontheRoad::test_comic
+. tests/test_comics.py::TestSnowFlame::test_comic
+. tests/test_comics.py::TestRedsPlanet::test_comic
+. tests/test_comics.py::TestComicFury_ChopKeemi::test_comic
+. tests/test_comics.py::TestGoComics_McArroni::test_comic
+F tests/test_comics.py::TestSmackJeeves_FairyTaleRejects::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:49: in _starter
+ >       url2 = fetchUrl(url1, data, baseUrl, cls.prevSearch)
+ dosagelib/util.py:251: in fetchUrl
+ >       return fetchUrls(url, data, baseUrl, urlSearch)[0]
+ dosagelib/util.py:245: in fetchUrls
+ >           raise ValueError("Patterns %s not found at URL %s." % (patterns, url))
+ E           ValueError: Patterns ['<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>(?:<img[^>]+alt="[^"]*[pP][rR][eE][vV]|<img[^>]+(?:button_previous|naviButtons_Previous|nav_prev4|prev|previous|webbuttonback|PrevArrow)\\.|[^<]*[bB][aA][cC][kK]|\\s*<<? (?:[bB][aA][cC][kK]|[pP][rR][eE][vV])|[^<]*[pP][rR][eE][vV])', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>[^<]*Atras<', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/(?:backrg|JZj4a3C|b5175a677Zd6b)\\.png"[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*\'[^\']+/(?:backnav)\\.png\'[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>\\s*<\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/prev\\.jpg"[^>]*[^>]*>'] not found at URL http://www.smackjeeves.com/mature.php?ref=http%3A//fairytalerejects.thewebcomic.com/comics/.
+. tests/test_comics.py::TestComicFury_Applepine::test_comic
+. tests/test_comics.py::TestSmackJeeves_Knife::test_comic
+. tests/test_comics.py::TestGoComics_HolySchnark::test_comic
+. tests/test_comics.py::TestGoComics_PreTeena::test_comic
+. tests/test_comics.py::TestComicFury_PobrePucho::test_comic
+. tests/test_comics.py::TestSmackJeeves_MyTrollLife::test_comic
+. tests/test_comics.py::TestComicFury_Asperchu::test_comic
+. tests/test_comics.py::TestWLP_ChocolateMilkMaid::test_comic
+. tests/test_comics.py::TestSmackJeeves_ThePropertyofHate::test_comic
+. tests/test_comics.py::TestARedTailsDream::test_comic
+. tests/test_comics.py::TestFootloose::test_comic
+. tests/test_comics.py::TestSmackJeeves_Itsan8BitWorldBlankWorld::test_comic
+. tests/test_comics.py::TestFalconTwin::test_comic
+. tests/test_comics.py::TestPetiteSymphony_Knuckleup::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheTalesofSerendipity::test_comic
+. tests/test_comics.py::TestComicGenesis_MenschunsererZeitGerman::test_comic
+. tests/test_comics.py::TestFunInJammies::test_comic
+. tests/test_comics.py::TestSmackJeeves_NIGHTSHADETHEMERRYWIDOW::test_comic
+. tests/test_comics.py::TestComicFury_Knavesend::test_comic
+. tests/test_comics.py::TestGoComics_FrankAndErnest::test_comic
+. tests/test_comics.py::TestComicFury_GrippsBrain::test_comic
+. tests/test_comics.py::TestGoComics_ZacharyNixonJohnson::test_comic
+. tests/test_comics.py::TestSmackJeeves_DenizensAttention::test_comic
+. tests/test_comics.py::TestComicFury_Sscomic::test_comic
+. tests/test_comics.py::TestSmackJeeves_KirbyFunfestTheOriginals::test_comic
+. tests/test_comics.py::TestSmackJeeves_MelodyAndMacabre::test_comic
+. tests/test_comics.py::TestKeenSpot_GodMode::test_comic
+. tests/test_comics.py::TestComicGenesis_ThePath::test_comic
+. tests/test_comics.py::TestComicFury_Moths::test_comic
+. tests/test_comics.py::TestOctopusPie::test_comic
+. tests/test_comics.py::TestSmackJeeves_PokemonSAKOHJU::test_comic
+. tests/test_comics.py::TestSmackJeeves_AskAltair::test_comic
+. tests/test_comics.py::TestGoComics_KevinKallaugher::test_comic
+. tests/test_comics.py::TestSabrinaOnline::test_comic
+. tests/test_comics.py::TestStarCrossdDestiny::test_comic
+. tests/test_comics.py::TestComicFury_Remedy::test_comic
+. tests/test_comics.py::TestCheckerboardNightmare::test_comic
+. tests/test_comics.py::TestGoComics_Trivquiz::test_comic
+. tests/test_comics.py::TestGunnerkrigCourt::test_comic
+. tests/test_comics.py::TestGoComics_TheLilMiesters::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheZeroSpriteTestgrounds::test_comic
+. tests/test_comics.py::TestGoComics_MikeThompson::test_comic
+. tests/test_comics.py::TestGoComics_TheGrizzwells::test_comic
+. tests/test_comics.py::TestExiern::test_comic
+. tests/test_comics.py::TestGoComics_StoneSoup::test_comic
+. tests/test_comics.py::TestPvPonline::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheTimeDog::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheProtector::test_comic
+. tests/test_comics.py::TestComicFury_Dierabbitdie::test_comic
+. tests/test_comics.py::TestSmackJeeves_12years::test_comic
+F tests/test_comics.py::TestAbstruseGoose::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/helpers.py:34: in _starter
+ >       url1 = fetchUrl(url, data, baseUrl, cls.prevSearch)
+ dosagelib/util.py:251: in fetchUrl
+ >       return fetchUrls(url, data, baseUrl, urlSearch)[0]
+ dosagelib/util.py:245: in fetchUrls
+ >           raise ValueError("Patterns %s not found at URL %s." % (patterns, url))
+ E           ValueError: Patterns ['<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"(http\\:\\/\\/www\\.abstrusegoose\\.com\\/\\d+)"[^>]*[^>]*>&laquo; Previous</a>'] not found at URL http://www.abstrusegoose.com/.
+. tests/test_comics.py::TestGoComics_BreakofDay::test_comic
+. tests/test_comics.py::TestComicFury_SeeYourFeels::test_comic
+. tests/test_comics.py::TestGoComics_Pibgorn::test_comic
+. tests/test_comics.py::TestComicFury_AnK::test_comic
+. tests/test_comics.py::TestComicFury_Poussiere::test_comic
+. tests/test_comics.py::TestSmackJeeves_BioRevelation::test_comic
+. tests/test_comics.py::TestGoComics_HoodootheUnwiseOwl::test_comic
+. tests/test_comics.py::TestCrimsonDark::test_comic
+. tests/test_comics.py::TestComicFury_Spacepirates::test_comic
+. tests/test_comics.py::TestSmackJeeves_NixsFireRedNuzlocke::test_comic
+. tests/test_comics.py::TestSmackJeeves_DeadFingers::test_comic
+. tests/test_comics.py::TestSmackJeeves_SoManyProblems::test_comic
+. tests/test_comics.py::TestGoComics_TheBentPinky::test_comic
+. tests/test_comics.py::TestComicFury_Littleblackdress::test_comic
+. tests/test_comics.py::TestGoComics_AlisonWard::test_comic
+. tests/test_comics.py::TestDasLebenIstKeinPonyhof::test_comic
+. tests/test_comics.py::TestNedroid::test_comic
+. tests/test_comics.py::TestSmackJeeves_Pause::test_comic
+. tests/test_comics.py::TestComicFury_Abrickishspacecomic::test_comic
+. tests/test_comics.py::TestComicFury_Doffeellende::test_comic
+. tests/test_comics.py::TestKeenSpot_WICKEDPOWERED::test_comic
+. tests/test_comics.py::TestComicFury_Mildlyamusing::test_comic
+. tests/test_comics.py::TestGoComics_ReplyAll::test_comic
+. tests/test_comics.py::TestSmackJeeves_SurvivorFanCharacters::test_comic
+. tests/test_comics.py::TestExtraLife::test_comic
+. tests/test_comics.py::TestSmackJeeves_ShiteWeveHeardBefore::test_comic
+F tests/test_comics.py::TestGoComics_GIRTH::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:90: in _test_comic
+ >               self.check_stripurl(strip)
+ tests/test_comics.py:125: in check_stripurl
+ >       self.check(mo is not None, 'strip URL %r does not match stripUrl pattern %s' % (strip.stripUrl, urlmatch))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: GoComics/GIRTH http://www.gocomics.com/heavenly-nostrils/2014/01/18 strip URL u'http://www.gocomics.com/heavenly-nostrils/2014/01/17' does not match stripUrl pattern ^http\:\/\/www\.gocomics\.com\/\-\-G\-I\-R\-T\-H\-\-\/.+$
+. tests/test_comics.py::TestGoComics_SouptoNutz::test_comic
+. tests/test_comics.py::TestComicFury_MoizmadComix::test_comic
+. tests/test_comics.py::TestComicFury_Awkwardshelby::test_comic
+. tests/test_comics.py::TestSmackJeeves_ConventionalWisdom::test_comic
+. tests/test_comics.py::TestGoComics_SigneWilkinson::test_comic
+. tests/test_comics.py::TestComicFury_ChristianHumberReloaded::test_comic
+. tests/test_comics.py::TestComicFury_Foxtales::test_comic
+. tests/test_comics.py::TestSmackJeeves_Itsahardlife::test_comic
+. tests/test_comics.py::TestSmackJeeves_KirbyAdventure::test_comic
+. tests/test_comics.py::TestSmackJeeves_LedbyaMadMan::test_comic
+. tests/test_comics.py::TestComicGenesis_Artwork::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheDarkAgeofMobius::test_comic
+. tests/test_comics.py::TestSmackJeeves_CaptiveSoul::test_comic
+. tests/test_comics.py::TestComicFury_RPS::test_comic
+. tests/test_comics.py::TestArcamax_BarneyGoogleAndSnuffySmith::test_comic
+. tests/test_comics.py::TestSmackJeeves_HDMTHCOMICS::test_comic
+. tests/test_comics.py::TestSmackJeeves_1cek1dsmuseumofreallycrazystuff::test_comic
+. tests/test_comics.py::TestAmya::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheSummerofBlakeSinclair::test_comic
+. tests/test_comics.py::TestBaroquen::test_comic
+. tests/test_comics.py::TestGoComics_ThatMonkeyTune::test_comic
+. tests/test_comics.py::TestGoComics_SoccerEarth::test_comic
+. tests/test_comics.py::TestSmackJeeves_ShacklesInstallment02::test_comic
+. tests/test_comics.py::TestArcamax_DennistheMenace::test_comic
+. tests/test_comics.py::TestGoComics_MikeLester::test_comic
+. tests/test_comics.py::TestOverCompensating::test_comic
+. tests/test_comics.py::TestGoComics_RedMeat::test_comic
+. tests/test_comics.py::TestGoComics_BarneyAndClyde::test_comic
+. tests/test_comics.py::TestGoComics_Putz::test_comic
+. tests/test_comics.py::TestCasuallyKayla::test_comic
+. tests/test_comics.py::TestSmackJeeves_SuperDimensionAfterTheHero::test_comic
+. tests/test_comics.py::TestGoComics_FreshlySqueezed::test_comic
+. tests/test_comics.py::TestGoComics_NoOrdinaryLife::test_comic
+. tests/test_comics.py::TestSmackJeeves_Debtsettlement::test_comic
+. tests/test_comics.py::TestKeenSpot_FriarAndBrimstone::test_comic
+. tests/test_comics.py::TestSmackJeeves_Dreamcatchers::test_comic
+. tests/test_comics.py::TestGoComics_LostSideofSuburbia::test_comic
+. tests/test_comics.py::TestSmackJeeves_TPRPManga::test_comic
+. tests/test_comics.py::TestSmackJeeves_CupofOlea::test_comic
+. tests/test_comics.py::TestGoComics_WaltHandelsman::test_comic
+. tests/test_comics.py::TestGoComics_TheHumbleStumble::test_comic
+. tests/test_comics.py::TestSmackJeeves_DEMENTED::test_comic
+. tests/test_comics.py::TestQwantz::test_comic
+. tests/test_comics.py::TestGoComics_AuntyAcid::test_comic
+. tests/test_comics.py::TestSmackJeeves_PokemonBeta::test_comic
+F tests/test_comics.py::TestChugworthAcademy::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: ChugworthAcademy http://chugworth.com/ Traversed 0 strips instead of 5.
+. tests/test_comics.py::TestGoComics_Frazz::test_comic
+. tests/test_comics.py::TestSmackJeeves_JewelCrisis::test_comic
+. tests/test_comics.py::TestGoComics_ThatsLife::test_comic
+. tests/test_comics.py::TestSmackJeeves_FierceConflict::test_comic
+. tests/test_comics.py::TestAppleGeeks::test_comic
+. tests/test_comics.py::TestSmackJeeves_Skeptical::test_comic
+. tests/test_comics.py::TestSmackJeeves_Mazscara::test_comic
+. tests/test_comics.py::TestGoComics_ThrompTM::test_comic
+. tests/test_comics.py::TestSmackJeeves_MobianChaos::test_comic
+. tests/test_comics.py::TestGoComics_JoeVanilla::test_comic
+. tests/test_comics.py::TestGoComics_Vernscartoons::test_comic
+. tests/test_comics.py::TestComicFury_Morningsquirtz::test_comic
+. tests/test_comics.py::TestGoneWithTheBlastwave::test_comic
+. tests/test_comics.py::TestGoComics_SpaceNutz::test_comic
+. tests/test_comics.py::TestSmackJeeves_BloomaPokemonConquestComic::test_comic
+. tests/test_comics.py::TestSmackJeeves_ForestHill::test_comic
+. tests/test_comics.py::TestTheOrderOfTheStick::test_comic
+. tests/test_comics.py::TestGoComics_NickandZuzu::test_comic
+. tests/test_comics.py::TestSmackJeeves_BeyondTheOrdinary::test_comic
+. tests/test_comics.py::TestSmackJeeves_SplitScreen::test_comic
+. tests/test_comics.py::TestComicFury_Kevinzombie::test_comic
+. tests/test_comics.py::TestComicFury_Spacefarmer::test_comic
+. tests/test_comics.py::TestComicFury_Lifeexplained::test_comic
+. tests/test_comics.py::TestSmackJeeves_ColorBlind::test_comic
+. tests/test_comics.py::TestSmackJeeves_HitandMiss::test_comic
+. tests/test_comics.py::TestGoComics_ThatNewCarlSmell::test_comic
+. tests/test_comics.py::TestComicFury_Rangerrandom::test_comic
+. tests/test_comics.py::TestSmackJeeves_HedgehogPieceANewEra::test_comic
+. tests/test_comics.py::TestComicGenesis_TheAdventuresofVindibuddSuperheroInTraining::test_comic
+F tests/test_comics.py::TestSmackJeeves_PokeVenturous::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SmackJeeves/PokeVenturous http://pokeventuras.smackjeeves.com/comics/1881161/5/ Traversed 4 strips instead of 5. Check the prevSearch pattern at http://pokeventuras.smackjeeves.com/comics/1871193/2/
+. tests/test_comics.py::TestGoComics_ViewsLatinAmerica::test_comic
+. tests/test_comics.py::TestComicFury_Requiemsgate::test_comic
+. tests/test_comics.py::TestLint::test_comic
+. tests/test_comics.py::TestSupernormalStep::test_comic
+. tests/test_comics.py::TestGoComics_MattDavies::test_comic
+F tests/test_comics.py::TestSmackJeeves_PokemonInsanityVersion::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:49: in _starter
+ >       url2 = fetchUrl(url1, data, baseUrl, cls.prevSearch)
+ dosagelib/util.py:251: in fetchUrl
+ >       return fetchUrls(url, data, baseUrl, urlSearch)[0]
+ dosagelib/util.py:245: in fetchUrls
+ >           raise ValueError("Patterns %s not found at URL %s." % (patterns, url))
+ E           ValueError: Patterns ['<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>(?:<img[^>]+alt="[^"]*[pP][rR][eE][vV]|<img[^>]+(?:button_previous|naviButtons_Previous|nav_prev4|prev|previous|webbuttonback|PrevArrow)\\.|[^<]*[bB][aA][cC][kK]|\\s*<<? (?:[bB][aA][cC][kK]|[pP][rR][eE][vV])|[^<]*[pP][rR][eE][vV])', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>[^<]*Atras<', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/(?:backrg|JZj4a3C|b5175a677Zd6b)\\.png"[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*\'[^\']+/(?:backnav)\\.png\'[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>\\s*<\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/prev\\.jpg"[^>]*[^>]*>'] not found at URL http://pokemoninsanityversion.smackjeeves.com/comics/.
+. tests/test_comics.py::TestSmackJeeves_BadLucktheQuestfortheCodPipe::test_comic
+. tests/test_comics.py::TestGoComics_JeffDanziger::test_comic
+. tests/test_comics.py::TestGoComics_TheCreeps::test_comic
+. tests/test_comics.py::TestGoComics_GrayMatters::test_comic
+. tests/test_comics.py::TestComicGenesis_SarahZero::test_comic
+. tests/test_comics.py::TestKeenSpot_Newshounds::test_comic
+. tests/test_comics.py::TestArcamax_MallardFillmore::test_comic
+. tests/test_comics.py::TestComicGenesis_SueosdelSur::test_comic
+. tests/test_comics.py::TestDrFun::test_comic
+. tests/test_comics.py::TestComicFury_Jenfferscartoonphotomanipulaion::test_comic
+. tests/test_comics.py::TestSmackJeeves_ThiefCatcherRingTail::test_comic
+. tests/test_comics.py::TestGoComics_Farcus::test_comic
+. tests/test_comics.py::TestSmackJeeves_GoodGame::test_comic
+. tests/test_comics.py::TestGoComics_GetFuzzy::test_comic
+. tests/test_comics.py::TestGoComics_Computoon::test_comic
+. tests/test_comics.py::TestComicFury_Organizedmess::test_comic
+. tests/test_comics.py::TestComicGenesis_DragonsBane::test_comic
+. tests/test_comics.py::TestSmackJeeves_PulseandBolt::test_comic
+. tests/test_comics.py::TestSmackJeeves_ChaosAdventuresII::test_comic
+. tests/test_comics.py::TestKeenSpot_Adventurers::test_comic
+. tests/test_comics.py::TestOurHomePlanet::test_comic
+. tests/test_comics.py::TestSmackJeeves_LostNova::test_comic
+. tests/test_comics.py::TestGoComics_GilThorp::test_comic
+. tests/test_comics.py::TestSmackJeeves_SallySprocketAndPistonPete::test_comic
+. tests/test_comics.py::TestComicFury_Copypasteandmrbenjy::test_comic
+. tests/test_comics.py::TestSmackJeeves_GoodnightMrsGoose::test_comic
+. tests/test_comics.py::TestSmackJeeves_ZaenWell::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheiaMania::test_comic
+. tests/test_comics.py::TestDieselSweeties::test_comic
+F tests/test_comics.py::TestNotInventedHere::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:90: in _test_comic
+ >               self.check_stripurl(strip)
+ tests/test_comics.py:125: in check_stripurl
+ >       self.check(mo is not None, 'strip URL %r does not match stripUrl pattern %s' % (strip.stripUrl, urlmatch))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: NotInventedHere http://notinventedhe.re/ strip URL u'http://notinventedhe.re/on/2014-1-14' does not match stripUrl pattern ^http\:\/\/notinventedhe\.re\/.+\/$
+. tests/test_comics.py::TestSmackJeeves_StellaInChrome::test_comic
+. tests/test_comics.py::TestSmackJeeves_AQuestionOfCharacter::test_comic
+. tests/test_comics.py::TestSandraAndWooGerman::test_comic
+. tests/test_comics.py::TestSmackJeeves_DefyingGravityTheFourGreatGuardians::test_comic
+F tests/test_comics.py::TestThunderAndLightning::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: ThunderAndLightning http://www.talcomic.com/wp/?latestcomic Traversed 0 strips instead of 5.
+. tests/test_comics.py::TestGoComics_ONIONAndPEA::test_comic
+. tests/test_comics.py::TestSmackJeeves_PRAGUERACE::test_comic
+. tests/test_comics.py::TestGoComics_ParisDoodles::test_comic
+. tests/test_comics.py::TestPimpette::test_comic
+. tests/test_comics.py::TestGoComics_Garfield::test_comic
+. tests/test_comics.py::TestComicFury_Mushroomgo::test_comic
+. tests/test_comics.py::TestSmackJeeves_Tenwaysbendystrawssavedmylife::test_comic
+. tests/test_comics.py::TestGoComics_TheLeftyBoscoPictureShow::test_comic
+. tests/test_comics.py::TestCreators_GirlsandSportsinSpanish::test_comic
+. tests/test_comics.py::TestComicFury_HitmanPiranha::test_comic
+. tests/test_comics.py::TestTinyKittenTeeth::test_comic
+. tests/test_comics.py::TestSmackJeeves_MarceliAndBryk::test_comic
+. tests/test_comics.py::TestProperBarn::test_comic
+. tests/test_comics.py::TestSmackJeeves_YoshisForever::test_comic
+. tests/test_comics.py::TestComicFury_Pulse::test_comic
+. tests/test_comics.py::TestGoComics_GlennMcCoy::test_comic
+. tests/test_comics.py::TestSmackJeeves_BlackDragon::test_comic
+. tests/test_comics.py::TestOkCancel::test_comic
+. tests/test_comics.py::TestSmackJeeves_SouthernCross::test_comic
+. tests/test_comics.py::TestChasingTheSunset::test_comic
+. tests/test_comics.py::TestSmackJeeves_SonicUniverseAsk::test_comic
+. tests/test_comics.py::TestAlphaLuna::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheNaziandtheStoner::test_comic
+. tests/test_comics.py::TestArcamax_ArcticCircle::test_comic
+. tests/test_comics.py::TestGoComics_Leadbellies::test_comic
+. tests/test_comics.py::TestSmackJeeves_MineBlockTheOriginal::test_comic
+. tests/test_comics.py::TestGoComics_MyGuardianGrandpa::test_comic
+. tests/test_comics.py::TestPunksAndNerds::test_comic
+. tests/test_comics.py::TestBlip::test_comic
+. tests/test_comics.py::TestEatLiver::test_comic
+. tests/test_comics.py::TestGoComics_JustSayUncle::test_comic
+. tests/test_comics.py::TestWormWorldSagaSpanish::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheGlassisBroken::test_comic
+. tests/test_comics.py::TestBrentalFloss::test_comic
+. tests/test_comics.py::TestSmackJeeves_KaitoShuno::test_comic
+. tests/test_comics.py::TestCreators_LongStoryShort::test_comic
+. tests/test_comics.py::TestGoComics_Ziggy::test_comic
+. tests/test_comics.py::TestComicFury_Outletting::test_comic
+. tests/test_comics.py::TestGoComics_HutchOwen::test_comic
+. tests/test_comics.py::TestSmackJeeves_Zodiac::test_comic
+. tests/test_comics.py::TestSmackJeeves_Vermilion4::test_comic
+. tests/test_comics.py::TestGoComics_Maintaining::test_comic
+. tests/test_comics.py::TestEyeOfRamalach::test_comic
+. tests/test_comics.py::TestNukees::test_comic
+. tests/test_comics.py::TestSmackJeeves_LittleLink::test_comic
+. tests/test_comics.py::TestGoComics_OneBigHappy::test_comic
+F tests/test_comics.py::TestComicFury_Keepingthepeace::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: ComicFury/Keepingthepeace http://keepingthepeace.webcomic.ws/comics/2 Traversed 2 strips instead of 5. Check the prevSearch pattern at http://keepingthepeace.webcomic.ws/comics/1
+. tests/test_comics.py::TestBrightlyWound::test_comic
+. tests/test_comics.py::TestTheNoob::test_comic
+. tests/test_comics.py::TestSmackJeeves_INUSITADOONLINE::test_comic
+. tests/test_comics.py::TestSnafuComics_TW::test_comic
+. tests/test_comics.py::TestSmackJeeves_ThatWasntThereYesterday::test_comic
+. tests/test_comics.py::TestComicFury_Tennisballman::test_comic
+. tests/test_comics.py::TestComicFury_Hellowanderingstar::test_comic
+. tests/test_comics.py::TestGoComics_TomToles::test_comic
+. tests/test_comics.py::TestSmackJeeves_WhatHappensinCarpediem::test_comic
+. tests/test_comics.py::TestComicFury_Crimsonpixel::test_comic
+. tests/test_comics.py::TestSchuelert::test_comic
+. tests/test_comics.py::TestFlipside::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheLegendofZeldaMaidenoftheMoon::test_comic
+. tests/test_comics.py::TestSmackJeeves_WhereaboutsOfTime::test_comic
+. tests/test_comics.py::TestSmackJeeves_Stay::test_comic
+. tests/test_comics.py::TestGoComics_Betty::test_comic
+. tests/test_comics.py::TestComicGenesis_PublicidadeEnganosa::test_comic
+. tests/test_comics.py::TestSmackJeeves_UnicycleofViolence::test_comic
+. tests/test_comics.py::TestSmackJeeves_KCNO::test_comic
+. tests/test_comics.py::TestSmackJeeves_KasaKeira::test_comic
+. tests/test_comics.py::TestDorkTower::test_comic
+. tests/test_comics.py::TestComicGenesis_NoneMoreComic::test_comic
+. tests/test_comics.py::TestSmackJeeves_60SecondComics::test_comic
+. tests/test_comics.py::TestSmackJeeves_LegendofZeldaTheEdgeandTheLight::test_comic
+. tests/test_comics.py::TestComicFury_Randomthoughts::test_comic
+. tests/test_comics.py::TestGoComics_Biographic::test_comic
+. tests/test_comics.py::TestUnicornJelly::test_comic
+. tests/test_comics.py::TestComicFury_Crowbars::test_comic
+. tests/test_comics.py::TestGunshow::test_comic
+. tests/test_comics.py::TestGoComics_ImaDillo::test_comic
+. tests/test_comics.py::TestSmackJeeves_Onlyonelovesong::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheSpritersShowcase30::test_comic
+. tests/test_comics.py::TestSmackJeeves_CloeRemembrance::test_comic
+. tests/test_comics.py::TestPastelDefender::test_comic
+. tests/test_comics.py::TestGoComics_Lio::test_comic
+. tests/test_comics.py::TestSmackJeeves_MyTwoCentsPlusTax::test_comic
+. tests/test_comics.py::TestGoComics_DarkSideoftheHorse::test_comic
+. tests/test_comics.py::TestGoComics_AnimalCrackers::test_comic
+. tests/test_comics.py::TestSorcery101::test_comic
+F tests/test_comics.py::TestGoComics_Wordless::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:90: in _test_comic
+ >               self.check_stripurl(strip)
+ tests/test_comics.py:125: in check_stripurl
+ >       self.check(mo is not None, 'strip URL %r does not match stripUrl pattern %s' % (strip.stripUrl, urlmatch))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: GoComics/Wordless http://www.gocomics.com/speechless/2014/01/21 strip URL u'http://www.gocomics.com/speechless/2014/01/20' does not match stripUrl pattern ^http\:\/\/www\.gocomics\.com\/wordless\/.+$
+. tests/test_comics.py::TestComicFury_MichellesUniverseScrapbook::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheForestofWhispers::test_comic
+. tests/test_comics.py::TestSmackJeeves_FruitloopAndMrDownbeat::test_comic
+. tests/test_comics.py::TestGoComics_Peanuts::test_comic
+. tests/test_comics.py::TestSmackJeeves_Harfang::test_comic
+. tests/test_comics.py::TestSmackJeeves_EternityConcepts::test_comic
+. tests/test_comics.py::TestDracula::test_comic
+. tests/test_comics.py::TestDailyDose::test_comic
+. tests/test_comics.py::TestGoComics_USAcres::test_comic
+. tests/test_comics.py::TestGoComics_LaloAlcaraz::test_comic
+. tests/test_comics.py::TestGoComics_Birdbrains::test_comic
+. tests/test_comics.py::TestDogHouseDiaries::test_comic
+. tests/test_comics.py::TestSmackJeeves_DefineHero::test_comic
+. tests/test_comics.py::TestSmackJeeves_QuestionDuck::test_comic
+. tests/test_comics.py::TestCloneManga_AprilAndMay::test_comic
+. tests/test_comics.py::TestDarkWings::test_comic
+. tests/test_comics.py::TestComicFury_Datachasers::test_comic
+. tests/test_comics.py::TestGoComics_Geech::test_comic
+. tests/test_comics.py::TestButternutSquash::test_comic
+. tests/test_comics.py::TestSmackJeeves_DoomsdayMyDear::test_comic
+. tests/test_comics.py::TestAbsurdNotions::test_comic
+. tests/test_comics.py::TestSmackJeeves_Themadman::test_comic
+. tests/test_comics.py::TestArcamax_JerryKingCartoons::test_comic
+F tests/test_comics.py::TestSmackJeeves_MegaManiacs::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:49: in _starter
+ >       url2 = fetchUrl(url1, data, baseUrl, cls.prevSearch)
+ dosagelib/util.py:251: in fetchUrl
+ >       return fetchUrls(url, data, baseUrl, urlSearch)[0]
+ dosagelib/util.py:245: in fetchUrls
+ >           raise ValueError("Patterns %s not found at URL %s." % (patterns, url))
+ E           ValueError: Patterns ['<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>(?:<img[^>]+alt="[^"]*[pP][rR][eE][vV]|<img[^>]+(?:button_previous|naviButtons_Previous|nav_prev4|prev|previous|webbuttonback|PrevArrow)\\.|[^<]*[bB][aA][cC][kK]|\\s*<<? (?:[bB][aA][cC][kK]|[pP][rR][eE][vV])|[^<]*[pP][rR][eE][vV])', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>[^<]*Atras<', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/(?:backrg|JZj4a3C|b5175a677Zd6b)\\.png"[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*\'[^\']+/(?:backnav)\\.png\'[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>\\s*<\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/prev\\.jpg"[^>]*[^>]*>'] not found at URL http://megamaniacscomics.smackjeeves.com/comics/.
+. tests/test_comics.py::TestSmackJeeves_FurusatoHouse::test_comic
+. tests/test_comics.py::TestGoComics_TheBoobiehatch::test_comic
+. tests/test_comics.py::TestGoComics_BestInShow::test_comic
+. tests/test_comics.py::TestKeenSpot_Superosity::test_comic
+. tests/test_comics.py::TestSmackJeeves_BleachRedux::test_comic
+. tests/test_comics.py::TestComicFury_RecklessComix::test_comic
+. tests/test_comics.py::TestGoComics_EngagAndNevets::test_comic
+. tests/test_comics.py::TestComicFury_Minarga::test_comic
+. tests/test_comics.py::TestGoComics_MrMorris::test_comic
+F tests/test_comics.py::TestOnTheEdge::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: OnTheEdge http://ontheedgecomics.com/ Traversed 0 strips instead of 5.
+. tests/test_comics.py::TestGoComics_Ben::test_comic
+. tests/test_comics.py::TestSmackJeeves_PerplexingMagnoliaDisruption::test_comic
+. tests/test_comics.py::TestSmackJeeves_WakeEcho::test_comic
+. tests/test_comics.py::TestSmackJeeves_OverfiendComics::test_comic
+. tests/test_comics.py::TestGoComics_Badlands::test_comic
+. tests/test_comics.py::TestNatalieDee::test_comic
+. tests/test_comics.py::TestComicFury_Afrodays::test_comic
+. tests/test_comics.py::TestCompanyY::test_comic
+. tests/test_comics.py::TestComicFury_Perspectives::test_comic
+. tests/test_comics.py::TestGoComics_DontPicktheFlowers::test_comic
+. tests/test_comics.py::TestSmackJeeves_TitleUnrelated::test_comic
+. tests/test_comics.py::TestSmackJeeves_FuckMyLife::test_comic
+. tests/test_comics.py::TestNamesake::test_comic
+. tests/test_comics.py::TestFlemcomics::test_comic
+. tests/test_comics.py::TestLasLindas::test_comic
+. tests/test_comics.py::TestSmackJeeves_DEGAF::test_comic
+. tests/test_comics.py::TestArcamax_TinasGroove::test_comic
+. tests/test_comics.py::TestFreefall::test_comic
+. tests/test_comics.py::TestAlphaLunaSpanish::test_comic
+F tests/test_comics.py::TestGoComics_Milton50::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: GoComics/Milton50 http://www.gocomics.com/milton-5-0/2014/01/20 Traversed 4 strips instead of 5. Check the prevSearch pattern at http://www.gocomics.com/milton-5-0/2014/01/13
+. tests/test_comics.py::TestComicGenesis_TheTalesofKalduras::test_comic
+. tests/test_comics.py::TestSmackJeeves_DanielleDark::test_comic
+. tests/test_comics.py::TestGoComics_Featherweight::test_comic
+. tests/test_comics.py::TestComicFury_Albinobros::test_comic
+. tests/test_comics.py::TestArcamax_DinetteSet::test_comic
+. tests/test_comics.py::TestSnafuComics_Sugar::test_comic
+. tests/test_comics.py::TestGoComics_WatchYourHead::test_comic
+. tests/test_comics.py::TestGoComics_AdamAtHome::test_comic
+. tests/test_comics.py::TestSPQRBlues::test_comic
+. tests/test_comics.py::TestComicGenesis_SynapticMisfires::test_comic
+. tests/test_comics.py::TestGoComics_ToBeNamed::test_comic
+. tests/test_comics.py::TestEvilDiva::test_comic
+. tests/test_comics.py::TestComicFury_Acryden::test_comic
+. tests/test_comics.py::TestFauxPas::test_comic
+. tests/test_comics.py::TestGoComics_9to5::test_comic
+. tests/test_comics.py::TestComicFury_Catwithgoggles::test_comic
+. tests/test_comics.py::TestSmackJeeves_DoodleBeans::test_comic
+. tests/test_comics.py::TestWhiteNoise::test_comic
+. tests/test_comics.py::TestComicGenesis_ODCKS::test_comic
+. tests/test_comics.py::TestGoComics_JustPosted::test_comic
+. tests/test_comics.py::TestWeregeek::test_comic
+. tests/test_comics.py::TestPennyArcade::test_comic
+F tests/test_comics.py::TestRoza::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: Roza http://www.junglestudio.com/roza/index.php Traversed 1 strips instead of 5. Check the prevSearch pattern at http://www.junglestudio.com/roza/index.php
+. tests/test_comics.py::TestWLP_ChichiChan::test_comic
+. tests/test_comics.py::TestGoComics_Endtown::test_comic
+. tests/test_comics.py::TestArcamax_BrilliantMindofEdisonLee::test_comic
+. tests/test_comics.py::TestWapsiSquare::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheLegendaryQueen::test_comic
+. tests/test_comics.py::TestGoComics_FoxTrot::test_comic
+F tests/test_comics.py::TestFoulLanguage::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: FoulLanguage http://www.fowllanguagecomics.com/ Traversed 0 strips instead of 5.
+. tests/test_comics.py::TestSmackJeeves_BlackCollar::test_comic
+. tests/test_comics.py::TestGoComics_AdventuresofMartyandTurkey::test_comic
+. tests/test_comics.py::TestGoComics_DrewSheneman::test_comic
+. tests/test_comics.py::TestSmackJeeves_SONOFSAM::test_comic
+. tests/test_comics.py::TestComicFury_Housepets1x::test_comic
+. tests/test_comics.py::TestSmackJeeves_LegendsofLyndal::test_comic
+. tests/test_comics.py::TestEriadan::test_comic
+. tests/test_comics.py::TestGoComics_TedRall::test_comic
+. tests/test_comics.py::TestGoComics_MollyandtheBear::test_comic
+. tests/test_comics.py::TestSmackJeeves_KissParade::test_comic
+. tests/test_comics.py::TestGoComics_WhiskeyFalls::test_comic
+. tests/test_comics.py::TestSmackJeeves_OptimalClutter::test_comic
+. tests/test_comics.py::TestGoComics_LuckyCow::test_comic
+. tests/test_comics.py::TestSmackJeeves_PlayTime::test_comic
+. tests/test_comics.py::TestComicFury_Fraternit::test_comic
+. tests/test_comics.py::TestComicFury_DRouggs::test_comic
+. tests/test_comics.py::TestSmackJeeves_Helix::test_comic
+. tests/test_comics.py::TestNuklearPower_Warbot::test_comic
+. tests/test_comics.py::TestSmackJeeves_Kirbandfriendsshowcase::test_comic
+. tests/test_comics.py::TestPetiteSymphony_Djandora::test_comic
+. tests/test_comics.py::TestSmackJeeves_PokemonLANDSKY::test_comic
+. tests/test_comics.py::TestSmackJeeves_SakuraDAY::test_comic
+. tests/test_comics.py::TestComicFury_Docapoc::test_comic
+. tests/test_comics.py::TestSmackJeeves_Minibot::test_comic
+. tests/test_comics.py::TestComicFury_Tba::test_comic
+. tests/test_comics.py::TestSmackJeeves_GuardianGhost::test_comic
+. tests/test_comics.py::TestGoComics_ViewsBusiness::test_comic
+. tests/test_comics.py::TestGoComics_Drabble::test_comic
+. tests/test_comics.py::TestSmackJeeves_GetUpandGo::test_comic
+. tests/test_comics.py::TestNuklearPower_8BitTheater::test_comic
+. tests/test_comics.py::TestSmackJeeves_Destinationunknown::test_comic
+. tests/test_comics.py::TestGoComics_GasolineAlley::test_comic
+. tests/test_comics.py::TestGoComics_ChuckleBros::test_comic
+. tests/test_comics.py::TestGoComics_MrGigiandtheSquid::test_comic
+. tests/test_comics.py::TestKeenSpot_SomethingHappens::test_comic
+. tests/test_comics.py::TestComicFury_Bustysolar::test_comic
+. tests/test_comics.py::TestPokeyThePenguin::test_comic
+. tests/test_comics.py::TestGoComics_Cartertoons::test_comic
+. tests/test_comics.py::TestComicFury_Sawbladersblacknuzlocke::test_comic
+. tests/test_comics.py::TestWulffmorgenthaler::test_comic
+. tests/test_comics.py::TestSmackJeeves_ElfNHood::test_comic
+. tests/test_comics.py::TestSmackJeeves_TPTruePower::test_comic
+. tests/test_comics.py::TestComicFury_Laserbrigade::test_comic
+. tests/test_comics.py::TestParallelUniversum::test_comic
+. tests/test_comics.py::TestComicFury_NewAmerica::test_comic
+. tests/test_comics.py::TestArcamax_Marvin::test_comic
+. tests/test_comics.py::TestComicFury_Booksdontworkhere::test_comic
+. tests/test_comics.py::TestSpinnerette::test_comic
+. tests/test_comics.py::TestComicFury_BlueBloodHeroes::test_comic
+. tests/test_comics.py::TestSmackJeeves_ChaoticNation::test_comic
+. tests/test_comics.py::TestSmackJeeves_ERAIbuki::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheElectricRose::test_comic
+. tests/test_comics.py::TestKeenSpot_Porcelain::test_comic
+. tests/test_comics.py::TestGoComics_RealLifeAdventures::test_comic
+. tests/test_comics.py::TestGoComics_HumanCull::test_comic
+. tests/test_comics.py::TestComicFury_Jump2::test_comic
+. tests/test_comics.py::TestGoComics_NonSequitur::test_comic
+. tests/test_comics.py::TestGoComics_MariasDay::test_comic
+. tests/test_comics.py::TestMarriedToTheSea::test_comic
+. tests/test_comics.py::TestOglaf::test_comic
+. tests/test_comics.py::TestComicFury_Popcultureskids::test_comic
+. tests/test_comics.py::TestICanBarelyDraw::test_comic
+. tests/test_comics.py::TestSmackJeeves_MariovsSonicvsMegaMan::test_comic
+. tests/test_comics.py::TestKeenSpot_Barker::test_comic
+. tests/test_comics.py::TestGoComics_Pinkerton::test_comic
+. tests/test_comics.py::TestComicGenesis_KitsuneJewel::test_comic
+. tests/test_comics.py::TestSmackJeeves_Republicanattackmachine::test_comic
+. tests/test_comics.py::TestComicFury_FireBorn2::test_comic
+. tests/test_comics.py::TestGoComics_SookyRottweiler::test_comic
+. tests/test_comics.py::TestSmackJeeves_KissoftheDevil::test_comic
+. tests/test_comics.py::TestKeenSpot_OutThere::test_comic
+. tests/test_comics.py::TestGleefulNihilism::test_comic
+. tests/test_comics.py::TestSmackJeeves_MySparklingPrincesama::test_comic
+. tests/test_comics.py::TestRedMeat::test_comic
+. tests/test_comics.py::TestRedString::test_comic
+. tests/test_comics.py::TestGirlGenius::test_comic
+. tests/test_comics.py::TestSmackJeeves_Mortifer::test_comic
+. tests/test_comics.py::TestSmackJeeves_Sandbox::test_comic
+. tests/test_comics.py::TestSmackJeeves_FallenAngelslove::test_comic
+. tests/test_comics.py::TestComicFury_Nostalgiaofeden::test_comic
+. tests/test_comics.py::TestGoComics_Peanizles::test_comic
+. tests/test_comics.py::TestSmackJeeves_VampireFetish::test_comic
+. tests/test_comics.py::TestComicFury_Its::test_comic
+. tests/test_comics.py::TestComicFury_MoaK::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheAlliance::test_comic
+F tests/test_comics.py::TestSmackJeeves_OntheBrightSide::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:49: in _starter
+ >       url2 = fetchUrl(url1, data, baseUrl, cls.prevSearch)
+ dosagelib/util.py:251: in fetchUrl
+ >       return fetchUrls(url, data, baseUrl, urlSearch)[0]
+ dosagelib/util.py:245: in fetchUrls
+ >           raise ValueError("Patterns %s not found at URL %s." % (patterns, url))
+ E           ValueError: Patterns ['<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>(?:<img[^>]+alt="[^"]*[pP][rR][eE][vV]|<img[^>]+(?:button_previous|naviButtons_Previous|nav_prev4|prev|previous|webbuttonback|PrevArrow)\\.|[^<]*[bB][aA][cC][kK]|\\s*<<? (?:[bB][aA][cC][kK]|[pP][rR][eE][vV])|[^<]*[pP][rR][eE][vV])', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>[^<]*Atras<', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/(?:backrg|JZj4a3C|b5175a677Zd6b)\\.png"[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*\'[^\']+/(?:backnav)\\.png\'[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>\\s*<\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/prev\\.jpg"[^>]*[^>]*>'] not found at URL http://onthebrightside.smackjeeves.com/comics/.
+. tests/test_comics.py::TestSmackJeeves_DungeonHordes::test_comic
+. tests/test_comics.py::TestPetiteSymphony_Generation17::test_comic
+. tests/test_comics.py::TestSmackJeeves_FurtherDowntheRabbitHole::test_comic
+. tests/test_comics.py::TestSmackJeeves_JustAnotherDay::test_comic
+. tests/test_comics.py::TestSmackJeeves_DemonEater::test_comic
+. tests/test_comics.py::TestComicFury_AmericanNerd::test_comic
+. tests/test_comics.py::TestGoComics_2CowsandaChicken::test_comic
+F tests/test_comics.py::TestMysteriesOfTheArcana::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: MysteriesOfTheArcana http://mysteriesofthearcana.com/ Traversed 1 strips instead of 5. Check the prevSearch pattern at http://mysteriesofthearcana.com/
+. tests/test_comics.py::TestComicFury_ChronoRedux::test_comic
+. tests/test_comics.py::TestGoComics_IntheBleachers::test_comic
+. tests/test_comics.py::TestSmackJeeves_GamesPeoplePlayUpdatedWeekly::test_comic
+. tests/test_comics.py::TestSmackJeeves_Cynobrowa4::test_comic
+. tests/test_comics.py::TestSmackJeeves_MarsMind::test_comic
+. tests/test_comics.py::TestSmackJeeves_Spidersilk::test_comic
+. tests/test_comics.py::TestCreators_ArchieinSpanish::test_comic
+. tests/test_comics.py::TestSmackJeeves_MarXistemTWC::test_comic
+F tests/test_comics.py::TestSmackJeeves_Chimerical::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:48: in _starter
+ >       data, baseUrl = getPageContent(url1, cls.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://chimerical.smackjeeves.com/comics/ failed: 404 Client Error
+. tests/test_comics.py::TestSmackJeeves_WeAreGolden::test_comic
+. tests/test_comics.py::TestGoComics_Andnow::test_comic
+. tests/test_comics.py::TestSmackJeeves_PumpkinFlower::test_comic
+. tests/test_comics.py::TestSmackJeeves_MaverickDaze::test_comic
+. tests/test_comics.py::TestPoorlyDrawnLines::test_comic
+. tests/test_comics.py::TestSmackJeeves_RestaurantIndustryMafiaComics::test_comic
+. tests/test_comics.py::TestKickInTheHead::test_comic
+. tests/test_comics.py::TestSmackJeeves_2Kingdoms::test_comic
+. tests/test_comics.py::TestGoGetARoomie::test_comic
+. tests/test_comics.py::TestGoblinsComic::test_comic
+. tests/test_comics.py::TestComicFury_12yearslater::test_comic
+. tests/test_comics.py::TestComicFury_Lint::test_comic
+. tests/test_comics.py::TestComicFury_STA::test_comic
+. tests/test_comics.py::TestKeenSpot_Striptease::test_comic
+. tests/test_comics.py::TestComicFury_Crowbar::test_comic
+. tests/test_comics.py::TestGUComics::test_comic
+. tests/test_comics.py::TestGoComics_Doonesbury::test_comic
+. tests/test_comics.py::TestKeenSpot_BanzaiGirl::test_comic
+. tests/test_comics.py::TestComicFury_Crawlers::test_comic
+. tests/test_comics.py::TestSmackJeeves_FireEmblemEternalSouls::test_comic
+. tests/test_comics.py::TestGoComics_IntheSticks::test_comic
+. tests/test_comics.py::TestGoComics_SpeedBump::test_comic
+. tests/test_comics.py::TestComicFury_Mirroredconversations::test_comic
+. tests/test_comics.py::TestComicGenesis_SalemUncommons::test_comic
+. tests/test_comics.py::TestGoComics_LisaBenson::test_comic
+. tests/test_comics.py::TestDrowtales::test_comic
+. tests/test_comics.py::TestSmackJeeves_AmorVincitOmnia::test_comic
+. tests/test_comics.py::TestGoComics_InTheSandbox::test_comic
+. tests/test_comics.py::TestGoComics_SunnyStreet::test_comic
+. tests/test_comics.py::TestKeenSpot_RumbleFall::test_comic
+. tests/test_comics.py::TestGoComics_THESILVERLINING::test_comic
+. tests/test_comics.py::TestGoComics_ForHeavensSake::test_comic
+. tests/test_comics.py::TestSnafuComics_KOF::test_comic
+. tests/test_comics.py::TestSmackJeeves_HatShop::test_comic
+. tests/test_comics.py::TestComicGenesis_DemonEater::test_comic
+. tests/test_comics.py::TestGoComics_HaikuEwe::test_comic
+. tests/test_comics.py::TestComicGenesis_MaximumWhimsy::test_comic
+. tests/test_comics.py::TestSmackJeeves_DebtSettlement2OperationExtinction::test_comic
+. tests/test_comics.py::TestGoComics_BC::test_comic
+. tests/test_comics.py::TestGoComics_MustardandBoloney::test_comic
+. tests/test_comics.py::TestKevinAndKell::test_comic
+. tests/test_comics.py::TestGoComics_DitzAbledPrincess::test_comic
+F tests/test_comics.py::TestNewAdventuresOfBobbin::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:81: in _test_comic
+ >       for strip in scraperobj.getStrips(max_strips):
+ dosagelib/scraper.py:155: in getStrips
+ >           for strip in self.getStripsFor(url, maxstrips):
+ dosagelib/scraper.py:165: in getStripsFor
+ >           data, baseUrl = getPageContent(url, self.session)
+ dosagelib/util.py:190: in getPageContent
+ >       check_robotstxt(url, session)
+ dosagelib/util.py:306: in check_robotstxt
+ >           raise IOError("%s is disallowed by robots.txt" % url)
+ E           IOError: http://www.bobbin-comic.com/bobbin_strips/ is disallowed by robots.txt
+. tests/test_comics.py::TestSmackJeeves_MegaManTales::test_comic
+. tests/test_comics.py::TestSmackJeeves_JosPokemonJourney::test_comic
+. tests/test_comics.py::TestInternetWebcomic::test_comic
+. tests/test_comics.py::TestGoComics_RipleysBelieveItorNot::test_comic
+. tests/test_comics.py::TestComicFury_Shatterrealm::test_comic
+. tests/test_comics.py::TestGoComics_OllieandQuentin::test_comic
+. tests/test_comics.py::TestSmackJeeves_SupermassiveBlackHoleA::test_comic
+. tests/test_comics.py::TestSmackJeeves_SomethingLikeaPhenomenon::test_comic
+. tests/test_comics.py::TestGoComics_BergerAndWyse::test_comic
+. tests/test_comics.py::TestCreators_FlightDeck::test_comic
+. tests/test_comics.py::TestBoyOnAStickAndSlither::test_comic
+. tests/test_comics.py::TestArcamax_Curtis::test_comic
+. tests/test_comics.py::TestGoComics_Starslip::test_comic
+. tests/test_comics.py::TestSmackJeeves_Signifikat::test_comic
+. tests/test_comics.py::TestStickyDillyBuns::test_comic
+. tests/test_comics.py::TestComicFury_CoftheA::test_comic
+. tests/test_comics.py::TestCreators_DonaldDuck::test_comic
+. tests/test_comics.py::TestComicFury_Spades::test_comic
+. tests/test_comics.py::TestComicGenesis_BabeintheWoods::test_comic
+. tests/test_comics.py::TestGoComics_LastKiss::test_comic
+. tests/test_comics.py::TestPicPakDog::test_comic
+. tests/test_comics.py::TestGoComics_JackRadioComics::test_comic
+. tests/test_comics.py::TestZebraGirl::test_comic
+. tests/test_comics.py::TestMenageA3::test_comic
+. tests/test_comics.py::TestGoComics_TOWHOMITMAYCONCERN::test_comic
+. tests/test_comics.py::TestGoComics_GrandAvenue::test_comic
+. tests/test_comics.py::TestComicFury_BetweenRounds::test_comic
+. tests/test_comics.py::TestGoComics_OfftheMark::test_comic
+. tests/test_comics.py::TestSchlockMercenary::test_comic
+. tests/test_comics.py::TestSmackJeeves_ChampionsandHeroesAgeofDragons::test_comic
+. tests/test_comics.py::TestSmackJeeves_DragonKid::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheDestroyer::test_comic
+. tests/test_comics.py::TestOneQuestion::test_comic
+. tests/test_comics.py::TestComicFury_Eclipselegend::test_comic
+. tests/test_comics.py::TestGoComics_LilAbner::test_comic
+. tests/test_comics.py::TestSmackJeeves_Gloomverse::test_comic
+. tests/test_comics.py::TestCloneManga_PaperEleven::test_comic
+. tests/test_comics.py::TestNewWorld::test_comic
+. tests/test_comics.py::TestGoComics_RedandRover::test_comic
+. tests/test_comics.py::TestSmackJeeves_Cataclysm::test_comic
+. tests/test_comics.py::TestSmackJeeves_BLOT::test_comic
+. tests/test_comics.py::TestSmackJeeves_LondonUnderworld::test_comic
+. tests/test_comics.py::TestSequentialArt::test_comic
+. tests/test_comics.py::TestComicFury_SoFunnyIForgotToLaugh::test_comic
+F tests/test_comics.py::TestComicFury_GodsAlmighty::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/helpers.py:33: in _starter
+ >       data, baseUrl = getPageContent(url, cls.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://GodsAlmighty.webcomic.ws/ failed: 404 Client Error
+. tests/test_comics.py::TestComicFury_Jenffersshow::test_comic
+. tests/test_comics.py::TestComicFury_Poharex::test_comic
+F tests/test_comics.py::TestSnafuComics_SF::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:85: in _test_comic
+ >               self.save(image)
+ tests/test_comics.py:131: in save
+ >           self.check(False, 'could not save %s at %s to %s: %s' % (image.url, image.referrer, self.tmpdir, msg))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SnafuComics/SF http://sf.snafu-comics.com/ could not save http://sf.snafu-comics.com/comics/080712_sf.jpg at http://sf.snafu-comics.com/?comic_id=72 to /tmp/tmpkKEUjL: empty content for file /tmp/tmpkKEUjL/SnafuComics/SF/080712_sf.jpg
+F tests/test_comics.py::TestGeeksNextDoor::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: GeeksNextDoor http://www.geeksnextcomic.com/ Traversed 0 strips instead of 5.
+. tests/test_comics.py::TestSmackJeeves_Kurokenshin::test_comic
+. tests/test_comics.py::TestSmackJeeves_DDSR::test_comic
+. tests/test_comics.py::TestSmackJeeves_ReturntoEden::test_comic
+. tests/test_comics.py::TestComicFury_Sonichuredone::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheColony::test_comic
+. tests/test_comics.py::TestGoComics_SteveBreen::test_comic
+. tests/test_comics.py::TestGoComics_CowandBoyClassics::test_comic
+. tests/test_comics.py::TestGoComics_MythTickle::test_comic
+. tests/test_comics.py::TestWebcomicsNation_NekkoAndJoruba::test_comic
+. tests/test_comics.py::TestGoComics_BrilliantMines::test_comic
+. tests/test_comics.py::TestSmackJeeves_Oli::test_comic
+. tests/test_comics.py::TestSmackJeeves_MythsofUnovaAWhiteNuzlockeRunHardMode::test_comic
+. tests/test_comics.py::TestComicGenesis_MoonCrest24::test_comic
+. tests/test_comics.py::TestSmackJeeves_SonicSchoolRedo::test_comic
+. tests/test_comics.py::TestKeenSpot_MarryMe::test_comic
+. tests/test_comics.py::TestGoComics_CockroachComix::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheClass::test_comic
+. tests/test_comics.py::TestGoComics_SportsbyVoort::test_comic
+. tests/test_comics.py::TestGoComics_LegendofBill::test_comic
+. tests/test_comics.py::TestGoComics_DumbQuestionBadAnswer::test_comic
+. tests/test_comics.py::TestGoComics_TOBY::test_comic
+. tests/test_comics.py::TestWotNow::test_comic
+. tests/test_comics.py::TestGoComics_LostInTranslation::test_comic
+. tests/test_comics.py::TestGoComics_DanaSummers::test_comic
+. tests/test_comics.py::TestComicGenesis_SamandElisAdventures::test_comic
+. tests/test_comics.py::TestNuklearPower_HowIKilledYourMaster::test_comic
+. tests/test_comics.py::TestSmackJeeves_ThornsComic::test_comic
+F tests/test_comics.py::TestSmackJeeves_CerberusCrescendo::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:48: in _starter
+ >       data, baseUrl = getPageContent(url1, cls.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://www.smackjeeves.com/mature.php?ref=http%3A//elica.smackjeeves.com/comics/ failed: 404 Client Error
+. tests/test_comics.py::TestComicFury_Baseballcapsandtiaras::test_comic
+. tests/test_comics.py::TestTheWhiteboard::test_comic
+. tests/test_comics.py::TestCarciphona::test_comic
+. tests/test_comics.py::TestSmackJeeves_Catnip::test_comic
+. tests/test_comics.py::TestComicFury_Atm::test_comic
+. tests/test_comics.py::TestPetiteSymphony_Rascals::test_comic
+. tests/test_comics.py::TestSmackJeeves_SChIzO::test_comic
+. tests/test_comics.py::TestBloodBound::test_comic
+. tests/test_comics.py::TestKeenSpot_FallOutToyWorks::test_comic
+. tests/test_comics.py::TestComicFury_BATB::test_comic
+. tests/test_comics.py::TestGoComics_KitNCarlyle::test_comic
+. tests/test_comics.py::TestGoComics_Bluebonnets::test_comic
+. tests/test_comics.py::TestSmackJeeves_FinalArcanum::test_comic
+. tests/test_comics.py::TestSmackJeeves_LoveHarbor::test_comic
+. tests/test_comics.py::TestSmackJeeves_Majesty::test_comic
+. tests/test_comics.py::TestSmackJeeves_DevilsCake::test_comic
+. tests/test_comics.py::TestSmackJeeves_Houseofsprite::test_comic
+F tests/test_comics.py::TestGoComics_OntheQuad::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: GoComics/OntheQuad http://www.gocomics.com/on-the-quad/2013/11/08 Traversed 4 strips instead of 5. Check the prevSearch pattern at http://www.gocomics.com/on-the-quad/2013/11/04
+. tests/test_comics.py::TestComicFury_Sarakleeyo::test_comic
+. tests/test_comics.py::TestSmackJeeves_EyesofaDigimon::test_comic
+. tests/test_comics.py::TestCollar6::test_comic
+. tests/test_comics.py::TestComicFury_Anthrosanddungeons::test_comic
+. tests/test_comics.py::TestSmackJeeves_KirbysDreamAdventure::test_comic
+. tests/test_comics.py::TestSmackJeeves_RockMyWorld::test_comic
+. tests/test_comics.py::TestMegaTokyo::test_comic
+. tests/test_comics.py::TestGoComics_ThatisPriceless::test_comic
+. tests/test_comics.py::TestGoComics_SignGarden::test_comic
+. tests/test_comics.py::TestSmackJeeves_BoogeyDancingMonkeyPot::test_comic
+. tests/test_comics.py::TestComicFury_Idget::test_comic
+. tests/test_comics.py::TestGoComics_Toocrazy::test_comic
+. tests/test_comics.py::TestComicFury_Ganold::test_comic
+. tests/test_comics.py::TestGoComics_RicigsToonTrivia::test_comic
+. tests/test_comics.py::TestGoComics_RabbitsAgainstMagic::test_comic
+. tests/test_comics.py::TestGoComics_ViewsEurope::test_comic
+. tests/test_comics.py::TestFonFlatter::test_comic
+. tests/test_comics.py::TestGoComics_HanktheSock::test_comic
+. tests/test_comics.py::TestSmackJeeves_VoidMisadventures::test_comic
+. tests/test_comics.py::TestGoComics_EttoreandBaldo::test_comic
+. tests/test_comics.py::TestSmackJeeves_Spriterschaos::test_comic
+. tests/test_comics.py::TestGoComics_RobertAriail::test_comic
+. tests/test_comics.py::TestGoComics_TheNormClassics::test_comic
+. tests/test_comics.py::TestSexyLosers::test_comic
+. tests/test_comics.py::TestAltermetaOld::test_comic
+. tests/test_comics.py::TestSmackJeeves_Anathemacomics::test_comic
+. tests/test_comics.py::TestGoComics_SteveBenson::test_comic
+. tests/test_comics.py::TestGoComics_WeePals::test_comic
+. tests/test_comics.py::TestVGCatsAdventure::test_comic
+. tests/test_comics.py::TestGoComics_TheCity::test_comic
+. tests/test_comics.py::TestSmackJeeves_SaintsCalling::test_comic
+. tests/test_comics.py::TestElGoonishShive::test_comic
+. tests/test_comics.py::TestSmackJeeves_HolyBlasphemy::test_comic
+. tests/test_comics.py::TestComicFury_Itscomplicated::test_comic
+. tests/test_comics.py::TestScaryGoRound::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheAntihero::test_comic
+. tests/test_comics.py::TestComicFury_Goldrushdynllewcomics::test_comic
+. tests/test_comics.py::TestGoComics_BERSERKALERT::test_comic
+. tests/test_comics.py::TestArcamax_MeaningofLila::test_comic
+. tests/test_comics.py::TestSmackJeeves_LegendofZeldaStaffofPower::test_comic
+. tests/test_comics.py::TestGoComics_CowTown::test_comic
+. tests/test_comics.py::TestComicFury_PersonaFTW::test_comic
+. tests/test_comics.py::TestComicFury_Gillimurphy::test_comic
+. tests/test_comics.py::TestSmackJeeves_SovereignTheMostAmazingComicEver::test_comic
+. tests/test_comics.py::TestGoComics_MichaelRamirez::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheReborn::test_comic
+. tests/test_comics.py::TestGoComics_GunstonStreet::test_comic
+. tests/test_comics.py::TestSmackJeeves_FuneralOfHearts::test_comic
+. tests/test_comics.py::TestComicFury_Armybrat::test_comic
+. tests/test_comics.py::TestSmackJeeves_ErokusosClassics::test_comic
+. tests/test_comics.py::TestGoComics_PearlsBeforeSwine::test_comic
+. tests/test_comics.py::TestGoComics_GetaLife::test_comic
+. tests/test_comics.py::TestSmackJeeves_ShamelessAdvertisements::test_comic
+. tests/test_comics.py::TestGoComics_NickAnderson::test_comic
+. tests/test_comics.py::TestComicFury_Tangledmess::test_comic
+. tests/test_comics.py::TestGoComics_LeGooseyLu::test_comic
+. tests/test_comics.py::TestArcamax_BeetleBailey::test_comic
+. tests/test_comics.py::TestGoComics_CaricaturesbyKerryWaghorn::test_comic
+. tests/test_comics.py::TestBrink::test_comic
+. tests/test_comics.py::TestGoComics_ModeratelyConfused::test_comic
+. tests/test_comics.py::TestSmackJeeves_WantedDeadorDead::test_comic
+. tests/test_comics.py::TestSmackJeeves_Allthatglitters::test_comic
+. tests/test_comics.py::TestSmackJeeves_Descendant::test_comic
+. tests/test_comics.py::TestSmackJeeves_KillMeOrDie::test_comic
+. tests/test_comics.py::TestComicFury_Cubecows::test_comic
+. tests/test_comics.py::TestGoComics_Cathy::test_comic
+. tests/test_comics.py::TestComicFury_Atomicmonkey::test_comic
+. tests/test_comics.py::TestSmackJeeves_MYth::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheWhiteTower::test_comic
+. tests/test_comics.py::TestGoComics_HeavenlyNostrils::test_comic
+. tests/test_comics.py::TestSmackJeeves_ByTheBook::test_comic
+. tests/test_comics.py::TestGoComics_NobodysHome::test_comic
+. tests/test_comics.py::TestSmackJeeves_HopeForABreeze::test_comic
+. tests/test_comics.py::TestGoComics_SuburbanWilderness::test_comic
+. tests/test_comics.py::TestBMovieComic::test_comic
+. tests/test_comics.py::TestKeenSpot_MedusasDaughter::test_comic
+. tests/test_comics.py::TestComicFury_Kayandp::test_comic
+. tests/test_comics.py::TestComicFury_Compozerz::test_comic
+. tests/test_comics.py::TestMelonpool::test_comic
+. tests/test_comics.py::TestComicFury_Namcowars::test_comic
+. tests/test_comics.py::TestSmackJeeves_OneFrameGags::test_comic
+. tests/test_comics.py::TestSmackJeeves_MoonlightApparition::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheMythofRemedy::test_comic
+. tests/test_comics.py::TestSmackJeeves_Vacan7::test_comic
+. tests/test_comics.py::TestSmackJeeves_Storyofadamnedlove::test_comic
+. tests/test_comics.py::TestGoComics_FamilyTree::test_comic
+. tests/test_comics.py::TestComicFury_Ignitionzero::test_comic
+. tests/test_comics.py::TestSmackJeeves_Burningashes::test_comic
+. tests/test_comics.py::TestSmackJeeves_Striped::test_comic
+. tests/test_comics.py::TestSmackJeeves_WitchsQuarry::test_comic
+. tests/test_comics.py::TestSmackJeeves_FarOutMantic::test_comic
+. tests/test_comics.py::TestSmackJeeves_ClockworkAtrium::test_comic
+. tests/test_comics.py::TestJerkCity::test_comic
+. tests/test_comics.py::TestGoComics_TheBigPicture::test_comic
+. tests/test_comics.py::TestSmackJeeves_PokemonMysteryDungeonTeamCrystal::test_comic
+. tests/test_comics.py::TestMyCartoons::test_comic
+. tests/test_comics.py::TestAirForceBlues::test_comic
+. tests/test_comics.py::TestWebcomicsNation_MyMuse::test_comic
+. tests/test_comics.py::TestSmackJeeves_MegaPain::test_comic
+. tests/test_comics.py::TestComicFury_Fpk::test_comic
+. tests/test_comics.py::TestGoComics_Classifudds::test_comic
+. tests/test_comics.py::TestGoComics_TheFlyingMcCoys::test_comic
+. tests/test_comics.py::TestGoComics_JohnDeering::test_comic
+. tests/test_comics.py::TestSmackJeeves_Adalsysla::test_comic
+. tests/test_comics.py::TestComicFury_BetaParticles::test_comic
+. tests/test_comics.py::TestGoComics_Markonpaper::test_comic
+. tests/test_comics.py::TestSmackJeeves_BattleSequence::test_comic
+. tests/test_comics.py::TestSmackJeeves_GoldenSunGenerationsAftermathVolume1::test_comic
+. tests/test_comics.py::TestComicFury_Hazardswake::test_comic
+. tests/test_comics.py::TestGoComics_Boomerangs::test_comic
+. tests/test_comics.py::TestSmackJeeves_HurrocksFardel::test_comic
+. tests/test_comics.py::TestKeenSpot_Buzzboy::test_comic
+. tests/test_comics.py::TestSmackJeeves_Holocrash::test_comic
+. tests/test_comics.py::TestSmackJeeves_DoodlingAround::test_comic
+. tests/test_comics.py::TestKeenSpot_MonsterMassacre::test_comic
+F tests/test_comics.py::TestSmackJeeves_CROWLEY::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:49: in _starter
+ >       url2 = fetchUrl(url1, data, baseUrl, cls.prevSearch)
+ dosagelib/util.py:251: in fetchUrl
+ >       return fetchUrls(url, data, baseUrl, urlSearch)[0]
+ dosagelib/util.py:245: in fetchUrls
+ >           raise ValueError("Patterns %s not found at URL %s." % (patterns, url))
+ E           ValueError: Patterns ['<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>(?:<img[^>]+alt="[^"]*[pP][rR][eE][vV]|<img[^>]+(?:button_previous|naviButtons_Previous|nav_prev4|prev|previous|webbuttonback|PrevArrow)\\.|[^<]*[bB][aA][cC][kK]|\\s*<<? (?:[bB][aA][cC][kK]|[pP][rR][eE][vV])|[^<]*[pP][rR][eE][vV])', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>[^<]*Atras<', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/(?:backrg|JZj4a3C|b5175a677Zd6b)\\.png"[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*\'[^\']+/(?:backnav)\\.png\'[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>\\s*<\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/prev\\.jpg"[^>]*[^>]*>'] not found at URL http://crowley.smackjeeves.com/comics/.
+. tests/test_comics.py::TestGoComics_WendlesLife::test_comic
+. tests/test_comics.py::TestGoComics_HealthCapsules::test_comic
+. tests/test_comics.py::TestComicFury_Spf1337::test_comic
+. tests/test_comics.py::TestGoComics_IncidentalComics::test_comic
+. tests/test_comics.py::TestOnTheFasttrack::test_comic
+. tests/test_comics.py::TestSmackJeeves_LastLivingSouls::test_comic
+. tests/test_comics.py::TestSmackJeeves_SinPararse::test_comic
+. tests/test_comics.py::TestDominicDeegan::test_comic
+. tests/test_comics.py::TestSmackJeeves_Babywhatsyoursign::test_comic
+. tests/test_comics.py::TestMacHall::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheMurderofMe::test_comic
+. tests/test_comics.py::TestTheParkingLotIsFull::test_comic
+. tests/test_comics.py::TestUnsounded::test_comic
+. tests/test_comics.py::TestSmackJeeves_JourneyMan::test_comic
+. tests/test_comics.py::TestGoComics_ZackHill::test_comic
+. tests/test_comics.py::TestSmackJeeves_AStrangeTypeofLove::test_comic
+. tests/test_comics.py::TestGoComics_BackintheDay::test_comic
+. tests/test_comics.py::TestNekoTheKitty::test_comic
+. tests/test_comics.py::TestCloneManga_Tomoyo42sRoom::test_comic
+. tests/test_comics.py::TestCurtailed::test_comic
+. tests/test_comics.py::TestComicFury_Divebombingkamikazekitties::test_comic
+. tests/test_comics.py::TestTheWotch::test_comic
+. tests/test_comics.py::TestSmackJeeves_FatedFeather::test_comic
+. tests/test_comics.py::TestSmackJeeves_SaintforRent::test_comic
+. tests/test_comics.py::TestRealmOfAtland::test_comic
+. tests/test_comics.py::TestComicFury_Punch::test_comic
+. tests/test_comics.py::TestSmackJeeves_ItachiArtsandDrawings::test_comic
+. tests/test_comics.py::TestSmackJeeves_Virus000::test_comic
+. tests/test_comics.py::TestComicGenesis_TakingStock::test_comic
+. tests/test_comics.py::TestButterSafe::test_comic
+. tests/test_comics.py::TestSmackJeeves_DepthsOfMyEmptySoul::test_comic
+. tests/test_comics.py::TestNuklearPower_AtomicRobo::test_comic
+. tests/test_comics.py::TestComicFury_Bimorphon::test_comic
+. tests/test_comics.py::TestGoComics_MortMonday::test_comic
+. tests/test_comics.py::TestGoComics_MaryBWary::test_comic
+. tests/test_comics.py::TestSmackJeeves_Negligence::test_comic
+. tests/test_comics.py::TestGoComics_WTDuck::test_comic
+. tests/test_comics.py::TestDeadWinter::test_comic
+. tests/test_comics.py::TestComicFury_Seconds::test_comic
+. tests/test_comics.py::TestGoComics_PlentyofPenguins::test_comic
+. tests/test_comics.py::TestGoComics_PaulSzep::test_comic
+. tests/test_comics.py::TestSmackJeeves_LegendsofMobiusBookOne::test_comic
+. tests/test_comics.py::TestKeenSpot_HeadTrip::test_comic
+. tests/test_comics.py::TestGoComics_OzyandMillie::test_comic
+. tests/test_comics.py::TestGoComics_MartyandSpud::test_comic
+. tests/test_comics.py::TestSmackJeeves_AGirlontheServer::test_comic
+. tests/test_comics.py::TestSmackJeeves_Snippets::test_comic
+. tests/test_comics.py::TestSailorsunOrg::test_comic
+. tests/test_comics.py::TestSmackJeeves_PokemutatesRus::test_comic
+. tests/test_comics.py::TestJackCannon::test_comic
+. tests/test_comics.py::TestSmackJeeves_WildWingBoysKoathArc::test_comic
+. tests/test_comics.py::TestSmackJeeves_LifeafterDeath::test_comic
+. tests/test_comics.py::TestGoComics_RaisingDuncan::test_comic
+. tests/test_comics.py::TestSmackJeeves_Rumplestiltskin::test_comic
+. tests/test_comics.py::TestFeyWinds::test_comic
+. tests/test_comics.py::TestSmackJeeves_PokemonCrystalDoubleNuzlockeChallenge::test_comic
+. tests/test_comics.py::TestComicGenesis_InANutshell::test_comic
+. tests/test_comics.py::TestGoComics_Rubes::test_comic
+. tests/test_comics.py::TestComicGenesis_CorporateLife::test_comic
+. tests/test_comics.py::TestGoComics_DilbertClassics::test_comic
+. tests/test_comics.py::TestGoComics_SuperSiblings::test_comic
+. tests/test_comics.py::TestPetiteSymphony_Seed::test_comic
+. tests/test_comics.py::TestComicGenesis_AnythingButRealLife::test_comic
+. tests/test_comics.py::TestComicFury_Thechroniclesofdrew::test_comic
+. tests/test_comics.py::TestComicFury_Honeyvenom::test_comic
+. tests/test_comics.py::TestGoComics_TheVernalPool::test_comic
+. tests/test_comics.py::TestTracyAndTristan::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheStoryWithNoName::test_comic
+. tests/test_comics.py::TestGoComics_NeighborhoodZone::test_comic
+. tests/test_comics.py::TestComicFury_Comingapartments::test_comic
+F tests/test_comics.py::TestRomanticallyApocalyptic::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:90: in _test_comic
+ >               self.check_stripurl(strip)
+ tests/test_comics.py:125: in check_stripurl
+ >       self.check(mo is not None, 'strip URL %r does not match stripUrl pattern %s' % (strip.stripUrl, urlmatch))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: RomanticallyApocalyptic http://romanticallyapocalyptic.com/ strip URL u'http://romanticallyapocalyptic.com/171' does not match stripUrl pattern ^http\:\/\/romanticallyapocalyptic\.com\/.+\/$
+. tests/test_comics.py::TestGoComics_TheCardinal::test_comic
+. tests/test_comics.py::TestParadigmShift::test_comic
+. tests/test_comics.py::TestShivae::test_comic
+. tests/test_comics.py::TestComicGenesis_WebcomicTheWebcomicWebcomicWebcomicWebcomic::test_comic
+. tests/test_comics.py::TestGoComics_TwoBits::test_comic
+. tests/test_comics.py::TestSmackJeeves_PepSquad::test_comic
+. tests/test_comics.py::TestSmackJeeves_TakingPicturesofStrangers::test_comic
+. tests/test_comics.py::TestComicFury_Cannonadeofhogwash::test_comic
+F tests/test_comics.py::TestSmackJeeves_MonsterGirl::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:48: in _starter
+ >       data, baseUrl = getPageContent(url1, cls.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://monstergirl.smackjeeves.com/comics/ failed: 404 Client Error
+. tests/test_comics.py::TestSmackJeeves_PiandPeasNuzlockeAdventures::test_comic
+. tests/test_comics.py::TestAnnyseed::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheCafedAlizee::test_comic
+. tests/test_comics.py::TestSmackJeeves_LiliBleu::test_comic
+. tests/test_comics.py::TestGoComics_Thatababy::test_comic
+. tests/test_comics.py::TestComicFury_AAB::test_comic
+. tests/test_comics.py::TestGoComics_ErictheCircle::test_comic
+. tests/test_comics.py::TestSmackJeeves_LicensedHeroes::test_comic
+. tests/test_comics.py::TestSmackJeeves_PeterPan::test_comic
+. tests/test_comics.py::TestComicFury_Pitchblack::test_comic
+. tests/test_comics.py::TestBearmageddon::test_comic
+. tests/test_comics.py::TestMisfile::test_comic
+. tests/test_comics.py::TestSluggyFreelance::test_comic
+. tests/test_comics.py::TestSmackJeeves_BlackFridayRule::test_comic
+. tests/test_comics.py::TestGoComics_Lucan::test_comic
+. tests/test_comics.py::TestGoComics_HomeandAway::test_comic
+. tests/test_comics.py::TestSmackJeeves_DigimonSaviors::test_comic
+F tests/test_comics.py::TestSmackJeeves_ComicBrozSprites::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:85: in _test_comic
+ >               self.save(image)
+ tests/test_comics.py:131: in save
+ >           self.check(False, 'could not save %s at %s to %s: %s' % (image.url, image.referrer, self.tmpdir, msg))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SmackJeeves/ComicBrozSprites http://brozsprites.smackjeeves.com/comics/1831365/ad/ could not save http://img821.imageshack.us/img821/273/xmasfiller.png at http://brozsprites.smackjeeves.com/comics/1646375/happy-holidays/ to /tmp/tmpLXEDhl: URL retrieval of http://img821.imageshack.us/img821/273/xmasfiller.png failed: Request timed out.
+. tests/test_comics.py::TestGoComics_JimMorin::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheYoshiHerd::test_comic
+. tests/test_comics.py::TestSmackJeeves_ChelseaandKitty::test_comic
+F tests/test_comics.py::TestMadamAndEve::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: MadamAndEve http://www.madamandeve.co.za/week_of_cartns.php Traversed 2 strips instead of 5. Check the prevSearch pattern at http://www.madamandeve.co.za/weekend_cartoon.php
+. tests/test_comics.py::TestSmackJeeves_RainLGBT::test_comic
+. tests/test_comics.py::TestSmackJeeves_LoveandIcecream::test_comic
+. tests/test_comics.py::TestGoComics_RoseisRose::test_comic
+. tests/test_comics.py::TestKuroShouri::test_comic
+. tests/test_comics.py::TestSmackJeeves_OneLastDay::test_comic
+. tests/test_comics.py::TestCloneManga_MomokaCorner::test_comic
+. tests/test_comics.py::TestSmackJeeves_MaytheRainCome::test_comic
+. tests/test_comics.py::TestStrawberryDeathCake::test_comic
+. tests/test_comics.py::TestGoComics_GentleCreatures::test_comic
+. tests/test_comics.py::TestSmackJeeves_DeathNoteIridescent::test_comic
+. tests/test_comics.py::TestGoComics_MegClassics::test_comic
+. tests/test_comics.py::TestGoComics_BigTop::test_comic
+. tests/test_comics.py::TestSmackJeeves_Transfusions::test_comic
+. tests/test_comics.py::TestThreePanelSoul::test_comic
+. tests/test_comics.py::TestComicFury_6colorstories::test_comic
+. tests/test_comics.py::TestComicFury_Fuzzballandscuzzball::test_comic
+. tests/test_comics.py::TestSmackJeeves_PMDSkyNuzlocke::test_comic
+. tests/test_comics.py::TestSmackJeeves_IslandsofEzdora::test_comic
+. tests/test_comics.py::TestGoComics_GaryMarkstein::test_comic
+. tests/test_comics.py::TestComicFury_Tardaasa::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheLoneSwordsman::test_comic
+. tests/test_comics.py::TestSmackJeeves_4Ply::test_comic
+. tests/test_comics.py::TestWhiteNinja::test_comic
+. tests/test_comics.py::TestSmackJeeves_HarvestMoonParadiseFound::test_comic
+. tests/test_comics.py::TestSmackJeeves_HiddenStrengthAWhiteNuzlocke::test_comic
+. tests/test_comics.py::TestGeeks::test_comic
+. tests/test_comics.py::TestSmackJeeves_DarrenandJason::test_comic
+. tests/test_comics.py::TestGoComics_Marmaduke::test_comic
+. tests/test_comics.py::TestComicGenesis_PhantomThesis::test_comic
+F tests/test_comics.py::TestEvilInc::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:101: in _test_comic
+ >               self.check_scraperesult(num_strips_expected, strip, scraperobj)
+ tests/test_comics.py:113: in check_scraperesult
+ >           self.check(num_images == num_images_expected, 'saved %d %s instead of %d images in %s' % attrs)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: EvilInc http://evil-inc.com/ saved 2 ['EIv4_cover_200.jpg', 'EIv3_cover_200px.jpg'] instead of 5 images in /tmp/tmpoKP4QX
+. tests/test_comics.py::TestGoComics_PlasticBabyHeadsfromOuterSpace::test_comic
+. tests/test_comics.py::TestGoComics_LucasLuminous::test_comic
+. tests/test_comics.py::TestCyanideAndHappiness::test_comic
+. tests/test_comics.py::TestArcamax_HiandLois::test_comic
+. tests/test_comics.py::TestComicFury_Afairtrade::test_comic
+. tests/test_comics.py::TestComicFury_Lauras24hourcomics::test_comic
+. tests/test_comics.py::TestDarthsAndDroids::test_comic
+. tests/test_comics.py::TestSmackJeeves_TeamOblivionsSpriteGalleryandMisc::test_comic
+. tests/test_comics.py::TestSmackJeeves_Aware::test_comic
+. tests/test_comics.py::TestGoComics_FoxTrotClassics::test_comic
+F tests/test_comics.py::TestPensAndTales_Evilish::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: PensAndTales/Evilish http://evilish.pensandtales.com/ Traversed 0 strips instead of 5.
+. tests/test_comics.py::TestBratHalla::test_comic
+. tests/test_comics.py::TestWeCanSleepTomorrow::test_comic
+. tests/test_comics.py::TestComicFury_AreYouDoneYet::test_comic
+. tests/test_comics.py::TestSmackJeeves_APTComic::test_comic
+. tests/test_comics.py::TestSmackJeeves_WingsOverEthereal::test_comic
+. tests/test_comics.py::TestBookOfBiff::test_comic
+. tests/test_comics.py::TestGoComics_Crumb::test_comic
+. tests/test_comics.py::TestExtraOrdinary::test_comic
+. tests/test_comics.py::TestComicFury_NoSongs::test_comic
+. tests/test_comics.py::TestSmackJeeves_BanjoThreeieFancomic::test_comic
+. tests/test_comics.py::TestGoComics_SuckerHeadSmack::test_comic
+. tests/test_comics.py::TestSmackJeeves_ROSIER::test_comic
+. tests/test_comics.py::TestGoComics_JeffStahler::test_comic
+. tests/test_comics.py::TestSnafuComics_Titan::test_comic
+. tests/test_comics.py::TestSlightlyDamned::test_comic
+. tests/test_comics.py::TestSmackJeeves_JosephAndYusra::test_comic
+. tests/test_comics.py::TestSmackJeeves_MySistertheDragon::test_comic
+. tests/test_comics.py::TestSmackJeeves_Uglygame::test_comic
+. tests/test_comics.py::TestTheDreamlandChronicles::test_comic
+. tests/test_comics.py::TestAmazingSuperPowers::test_comic
+. tests/test_comics.py::TestSmackJeeves_Phantomland::test_comic
+. tests/test_comics.py::TestComicFury_Spacefighters::test_comic
+. tests/test_comics.py::TestComicGenesis_AAAAA::test_comic
+. tests/test_comics.py::TestArcamax_DeFlocked::test_comic
+. tests/test_comics.py::TestComicFury_Hero::test_comic
+. tests/test_comics.py::TestSmackJeeves_HappinessStartswithYou::test_comic
+. tests/test_comics.py::TestSmackJeeves_BlackandBlue::test_comic
+. tests/test_comics.py::TestCrapIDrewOnMyLunchBreak::test_comic
+. tests/test_comics.py::TestWonderella::test_comic
+. tests/test_comics.py::TestGoComics_TheOdderLimits::test_comic
+. tests/test_comics.py::TestSmackJeeves_PlasticKings::test_comic
+. tests/test_comics.py::TestGoComics_DonkeyLlama::test_comic
+. tests/test_comics.py::TestSmackJeeves_TM47APokemonSilverWebcomic::test_comic
+. tests/test_comics.py::TestGoComics_ZenPencils::test_comic
+. tests/test_comics.py::TestSmackJeeves_MyZombieDays::test_comic
+. tests/test_comics.py::TestComicFury_Lightbulbs::test_comic
+. tests/test_comics.py::TestScenesFromAMultiverse::test_comic
+. tests/test_comics.py::TestLoadingArtist::test_comic
+. tests/test_comics.py::TestSmackJeeves_Boywithasecret::test_comic
+F tests/test_comics.py::TestWLP_ShadowChasers::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/helpers.py:33: in _starter
+ >       data, baseUrl = getPageContent(url, cls.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://www.wlpcomics.com/general/shadowchasers/ failed: 404 Client Error
+. tests/test_comics.py::TestGoComics_TheSingleDadDiaries::test_comic
+. tests/test_comics.py::TestHijinksEnsue::test_comic
+. tests/test_comics.py::TestSmackJeeves_AKirbyKomic::test_comic
+. tests/test_comics.py::TestGoComics_WorkingItOut::test_comic
+. tests/test_comics.py::TestSmackJeeves_Bullet::test_comic
+. tests/test_comics.py::TestGoComics_CestlaVie::test_comic
+. tests/test_comics.py::TestGoComics_Shoecabbage::test_comic
+. tests/test_comics.py::TestKeenSpot_CountYourSheep::test_comic
+. tests/test_comics.py::TestGoComics_KlibansCats::test_comic
+. tests/test_comics.py::TestSmackJeeves_Somesprites::test_comic
+. tests/test_comics.py::TestSmackJeeves_Symbios::test_comic
+. tests/test_comics.py::TestManlyGuysDoingManlyThings::test_comic
+. tests/test_comics.py::TestSmackJeeves_MementoMori::test_comic
+. tests/test_comics.py::TestComicFury_Bentelbows::test_comic
+F tests/test_comics.py::TestGoComics_DixieDrive::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:90: in _test_comic
+ >               self.check_stripurl(strip)
+ tests/test_comics.py:125: in check_stripurl
+ >       self.check(mo is not None, 'strip URL %r does not match stripUrl pattern %s' % (strip.stripUrl, urlmatch))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: GoComics/DixieDrive http://www.gocomics.com/wide-open/2014/01/21 strip URL u'http://www.gocomics.com/wide-open/2014/01/20' does not match stripUrl pattern ^http\:\/\/www\.gocomics\.com\/dixie\-drive\/.+$
+. tests/test_comics.py::TestGoComics_TheBornLoser::test_comic
+. tests/test_comics.py::TestSmackJeeves_LethalDose::test_comic
+. tests/test_comics.py::TestSmackJeeves_PuppetsandStrings::test_comic
+. tests/test_comics.py::TestSmackJeeves_The13thWorld::test_comic
+. tests/test_comics.py::TestGoComics_RudyPark::test_comic
+. tests/test_comics.py::TestSmackJeeves_TRIPP::test_comic
+. tests/test_comics.py::TestSmackJeeves_Betwin::test_comic
+. tests/test_comics.py::TestRealLife::test_comic
+F tests/test_comics.py::TestSmackJeeves_NighHeavenandHell::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:48: in _starter
+ >       data, baseUrl = getPageContent(url1, cls.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://newnighheavenandhell.smackjeeves.com/comics/ failed: 404 Client Error
+. tests/test_comics.py::TestGoComics_Tarzan::test_comic
+. tests/test_comics.py::TestComicFury_Merelymortal::test_comic
+. tests/test_comics.py::TestSmackJeeves_Entreeuxdeux::test_comic
+. tests/test_comics.py::TestSmackJeeves_BirdSeed::test_comic
+. tests/test_comics.py::TestGoComics_BobtheSquirrel::test_comic
+. tests/test_comics.py::TestSmackJeeves_LuffinpuffandEric::test_comic
+. tests/test_comics.py::TestTheBrads::test_comic
+. tests/test_comics.py::TestGoComics_ChipBok::test_comic
+. tests/test_comics.py::TestGoComics_MarshallRamsey::test_comic
+. tests/test_comics.py::TestComicFury_EternityC::test_comic
+. tests/test_comics.py::TestComicFury_Lola2::test_comic
+. tests/test_comics.py::TestGoComics_TheArgyleSweater::test_comic
+. tests/test_comics.py::TestSmackJeeves_PrincessChroma::test_comic
+. tests/test_comics.py::TestComicFury_Monstersoup::test_comic
+. tests/test_comics.py::TestGoComics_Skippy::test_comic
+. tests/test_comics.py::TestComicFury_Notsinceyou::test_comic
+. tests/test_comics.py::TestGoComics_JoeHeller::test_comic
+. tests/test_comics.py::TestToonHole::test_comic
+. tests/test_comics.py::TestGoComics_ArloandJanis::test_comic
+. tests/test_comics.py::TestBoredAndEvil::test_comic
+. tests/test_comics.py::TestGoComics_AdventuresofDaisy::test_comic
+. tests/test_comics.py::TestALessonIsLearned::test_comic
+. tests/test_comics.py::TestCorydonCafe::test_comic
+F tests/test_comics.py::TestGirlsWithSlingshots::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:90: in _test_comic
+ >               self.check_stripurl(strip)
+ tests/test_comics.py:125: in check_stripurl
+ >       self.check(mo is not None, 'strip URL %r does not match stripUrl pattern %s' % (strip.stripUrl, urlmatch))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: GirlsWithSlingshots http://www.girlswithslingshots.com/ strip URL u'http://www.girlswithslingshots.com/comic/blaargh/' does not match stripUrl pattern ^http\:\/\/www\.girlswithslingshots\.com\/comic\/gws.+\/$
+. tests/test_comics.py::TestComicFury_Cupcakegraffiti::test_comic
+. tests/test_comics.py::TestEmergencyExit::test_comic
+. tests/test_comics.py::TestComicGenesis_OwMySanity::test_comic
+. tests/test_comics.py::TestSmackJeeves_Coined::test_comic
+. tests/test_comics.py::TestSmackJeeves_WhiteHeart::test_comic
+. tests/test_comics.py::TestYAFGC::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheRandomObscureFairyTaleNoOnesEverReallyHeardOf::test_comic
+. tests/test_comics.py::TestSmackJeeves_WHATaboutSHADOWS::test_comic
+. tests/test_comics.py::TestComicFury_Judgedred::test_comic
+. tests/test_comics.py::TestArcamax_Zits::test_comic
+. tests/test_comics.py::TestComicFury_Beebleville::test_comic
+. tests/test_comics.py::TestGoComics_FrankBlunt::test_comic
+. tests/test_comics.py::TestGoComics_PoliceLimit::test_comic
+. tests/test_comics.py::TestSmackJeeves_ChocolatewithPepper::test_comic
+. tests/test_comics.py::TestGoComics_BarkingCrayon::test_comic
+. tests/test_comics.py::TestSmackJeeves__A_::test_comic
+. tests/test_comics.py::TestComicGenesis_Dreamaniac::test_comic
+. tests/test_comics.py::TestSmackJeeves_TeKscloset::test_comic
+. tests/test_comics.py::TestWebcomicEu_TheBessEffect::test_comic
+. tests/test_comics.py::TestSmackJeeves_SubjecttoChangeCollegeWoes::test_comic
+. tests/test_comics.py::TestSmackJeeves_BearlyAbel::test_comic
+. tests/test_comics.py::TestGoComics_LumandAbner::test_comic
+. tests/test_comics.py::TestSmackJeeves_CityFolk::test_comic
+. tests/test_comics.py::TestGoComics_ViewsAsia::test_comic
+. tests/test_comics.py::TestSmackJeeves_MysticanDreams::test_comic
+. tests/test_comics.py::TestSmackJeeves_MarioandLuigiMisadventures::test_comic
+. tests/test_comics.py::TestWormWorldSagaGerman::test_comic
+. tests/test_comics.py::TestSmackJeeves_October20th::test_comic
+. tests/test_comics.py::TestGoComics_OvertheHedge::test_comic
+. tests/test_comics.py::TestComicFury_BrokenReality::test_comic
+. tests/test_comics.py::TestGoComics_NothingisNotSomething::test_comic
+. tests/test_comics.py::TestSmackJeeves_Scorch::test_comic
+. tests/test_comics.py::TestKeenSpot_GreenWake::test_comic
+. tests/test_comics.py::TestComicGenesis_TheMisadventuresofOkk::test_comic
+. tests/test_comics.py::TestComicFury_Hodgemosh::test_comic
+. tests/test_comics.py::TestGoComics_TheOldManAndHisDog::test_comic
+. tests/test_comics.py::TestSmackJeeves_StrangersandFriends::test_comic
+. tests/test_comics.py::TestGoComics_UnstrangePhenomena::test_comic
+. tests/test_comics.py::TestGoComics_RobRogers::test_comic
+. tests/test_comics.py::TestLackadaisy::test_comic
+. tests/test_comics.py::TestDreamKeepersPrelude::test_comic
+. tests/test_comics.py::TestGoComics_CalvinandHobbes::test_comic
+. tests/test_comics.py::TestEerieCuties::test_comic
+. tests/test_comics.py::TestGoComics_FourEyes::test_comic
+. tests/test_comics.py::TestSmackJeeves_LilLevi::test_comic
+. tests/test_comics.py::TestArcamax_BleekerTheRechargeableDog::test_comic
+. tests/test_comics.py::TestComicGenesis_Majestic7::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheSilverLeague::test_comic
+. tests/test_comics.py::TestComicFury_Dailydoodle::test_comic
+. tests/test_comics.py::TestScience::test_comic
+. tests/test_comics.py::TestStuffNoOneToldMe::test_comic
+. tests/test_comics.py::TestNamirDeiter::test_comic
+. tests/test_comics.py::TestSmackJeeves_ElfenLiedDifferences::test_comic
+. tests/test_comics.py::TestGoComics_TheFuscoBrothers::test_comic
+. tests/test_comics.py::TestSmackJeeves_FarOutThere::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheSomewhereOther::test_comic
+. tests/test_comics.py::TestComicFury_Phantomstrail::test_comic
+. tests/test_comics.py::TestGoComics_LaCucaracha::test_comic
+. tests/test_comics.py::TestGoComics_MagicinaMinute::test_comic
+. tests/test_comics.py::TestQuestionableContent::test_comic
+. tests/test_comics.py::TestSmackJeeves_SailorMoontheEnemyNextDoor::test_comic
+. tests/test_comics.py::TestGoComics_WorkingDaze::test_comic
+. tests/test_comics.py::TestSmackJeeves_SalemUncommons::test_comic
+. tests/test_comics.py::TestSmackJeeves_SFCForestofDreams::test_comic
+. tests/test_comics.py::TestCigarroAndCerveja::test_comic
+. tests/test_comics.py::TestSmackJeeves_GRASSNEST::test_comic
+. tests/test_comics.py::TestPetiteSymphony_Orangegrind::test_comic
+. tests/test_comics.py::TestCatena::test_comic
+. tests/test_comics.py::TestSmackJeeves_SparkStory::test_comic
+. tests/test_comics.py::TestSmackJeeves_SLightlyabOVeavErage::test_comic
+. tests/test_comics.py::TestComicFury_Damnhipsters::test_comic
+. tests/test_comics.py::TestSmackJeeves_Chatuplines::test_comic
+. tests/test_comics.py::TestSmackJeeves_FrobertTheDemon::test_comic
+. tests/test_comics.py::TestGoComics_OrdinaryBill::test_comic
+. tests/test_comics.py::TestSmackJeeves_WhatAboutLove::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheGhostWithTheMost::test_comic
+. tests/test_comics.py::TestComicFury_Purehavoc::test_comic
+. tests/test_comics.py::TestSmackJeeves_RubyNation::test_comic
+F tests/test_comics.py::TestSmackJeeves_SwitchMechanism::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SmackJeeves/SwitchMechanism http://switchmechanism.smackjeeves.com/comics/1845762/preview/ Traversed 1 strips instead of 5. Check the prevSearch pattern at http://switchmechanism.smackjeeves.com/comics/1845762/preview/
+. tests/test_comics.py::TestShermansLagoon::test_comic
+. tests/test_comics.py::TestKeenSpot_HoaxHunters::test_comic
+. tests/test_comics.py::TestKeenSpot_NoPinkPonies::test_comic
+. tests/test_comics.py::TestComicGenesis_KernyMantisComics::test_comic
+. tests/test_comics.py::TestKeenSpot_Sharky::test_comic
+. tests/test_comics.py::TestGoComics_ItsAllAboutYou::test_comic
+. tests/test_comics.py::TestSmackJeeves_Crazyghosts::test_comic
+. tests/test_comics.py::TestChamp2010::test_comic
+. tests/test_comics.py::TestWebcomicEu_TheBessEffectEnglish::test_comic
+. tests/test_comics.py::TestSnafuComics_PowerPuffGirls::test_comic
+. tests/test_comics.py::TestGoComics_Smith::test_comic
+. tests/test_comics.py::TestKeenSpot_SoreThumbs::test_comic
+. tests/test_comics.py::TestSamAndFuzzy::test_comic
+. tests/test_comics.py::TestJimBenton::test_comic
+. tests/test_comics.py::TestSpareParts::test_comic
+. tests/test_comics.py::TestSmackJeeves_Smashandfriendsshowcase::test_comic
+. tests/test_comics.py::TestGoComics_LooseParts::test_comic
+. tests/test_comics.py::TestCreators_Flare::test_comic
+. tests/test_comics.py::TestSmackJeeves_ChickenScratches::test_comic
+. tests/test_comics.py::TestComicFury_PiratesLife::test_comic
+. tests/test_comics.py::TestGoComics_FoolishMortals::test_comic
+. tests/test_comics.py::TestGoComics_FrizziToons::test_comic
+. tests/test_comics.py::TestWormWorldSaga::test_comic
+. tests/test_comics.py::TestComicFury_Wowwithatwistdamaclesandkejallcomic::test_comic
+. tests/test_comics.py::TestSmackJeeves_ReidyandFriendsShowcase::test_comic
+. tests/test_comics.py::TestDeepFried::test_comic
+. tests/test_comics.py::TestSmackJeeves_CrappilyDrawnMinicomics::test_comic
+. tests/test_comics.py::TestCreators_RugratsinSpanish::test_comic
+. tests/test_comics.py::TestGoComics_SleepytownBeagles::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheDragonandtheLemur::test_comic
+. tests/test_comics.py::TestSmackJeeves_DBON::test_comic
+. tests/test_comics.py::TestGoComics_DarrinBell::test_comic
+. tests/test_comics.py::TestComicFury_AccidentallyonPurpose::test_comic
+. tests/test_comics.py::TestSmackJeeves_RyuManwebcomicversion::test_comic
+F tests/test_comics.py::TestWigu::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: Wigu http://wigucomics.com/ Traversed 0 strips instead of 5.
+. tests/test_comics.py::TestSmackJeeves_OperationTheater::test_comic
+. tests/test_comics.py::TestGoComics_MuttAndJeff::test_comic
+. tests/test_comics.py::TestSmackJeeves_SchoolofRejectsSoRe::test_comic
+. tests/test_comics.py::TestComicFury_CityOfDream::test_comic
+. tests/test_comics.py::TestGoComics_GaryVarvel::test_comic
+. tests/test_comics.py::TestRuthe::test_comic
+. tests/test_comics.py::TestComicFury_Paperstreamer::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheLegendaryStone::test_comic
+. tests/test_comics.py::TestGoComics_CuldeSac::test_comic
+. tests/test_comics.py::TestSmackJeeves_AnUnexpectedDevelopment::test_comic
+. tests/test_comics.py::TestGoComics_ScottStantis::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheThanatosComplex::test_comic
+. tests/test_comics.py::TestSmackJeeves_MUTE::test_comic
+. tests/test_comics.py::TestSmackJeeves_WelcometothePCA::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheInfectedWebcomic::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheContract::test_comic
+. tests/test_comics.py::TestSmackJeeves_YamanaokiHighSchool::test_comic
+. tests/test_comics.py::TestSmackJeeves_WelcometoFreakshow::test_comic
+. tests/test_comics.py::TestComicGenesis_Candi::test_comic
+. tests/test_comics.py::TestAlienLovesPredator::test_comic
+. tests/test_comics.py::TestGoComics_ViiviAndWagner::test_comic
+. tests/test_comics.py::TestGoComics_Bewley::test_comic
+. tests/test_comics.py::TestComicFury_Elektroanthology::test_comic
+. tests/test_comics.py::TestComicFury_Contestedterritory::test_comic
+. tests/test_comics.py::TestGoComics_OnAClaireDay::test_comic
+. tests/test_comics.py::TestArcamax_TheLockhorns::test_comic
+. tests/test_comics.py::TestGoComics_BobGorrell::test_comic
+. tests/test_comics.py::TestComicGenesis_TheEasyBreather::test_comic
+. tests/test_comics.py::TestSnafuComics_Bunnywith::test_comic
+F tests/test_comics.py::TestGoComics_NoPlaceLikeHolmes::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: GoComics/NoPlaceLikeHolmes http://www.gocomics.com/no-place-like-holmes/2014/01/21 Traversed 4 strips instead of 5. Check the prevSearch pattern at http://www.gocomics.com/no-place-like-holmes/2013/07/15
+. tests/test_comics.py::TestSmackJeeves_LOGOS::test_comic
+. tests/test_comics.py::TestGoComics_EmmyLou::test_comic
+. tests/test_comics.py::TestGoComics_KitchenCapers::test_comic
+. tests/test_comics.py::TestGoComics_Twaggies::test_comic
+. tests/test_comics.py::TestGrrlPower::test_comic
+. tests/test_comics.py::TestSmackJeeves_TechnicolorLondon::test_comic
+. tests/test_comics.py::TestComicGenesis_Mushian::test_comic
+. tests/test_comics.py::TestComicFury_Isb::test_comic
+. tests/test_comics.py::TestGoComics_Dragin::test_comic
+. tests/test_comics.py::TestSnafuComics_Braindead::test_comic
+. tests/test_comics.py::TestComicFury_Chroniclesofloth::test_comic
+. tests/test_comics.py::TestComicFury_Shadowsofnight::test_comic
+. tests/test_comics.py::TestComicFury_Melancholygoround::test_comic
+. tests/test_comics.py::TestSmackJeeves_MyFakeHeart::test_comic
+. tests/test_comics.py::TestGoComics_Annie::test_comic
+. tests/test_comics.py::TestComicGenesis_DoubleyouTeeEff::test_comic
+. tests/test_comics.py::TestComicFury_BabyBatman::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheAvianStories::test_comic
+. tests/test_comics.py::TestSmackJeeves_Anythingaboutnothing::test_comic
+. tests/test_comics.py::TestGoComics_BoNanas::test_comic
+. tests/test_comics.py::TestSmackJeeves_SunmeetsMoon::test_comic
+. tests/test_comics.py::TestGoComics_MotleyClassics::test_comic
+. tests/test_comics.py::TestSinFest::test_comic
+F tests/test_comics.py::TestAbleAndBaker::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:81: in _test_comic
+ >       for strip in scraperobj.getStrips(max_strips):
+ dosagelib/scraper.py:155: in getStrips
+ >           for strip in self.getStripsFor(url, maxstrips):
+ dosagelib/scraper.py:165: in getStripsFor
+ >           data, baseUrl = getPageContent(url, self.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://www.jimburgessdesign.com/comics/index.php failed: Request timed out.
+. tests/test_comics.py::TestGoComics_TheKChronicles::test_comic
+. tests/test_comics.py::TestSmackJeeves_Crazy::test_comic
+. tests/test_comics.py::TestGlassHalfEmpty::test_comic
+. tests/test_comics.py::TestComicGenesis_NoTimeForLife::test_comic
+F tests/test_comics.py::TestPrecocious::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/helpers.py:46: in _starter
+ >       return fetchUrl(url, data, baseUrl, latestSearch)
+ dosagelib/util.py:251: in fetchUrl
+ >       return fetchUrls(url, data, baseUrl, urlSearch)[0]
+ dosagelib/util.py:245: in fetchUrls
+ >           raise ValueError("Patterns %s not found at URL %s." % (patterns, url))
+ E           ValueError: Patterns ['<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"(/archive/comic/[^"]+)"[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"/templates/precocious_main/images/next_arrow\\.png"[^>]*[^>]*>'] not found at URL http://www.precociouscomic.com/.
+. tests/test_comics.py::TestSmackJeeves_WestburyDetectives::test_comic
+. tests/test_comics.py::TestSmackJeeves_MelodiesoftheHeart::test_comic
+. tests/test_comics.py::TestNekkoAndJoruba::test_comic
+. tests/test_comics.py::TestGoComics_Nancy::test_comic
+. tests/test_comics.py::TestGoComics_AngryLittleGirls::test_comic
+. tests/test_comics.py::TestCreators_CafeconLeche::test_comic
+. tests/test_comics.py::TestSmackJeeves_HIPS::test_comic
+. tests/test_comics.py::TestComicFury_Serengetti::test_comic
+. tests/test_comics.py::TestSmackJeeves_NeonGlow::test_comic
+. tests/test_comics.py::TestComicGenesis_TheAdventuresofKaniraBaxter::test_comic
+. tests/test_comics.py::TestJohnnyWander::test_comic
+. tests/test_comics.py::TestSmackJeeves_ChimiMouryou::test_comic
+. tests/test_comics.py::TestSmackJeeves_Intoxicated::test_comic
+. tests/test_comics.py::TestSmackJeeves_MasqueradeWTTM::test_comic
+. tests/test_comics.py::TestGoComics_SteveKelley::test_comic
+. tests/test_comics.py::TestComicGenesis_Orbz::test_comic
+. tests/test_comics.py::TestLeastICouldDo::test_comic
+. tests/test_comics.py::TestSmackJeeves_355Days::test_comic
+. tests/test_comics.py::TestFilibusterCartoons::test_comic
+. tests/test_comics.py::TestSmackJeeves_Autophobia::test_comic
+. tests/test_comics.py::TestComicGenesis_ProfessorSaltinesAstrodynamicDirigible::test_comic
+. tests/test_comics.py::TestGoComics_BananaTriangle::test_comic
+. tests/test_comics.py::TestGoComics_WayOutInLeftField::test_comic
+. tests/test_comics.py::TestSmackJeeves_ChildrenoftheNight::test_comic
+. tests/test_comics.py::TestDangerouslyChloe::test_comic
+. tests/test_comics.py::TestGoComics_LibertyMeadows::test_comic
+. tests/test_comics.py::TestComicFury_Proportionalexcitability::test_comic
+. tests/test_comics.py::TestSmackJeeves_MrGrimmsCircusofHorrors::test_comic
+. tests/test_comics.py::TestGoComics_BuzzaWuzza::test_comic
+. tests/test_comics.py::TestComicGenesis_FancyThat::test_comic
+. tests/test_comics.py::TestAngels2200::test_comic
+. tests/test_comics.py::TestSmackJeeves_DigimonCorruption::test_comic
+. tests/test_comics.py::TestGoComics_DaddysHome::test_comic
+. tests/test_comics.py::TestGoComics_ViewsMidEast::test_comic
+. tests/test_comics.py::TestGoComics_Bliss::test_comic
+. tests/test_comics.py::TestSmackJeeves_LegendofZeldaAHerosStory::test_comic
+. tests/test_comics.py::TestZenPencils::test_comic
+. tests/test_comics.py::TestSmackJeeves_DeadLine::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheBrideoftheShark::test_comic
+. tests/test_comics.py::TestSmackJeeves_Area9::test_comic
+. tests/test_comics.py::TestGoComics_MattWuerker::test_comic
+. tests/test_comics.py::TestSmackJeeves_ChesterandFerdie::test_comic
+. tests/test_comics.py::TestComicFury_EMT::test_comic
+. tests/test_comics.py::TestEverydayBlues::test_comic
+. tests/test_comics.py::TestWayfarersMoon::test_comic
+. tests/test_comics.py::TestAhoiPolloi::test_comic
+. tests/test_comics.py::TestSmackJeeves_MyStereoBot::test_comic
+. tests/test_comics.py::TestComicFury_Lookstraightahead::test_comic
+. tests/test_comics.py::TestKukuburi::test_comic
+. tests/test_comics.py::TestSmackJeeves_MariosDayJob::test_comic
+. tests/test_comics.py::TestSmackJeeves_HatethePlayer::test_comic
+. tests/test_comics.py::TestComicGenesis_IBlameDanny::test_comic
+. tests/test_comics.py::TestCatsAndCameras::test_comic
+. tests/test_comics.py::TestComicFury_Americanextremists::test_comic
+. tests/test_comics.py::TestComicFury_LORDDARKE::test_comic
+. tests/test_comics.py::TestPennyAndAggie::test_comic
+. tests/test_comics.py::TestGoComics_JimsJournal::test_comic
+. tests/test_comics.py::TestSmackJeeves_EmptyWorld::test_comic
+. tests/test_comics.py::TestGoComics_HUBRIS::test_comic
+. tests/test_comics.py::TestFredoAndPidjin::test_comic
+. tests/test_comics.py::TestGoComics_ViewsoftheWorld::test_comic
+. tests/test_comics.py::TestComicGenesis_Ardra::test_comic
+. tests/test_comics.py::TestCommissioned::test_comic
+. tests/test_comics.py::TestComicFury_Biosyte::test_comic
+. tests/test_comics.py::TestGalaxion::test_comic
+. tests/test_comics.py::TestComicFury_Blackwoods::test_comic
+. tests/test_comics.py::TestComicFury_933dollars::test_comic
+. tests/test_comics.py::TestGoComics_DialHforHBomb::test_comic
+. tests/test_comics.py::TestGoComics_ChrisBritt::test_comic
+. tests/test_comics.py::TestGoComics_BenSargent::test_comic
+. tests/test_comics.py::TestSmackJeeves_Mokepon::test_comic
+. tests/test_comics.py::TestGoComics_Dromo::test_comic
+. tests/test_comics.py::TestGoComics_Pluggers::test_comic
+. tests/test_comics.py::TestMarilith::test_comic
+. tests/test_comics.py::TestElGoonishShiveNP::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheGrayZone::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheSixthBar::test_comic
+. tests/test_comics.py::TestCloneManga_PennyTribute::test_comic
+. tests/test_comics.py::TestGoComics_SpottheFrog::test_comic
+. tests/test_comics.py::TestDemolitionSquad::test_comic
+. tests/test_comics.py::TestComicFury_Savemegebus::test_comic
+. tests/test_comics.py::TestSmackJeeves_PanzerDragonandEnigmaZwei::test_comic
+. tests/test_comics.py::TestGoComics_MixedMedications::test_comic
+. tests/test_comics.py::TestSmackJeeves_Puck::test_comic
+. tests/test_comics.py::TestSmackJeeves_HeltonShelton::test_comic
+. tests/test_comics.py::TestSmackJeeves_TLAAOK::test_comic
+. tests/test_comics.py::TestMagickChicks::test_comic
+. tests/test_comics.py::TestSmackJeeves_AwesomeSauce::test_comic
+. tests/test_comics.py::TestGoComics_MinimumSecurity::test_comic
+. tests/test_comics.py::TestSmackJeeves_HolyCrap::test_comic
+. tests/test_comics.py::TestGoComics_GingerMeggs::test_comic
+. tests/test_comics.py::TestTwoTwoOneFour::test_comic
+. tests/test_comics.py::TestSMBC::test_comic
+. tests/test_comics.py::TestZombieHunters::test_comic
+. tests/test_comics.py::TestComicFury_Alone::test_comic
+. tests/test_comics.py::TestEdibleDirt::test_comic
+. tests/test_comics.py::TestSmackJeeves_SonicWorldAdventures::test_comic
+. tests/test_comics.py::TestGoComics_TheQuinnAndFinnShow::test_comic
+. tests/test_comics.py::TestGoComics_NeatStep::test_comic
+. tests/test_comics.py::TestComicGenesis_OpportunityofaLifetime::test_comic
+. tests/test_comics.py::TestGoComics_Herman::test_comic
+. tests/test_comics.py::TestEverybodyLovesEricRaymond::test_comic
+. tests/test_comics.py::TestGoComics_HeartoftheCity::test_comic
+. tests/test_comics.py::TestGoComics_HanginOut::test_comic
+. tests/test_comics.py::TestSmackJeeves_BlindandBlue::test_comic
+. tests/test_comics.py::TestGoComics_InspectorDangersCrimeQuiz::test_comic
+. tests/test_comics.py::TestNineteenNinetySeven::test_comic
+. tests/test_comics.py::TestSmackJeeves_Equsopia::test_comic
+. tests/test_comics.py::TestSmackJeeves_PTO::test_comic
+. tests/test_comics.py::TestGoComics_LarryvilleBlue::test_comic
+. tests/test_comics.py::TestSmackJeeves_EnkeltenKentta::test_comic
+. tests/test_comics.py::TestGoComics_ClosetoHome::test_comic
+. tests/test_comics.py::TestGoComics_PlanB::test_comic
+. tests/test_comics.py::TestGoComics_TodaysDogg::test_comic
+. tests/test_comics.py::TestGoComics_DogEatDoug::test_comic
+. tests/test_comics.py::TestNicky510::test_comic
+. tests/test_comics.py::TestDerTodUndDasMaedchen::test_comic
+. tests/test_comics.py::TestGoComics_Elmo::test_comic
+F tests/test_comics.py::TestSmackJeeves_TCWFireRedNuzlockeedition::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:48: in _starter
+ >       data, baseUrl = getPageContent(url1, cls.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://tcwfirered.smackjeeves.com/comics/ failed: 404 Client Error
+. tests/test_comics.py::TestGoComics_Kliban::test_comic
+. tests/test_comics.py::TestComicFury_Spacepulp::test_comic
+. tests/test_comics.py::TestComicGenesis_SixByNineCollege::test_comic
+. tests/test_comics.py::TestSmackJeeves_OpenSpacesandClosedPlaces::test_comic
+. tests/test_comics.py::TestSmackJeeves_RequiemShadowbornPariah::test_comic
+. tests/test_comics.py::TestSmackJeeves_UglyPeoplesClub::test_comic
+. tests/test_comics.py::TestComicFury_Carrotknight::test_comic
+. tests/test_comics.py::TestComicFury_GreenerGrass::test_comic
+. tests/test_comics.py::TestComicFury_Grandline3point5::test_comic
+. tests/test_comics.py::TestGoComics_MyCage::test_comic
+F tests/test_comics.py::TestStubble::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:81: in _test_comic
+ >       for strip in scraperobj.getStrips(max_strips):
+ dosagelib/scraper.py:155: in getStrips
+ >           for strip in self.getStripsFor(url, maxstrips):
+ dosagelib/scraper.py:165: in getStripsFor
+ >           data, baseUrl = getPageContent(url, self.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://stubblecomics.com/ failed: HTTPConnectionPool(host='stubblecomics.com', port=80): Max retries exceeded with url: /
+. tests/test_comics.py::TestSmackJeeves_Justmyluck::test_comic
+. tests/test_comics.py::TestGoComics_Committed::test_comic
+. tests/test_comics.py::TestSmackJeeves_HotChocolate::test_comic
+F tests/test_comics.py::TestPebbleVersion::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: PebbleVersion http://www.pebbleversion.com/ Traversed 4 strips instead of 5. Check the prevSearch pattern at http://www.pebbleversion.com/Archives/Strip1569.html
+. tests/test_comics.py::TestKeenSpot_EverythingJake::test_comic
+. tests/test_comics.py::TestSmackJeeves_RANDOM::test_comic
+. tests/test_comics.py::TestGoComics_LuannAgainn::test_comic
+. tests/test_comics.py::TestTheDevilsPanties::test_comic
+. tests/test_comics.py::TestSmackJeeves_NevermoonawerewolforpokeaPooka::test_comic
+. tests/test_comics.py::TestGoComics_TheDoozies::test_comic
+. tests/test_comics.py::TestSheldon::test_comic
+. tests/test_comics.py::TestSmackJeeves_SimpleBear::test_comic
+. tests/test_comics.py::TestPunksAndNerdsOld::test_comic
+. tests/test_comics.py::TestSmackJeeves_KazanatoFuneralPlanningService::test_comic
+. tests/test_comics.py::TestComicGenesis_AdventuresofKiltman::test_comic
+. tests/test_comics.py::TestBrentalFlossGuest::test_comic
+. tests/test_comics.py::TestGoComics_ThinLines::test_comic
+. tests/test_comics.py::TestArcamax_Boondocks::test_comic
+. tests/test_comics.py::TestAlice::test_comic
+. tests/test_comics.py::TestSmackJeeves_Theatrics::test_comic
+. tests/test_comics.py::TestSmackJeeves_TinyPinkRobots::test_comic
+. tests/test_comics.py::TestComicFury_Galbertofbruges::test_comic
+. tests/test_comics.py::TestComicFury_Dandk::test_comic
+. tests/test_comics.py::TestKeenSpot_ClichFlamb::test_comic
+. tests/test_comics.py::TestSmackJeeves_LITTLEREDROBO::test_comic
+. tests/test_comics.py::TestGoComics_OutoftheGenePoolReRuns::test_comic
+. tests/test_comics.py::TestKeenSpot_Marksmen::test_comic
+. tests/test_comics.py::TestSmackJeeves_PokemonnoRakuen::test_comic
+. tests/test_comics.py::TestCtrlAltDel::test_comic
+. tests/test_comics.py::TestKeenSpot_Katrina::test_comic
+. tests/test_comics.py::TestSmackJeeves_AnimalAdventures::test_comic
+. tests/test_comics.py::TestComicFury_Glomshire::test_comic
+. tests/test_comics.py::TestGoComics_9ChickweedLane::test_comic
+. tests/test_comics.py::TestGoComics_DrewLitton::test_comic
+. tests/test_comics.py::TestCatAndGirl::test_comic
+. tests/test_comics.py::TestSmackJeeves_SonicAuthorAdventII::test_comic
+. tests/test_comics.py::TestGoComics_AdultChildren::test_comic
+. tests/test_comics.py::TestComicFury_Heavylittlepeople::test_comic
+. tests/test_comics.py::TestGoComics_Momma::test_comic
+. tests/test_comics.py::TestSmackJeeves_JustAnotherLife::test_comic
+F tests/test_comics.py::TestMeiosis::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: Meiosis http://meiosiswebcomic.com/ Traversed 0 strips instead of 5.
+. tests/test_comics.py::TestSmackJeeves_BroodKnightShatteredHate::test_comic
+. tests/test_comics.py::TestGoComics_NedAndLarry::test_comic
+. tests/test_comics.py::TestSmackJeeves_ThelaughingDeath::test_comic
+. tests/test_comics.py::TestSmackJeeves_ElementalSpirits::test_comic
+. tests/test_comics.py::TestKrakow::test_comic
+. tests/test_comics.py::TestComicFury_Littlejacquie::test_comic
+. tests/test_comics.py::TestSmackJeeves_TroubledWatersAnEmeraldNuzlocke::test_comic
+. tests/test_comics.py::TestGoComics_SubSub::test_comic
+. tests/test_comics.py::TestGoComics_AndyCapp::test_comic
+. tests/test_comics.py::TestComicFury_Beepolice::test_comic
+. tests/test_comics.py::TestSmackJeeves_EATATAU::test_comic
+. tests/test_comics.py::TestComicFury_Schizmatic::test_comic
+. tests/test_comics.py::TestSmackJeeves_LightLovers::test_comic
+. tests/test_comics.py::TestSmackJeeves_GoldenSunGenerationsColossoVolume6::test_comic
+. tests/test_comics.py::TestComicFury_Insanitycorp::test_comic
+. tests/test_comics.py::TestComicFury_Flickwit::test_comic
+. tests/test_comics.py::TestGoComics_DogsofCKennel::test_comic
+. tests/test_comics.py::TestSmackJeeves_ANGELOU::test_comic
+. tests/test_comics.py::TestGoComics_TimEagan::test_comic
+. tests/test_comics.py::TestGoComics_CAFFEINATED::test_comic
+. tests/test_comics.py::TestSmackJeeves_Dragonet::test_comic
+. tests/test_comics.py::TestComicFury_Astralaves::test_comic
+. tests/test_comics.py::TestSmackJeeves_LandoftheSky::test_comic
+. tests/test_comics.py::TestSmackJeeves_VerloreGeleentheid::test_comic
+. tests/test_comics.py::TestGoComics_TheDuplex::test_comic
+. tests/test_comics.py::TestChisuji::test_comic
+. tests/test_comics.py::TestSnafuComics_Zim::test_comic
+. tests/test_comics.py::TestSmackJeeves_Blackdemon::test_comic
+. tests/test_comics.py::TestComicFury_Bigfoldy::test_comic
+. tests/test_comics.py::TestSmackJeeves_ChildrenoftheEternalSpring::test_comic
+. tests/test_comics.py::TestSmackJeeves_BassComicAdventures::test_comic
+. tests/test_comics.py::TestSmackJeeves_BlueWell::test_comic
+. tests/test_comics.py::TestComicFury_Snarlbear::test_comic
+. tests/test_comics.py::TestSmackJeeves_ThePirateBalthasar::test_comic
+. tests/test_comics.py::TestSmackJeeves_NIK::test_comic
+. tests/test_comics.py::TestSmackJeeves_RIDDICKQLOSSTALES::test_comic
+. tests/test_comics.py::TestSmackJeeves_ALaMode::test_comic
+. tests/test_comics.py::TestSmackJeeves_RoyalIcing::test_comic
+. tests/test_comics.py::TestGoComics_Mindframe::test_comic
+. tests/test_comics.py::TestZwarwald::test_comic
+. tests/test_comics.py::TestGoComics_Agnes::test_comic
+. tests/test_comics.py::TestGoComics_TheMiddletons::test_comic
+. tests/test_comics.py::TestGoComics_TonyAuth::test_comic
+. tests/test_comics.py::TestSmackJeeves_AB::test_comic
+. tests/test_comics.py::TestComicFury_Peepsnperks::test_comic
+. tests/test_comics.py::TestSmackJeeves_HavingDifficulty::test_comic
+. tests/test_comics.py::TestComicGenesis_SpoononHighandFireontheMountian::test_comic
+. tests/test_comics.py::TestGoComics_ImagineThis::test_comic
+. tests/test_comics.py::TestAltermeta::test_comic
+. tests/test_comics.py::TestFlakyPastry::test_comic
+. tests/test_comics.py::TestConcession::test_comic
+. tests/test_comics.py::TestGoComics_KenCatalino::test_comic
+. tests/test_comics.py::TestSmackJeeves_LightwithinShadow::test_comic
+. tests/test_comics.py::TestGoComics_Heathcliff::test_comic
+. tests/test_comics.py::TestGoComics_MakingIt::test_comic
+. tests/test_comics.py::TestSmackJeeves_ForcedSeduction::test_comic
+. tests/test_comics.py::TestSmackJeeves_OverSync::test_comic
+. tests/test_comics.py::TestVampireCheerleaders::test_comic
+. tests/test_comics.py::TestKeenSpot_GeneCatlow::test_comic
+. tests/test_comics.py::TestComicGenesis_GEM::test_comic
+. tests/test_comics.py::TestSandraOnTheRocks::test_comic
+. tests/test_comics.py::TestSmackJeeves_PanzerDragonandEnigmaCompleteEdition::test_comic
+. tests/test_comics.py::TestGoComics_MikeLuckovich::test_comic
+. tests/test_comics.py::TestGoComics_060::test_comic
+. tests/test_comics.py::TestGoComics_RandolphItch2am::test_comic
+. tests/test_comics.py::TestSmackJeeves_ASongforElise::test_comic
+. tests/test_comics.py::TestGoComics_TheKnightLife::test_comic
+. tests/test_comics.py::TestArcamax_Dustin::test_comic
+. tests/test_comics.py::TestGoComics_TheBarn::test_comic
+. tests/test_comics.py::TestComicFury_Sonichuredonejapanese::test_comic
+. tests/test_comics.py::TestComicFury_OldHumanCookies::test_comic
+. tests/test_comics.py::TestGoComics_Bottomliners::test_comic
+. tests/test_comics.py::TestSmackJeeves_SimonSues::test_comic
+. tests/test_comics.py::TestComicFury_Fullmetalbrothers::test_comic
+. tests/test_comics.py::TestComicFury_Outferasmoke::test_comic
+. tests/test_comics.py::TestSmackJeeves_FireWire::test_comic
+. tests/test_comics.py::TestComicFury_Demonwings::test_comic
+. tests/test_comics.py::TestArcamax_TakeItFromTheTinkersons::test_comic
+. tests/test_comics.py::TestGoComics_CoffeeShopTidbits::test_comic
+. tests/test_comics.py::TestCreators_GirlsAndSports::test_comic
+. tests/test_comics.py::TestSmackJeeves_PokemonMysteryDungeonTales::test_comic
+. tests/test_comics.py::TestGoComics_PatOliphant::test_comic
+. tests/test_comics.py::TestGoComics_GarfieldMinusGarfield::test_comic
+. tests/test_comics.py::TestComicGenesis_TheLounge::test_comic
+. tests/test_comics.py::TestComicFury_Theblackprincess::test_comic
+. tests/test_comics.py::TestComicFury_Lp::test_comic
+. tests/test_comics.py::TestComicFury_Lastcallcomic::test_comic
+. tests/test_comics.py::TestSmackJeeves_SplitPoison::test_comic
+. tests/test_comics.py::TestCloneManga_NanasEverydayLife::test_comic
+. tests/test_comics.py::TestKeenSpot_SamuraisBlood::test_comic
+. tests/test_comics.py::TestKeenSpot_ChoppingBlock::test_comic
+. tests/test_comics.py::TestGoComics_DevinCraneComicStripGhostwriter::test_comic
+. tests/test_comics.py::TestSmackJeeves_ShowcasimusMaximus::test_comic
+. tests/test_comics.py::TestSmackJeeves_FromnowonImagirl::test_comic
+. tests/test_comics.py::TestGoComics_BarkeaterLake::test_comic
+. tests/test_comics.py::TestArcamax_FamilyCircus::test_comic
+. tests/test_comics.py::TestSmackJeeves_SenoireDelirium::test_comic
+. tests/test_comics.py::TestComicFury_BattleoftheRobofemoids::test_comic
+. tests/test_comics.py::TestCloneManga_Kanami::test_comic
+. tests/test_comics.py::TestBobWhite::test_comic
+. tests/test_comics.py::TestComicFury_Thebigscifimishmash::test_comic
+. tests/test_comics.py::TestGoComics_Oat::test_comic
+. tests/test_comics.py::TestGoComics_WitoftheWorld::test_comic
+. tests/test_comics.py::TestComicFury_Holybibble::test_comic
+. tests/test_comics.py::TestComicGenesis_BendyStrawVampires::test_comic
+. tests/test_comics.py::TestComicFury_Raspcat::test_comic
+. tests/test_comics.py::TestComicFury_Fathead::test_comic
+. tests/test_comics.py::TestSmackJeeves_DoItYourself::test_comic
+. tests/test_comics.py::TestSmackJeeves_SparElricsextras::test_comic
+. tests/test_comics.py::TestSmackJeeves_KissoftheDevil20::test_comic
+. tests/test_comics.py::TestSmackJeeves_20TimesKirby::test_comic
+. tests/test_comics.py::TestGoComics_Graffiti::test_comic
+. tests/test_comics.py::TestSmackJeeves_Katran::test_comic
+. tests/test_comics.py::TestSmackJeeves_BehindTheObsidianMirror::test_comic
+. tests/test_comics.py::TestSmackJeeves_DragonOrigin::test_comic
+. tests/test_comics.py::TestSmackJeeves_SoulGuardian::test_comic
+. tests/test_comics.py::TestComicGenesis_BreakingtheDoldrum::test_comic
+. tests/test_comics.py::TestGoComics_NavyBean::test_comic
+. tests/test_comics.py::TestComicFury_JustPeachy::test_comic
+. tests/test_comics.py::TestComicFury_LunaStar::test_comic
+. tests/test_comics.py::TestGoComics_Stookie::test_comic
+. tests/test_comics.py::TestSmackJeeves_ThePremise::test_comic
+. tests/test_comics.py::TestSmackJeeves_Pahantekija::test_comic
+. tests/test_comics.py::TestTwoGuysAndGuy::test_comic
+. tests/test_comics.py::TestSmackJeeves_FireredLisasReise::test_comic
+. tests/test_comics.py::TestComicFury_RPT::test_comic
+. tests/test_comics.py::TestGastroPhobia::test_comic
+. tests/test_comics.py::TestComicGenesis_Unconventional::test_comic
+. tests/test_comics.py::TestGoComics_FrogApplause::test_comic
+. tests/test_comics.py::TestComicFury_Alexanderandlucas::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheGoldRiderofPern::test_comic
+. tests/test_comics.py::TestSmackJeeves_NERDALERT::test_comic
+. tests/test_comics.py::TestSmackJeeves_RainxSasori::test_comic
+. tests/test_comics.py::TestSmackJeeves_MrFactory::test_comic
+. tests/test_comics.py::TestGoComics_RealityCheck::test_comic
+. tests/test_comics.py::TestGoComics_NEUROTICA::test_comic
+. tests/test_comics.py::TestGoComics_BroomHilda::test_comic
+. tests/test_comics.py::TestGoComics_Eek::test_comic
+. tests/test_comics.py::TestSmackJeeves_AllInLOVE::test_comic
+. tests/test_comics.py::TestComicFury_Alittlebitofeverything::test_comic
+. tests/test_comics.py::TestSmackJeeves_SonicBoom::test_comic
+. tests/test_comics.py::TestGoComics_PoochCafe::test_comic
+. tests/test_comics.py::TestCreators_BCinSpanish::test_comic
+. tests/test_comics.py::TestBlankIt::test_comic
+. tests/test_comics.py::TestSmackJeeves_KissmeSnow::test_comic
+F tests/test_comics.py::TestLookingForGroup::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:101: in _test_comic
+ >               self.check_scraperesult(num_strips_expected, strip, scraperobj)
+ tests/test_comics.py:113: in check_scraperesult
+ >           self.check(num_images == num_images_expected, 'saved %d %s instead of %d images in %s' % attrs)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: LookingForGroup http://www.lfgcomic.com/page/740/ saved 1 ['lfg-top-book-1000px.png'] instead of 5 images in /tmp/tmp6MVTW4
+. tests/test_comics.py::TestGoComics_WizardofId::test_comic
+. tests/test_comics.py::TestComicFury_Lavenderlegend::test_comic
+. tests/test_comics.py::TestGoComics_Buni::test_comic
+. tests/test_comics.py::TestGoComics_Shortcuts::test_comic
+. tests/test_comics.py::TestGoComics_JoelPett::test_comic
+. tests/test_comics.py::TestNichtLustig::test_comic
+. tests/test_comics.py::TestAcademyVale::test_comic
+. tests/test_comics.py::TestSmackJeeves_NightKids::test_comic
+. tests/test_comics.py::TestSmackJeeves_ShotoutofCanon::test_comic
+. tests/test_comics.py::TestArcamax_RhymeswithOrange::test_comic
+. tests/test_comics.py::TestGoComics_HarambeeHills::test_comic
+. tests/test_comics.py::TestSmackJeeves_GardenofHearts::test_comic
+. tests/test_comics.py::TestSmackJeeves_BlueStreak::test_comic
+. tests/test_comics.py::TestGoComics_JackOhman::test_comic
+. tests/test_comics.py::TestSmackJeeves_QuiteNiceComics::test_comic
+. tests/test_comics.py::TestSmackJeeves_Replica::test_comic
+. tests/test_comics.py::TestComicFury_CatHero::test_comic
+. tests/test_comics.py::TestGoComics_FloandFriends::test_comic
+. tests/test_comics.py::TestComicFury_Chocolava::test_comic
+. tests/test_comics.py::TestSmackJeeves_NemesisKatharsis::test_comic
+. tests/test_comics.py::TestCreators_Archie::test_comic
+. tests/test_comics.py::TestArcamax_Crankshaft::test_comic
+. tests/test_comics.py::TestGoComics_CandyPills::test_comic
+. tests/test_comics.py::TestEarthsongSaga::test_comic
+. tests/test_comics.py::TestGoComics_GrannyAnny::test_comic
+. tests/test_comics.py::TestSmackJeeves_SonicClub::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheAttackoftheRecoloursSeason1::test_comic
+. tests/test_comics.py::TestGoComics_PibgornSketches::test_comic
+. tests/test_comics.py::TestKillerKomics::test_comic
+. tests/test_comics.py::TestGoComics_FantasticMegaLeague::test_comic
+. tests/test_comics.py::TestGoComics_AlleyOop::test_comic
+. tests/test_comics.py::TestComicFury_1234567902791::test_comic
+. tests/test_comics.py::TestComicFury_Boritom::test_comic
+. tests/test_comics.py::TestWorldOfMrToast::test_comic
+. tests/test_comics.py::TestComicFury_Ocarinaoftim::test_comic
+F tests/test_comics.py::TestSmackJeeves_DeadtoDay::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:49: in _starter
+ >       url2 = fetchUrl(url1, data, baseUrl, cls.prevSearch)
+ dosagelib/util.py:251: in fetchUrl
+ >       return fetchUrls(url, data, baseUrl, urlSearch)[0]
+ dosagelib/util.py:245: in fetchUrls
+ >           raise ValueError("Patterns %s not found at URL %s." % (patterns, url))
+ E           ValueError: Patterns ['<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>(?:<img[^>]+alt="[^"]*[pP][rR][eE][vV]|<img[^>]+(?:button_previous|naviButtons_Previous|nav_prev4|prev|previous|webbuttonback|PrevArrow)\\.|[^<]*[bB][aA][cC][kK]|\\s*<<? (?:[bB][aA][cC][kK]|[pP][rR][eE][vV])|[^<]*[pP][rR][eE][vV])', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>[^<]*Atras<', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/(?:backrg|JZj4a3C|b5175a677Zd6b)\\.png"[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*\'[^\']+/(?:backnav)\\.png\'[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>\\s*<\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/prev\\.jpg"[^>]*[^>]*>'] not found at URL http://deadtoday.smackjeeves.com/comics/.
+. tests/test_comics.py::TestGoComics_SecondPrize::test_comic
+. tests/test_comics.py::TestExploitationNow::test_comic
+. tests/test_comics.py::TestComicFury_Biblebelt::test_comic
+. tests/test_comics.py::TestComicFury_Conplicated::test_comic
+. tests/test_comics.py::TestComicFury_Neighborscomic::test_comic
+. tests/test_comics.py::TestKeenSpot_MakeshiftMiracle::test_comic
+. tests/test_comics.py::TestSmackJeeves_CurseLineage::test_comic
+. tests/test_comics.py::TestCoolCatStudio::test_comic
+. tests/test_comics.py::TestAllTheGrowingThings::test_comic
+. tests/test_comics.py::TestSmackJeeves_BreachofAgency::test_comic
+. tests/test_comics.py::TestGoComics_InherittheMirth::test_comic
+. tests/test_comics.py::TestGoComics_TheMightyWonderBrat::test_comic
+. tests/test_comics.py::TestSmackJeeves_Kranburn::test_comic
+. tests/test_comics.py::TestGoComics_WuMo::test_comic
+. tests/test_comics.py::TestSmackJeeves_Strangetimes::test_comic
+. tests/test_comics.py::TestComicFury_Fairydust::test_comic
+F tests/test_comics.py::TestComicFury_Disturbingcomics::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: ComicFury/Disturbingcomics http://Disturbingcomics.webcomic.ws/comics/2 Traversed 2 strips instead of 5. Check the prevSearch pattern at http://Disturbingcomics.webcomic.ws/comics/1
+. tests/test_comics.py::TestKeenSpot_Landis::test_comic
+. tests/test_comics.py::TestGoComics_ChubbyGirlComics::test_comic
+. tests/test_comics.py::TestBadassMuthas::test_comic
+. tests/test_comics.py::TestWondermark::test_comic
+F tests/test_comics.py::TestSmackJeeves_AlwaysDamnedWebcomic::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SmackJeeves/AlwaysDamnedWebcomic http://www.smackjeeves.com/mature.php?ref=http%3A//alwaysdamned.smackjeeves.com/comics/1837762/preview-2/ Traversed 1 strips instead of 5. Check the prevSearch pattern at http://www.smackjeeves.com/mature.php?ref=http%3A//alwaysdamned.smackjeeves.com/comics/1837762/preview-2/
+. tests/test_comics.py::TestTheGamerCat::test_comic
+. tests/test_comics.py::TestGoComics_MiscSoup::test_comic
+. tests/test_comics.py::TestSmackJeeves_TeamShapes::test_comic
+F tests/test_comics.py::TestSmackJeeves_GreenKirbyandabunchofotherpeopledoinstuff::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SmackJeeves/GreenKirbyandabunchofotherpeopledoinstuff http://gkandabunchofotherppl.smackjeeves.com/comics/1807628/how-to-do-see-a-creepypasta-inspiring-image-in-sonic-cd-image-not-shown-because-scary/ Traversed 4 strips instead of 5. Check the prevSearch pattern at http://gkandabunchofotherppl.smackjeeves.com/comics/1803867/how-to-encounter-missing-no-in-pokemon-red-and-blue/
+. tests/test_comics.py::TestCtrlAltDelSillies::test_comic
+. tests/test_comics.py::TestDoemainOfOurOwn::test_comic
+F tests/test_comics.py::TestTheOuterQuarter::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: TheOuterQuarter http://theouterquarter.com/ Traversed 0 strips instead of 5.
+. tests/test_comics.py::TestSmackJeeves_ClairetheFlare::test_comic
+. tests/test_comics.py::TestGoComics_TinySepuku::test_comic
+. tests/test_comics.py::TestComicFury_DuelingHeroes::test_comic
+. tests/test_comics.py::TestComicFury_PlanetChaser::test_comic
+. tests/test_comics.py::TestSmackJeeves_InDebt::test_comic
+. tests/test_comics.py::TestComicFury_Godhatesdads::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheLegendofMushroomKingdom::test_comic
+. tests/test_comics.py::TestSmackJeeves_ShroudofLight::test_comic
+. tests/test_comics.py::TestComicFury_Teenagedragon::test_comic
+. tests/test_comics.py::TestSmackJeeves_CrayonComicStory::test_comic
+. tests/test_comics.py::TestGoComics_DomesticAbuse::test_comic
+. tests/test_comics.py::TestGoComics_BlueSkiesToons::test_comic
+. tests/test_comics.py::TestComicFury_Everydayabnormal::test_comic
+. tests/test_comics.py::TestGoComics_TheLostBear::test_comic
+. tests/test_comics.py::TestASkeweredParadise::test_comic
+. tests/test_comics.py::TestDMFA::test_comic
+. tests/test_comics.py::TestEatThatToast::test_comic
+. tests/test_comics.py::TestCucumberQuest::test_comic
+. tests/test_comics.py::TestGoComics_BallardStreet::test_comic
+. tests/test_comics.py::TestComicGenesis_WarMageNC17::test_comic
+. tests/test_comics.py::TestGoComics_LittleDogLost::test_comic
+. tests/test_comics.py::TestKeenSpot_InHere::test_comic
+. tests/test_comics.py::TestGoComics_EBEJeebie::test_comic
+. tests/test_comics.py::TestGoComics_CharmysArmy::test_comic
+. tests/test_comics.py::Testxkcd::test_comic
+. tests/test_comics.py::TestSmackJeeves_UnityCircuit::test_comic
+. tests/test_comics.py::TestSmackJeeves_DavidDoesntGetIt::test_comic
+. tests/test_comics.py::TestComicFury_DenizensAttentionComic::test_comic
+. tests/test_comics.py::TestGoComics_Mulligan::test_comic
+. tests/test_comics.py::TestGoComics_Andertoons::test_comic
+. tests/test_comics.py::TestSmackJeeves_Dao::test_comic
+. tests/test_comics.py::TestSnafuComics_EA::test_comic
+. tests/test_comics.py::TestSmackJeeves_Metabooandfriends::test_comic
+. tests/test_comics.py::TestGoComics_STEPDAD::test_comic
+. tests/test_comics.py::TestGoComics_BrewsterRockit::test_comic
+. tests/test_comics.py::TestGoComics_NewAdventuresofQueenVictoria::test_comic
+. tests/test_comics.py::TestSmackJeeves_StampedeJessicasStory::test_comic
+. tests/test_comics.py::TestGoComics_Luann::test_comic
+. tests/test_comics.py::TestGoComics_HamShears::test_comic
+. tests/test_comics.py::TestSmackJeeves_Willem::test_comic
+. tests/test_comics.py::TestBackwaterPlanet::test_comic
+. tests/test_comics.py::TestSmackJeeves_BeautifulLies::test_comic
+. tests/test_comics.py::TestGoComics_EspressoCity::test_comic
+. tests/test_comics.py::TestGoComics_MortsIsland::test_comic
+. tests/test_comics.py::TestSmackJeeves_SuburbanFreeflow::test_comic
+. tests/test_comics.py::TestSmackJeeves_Inhuman::test_comic
+. tests/test_comics.py::TestSmackJeeves_DevotoMusicinHell::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheNightSurfers::test_comic
+. tests/test_comics.py::TestGoComics_KozmooftheCosmos::test_comic
+. tests/test_comics.py::TestSmackJeeves_WildWingBoys::test_comic
+. tests/test_comics.py::TestComicFury_Thebestof25yearsofmissjandtheam::test_comic
+. tests/test_comics.py::TestZapiro::test_comic
+. tests/test_comics.py::TestCaseyAndAndy::test_comic
+. tests/test_comics.py::TestSmackJeeves_SecretPowerbk1::test_comic
+. tests/test_comics.py::TestGoComics_KidTown::test_comic
+. tests/test_comics.py::TestGoComics_TooMuchCoffeeMan::test_comic
+. tests/test_comics.py::TestSmackJeeves_Metsastajat::test_comic
+. tests/test_comics.py::TestSmackJeeves_Seed::test_comic
+. tests/test_comics.py::TestSmackJeeves_CleanCure::test_comic
+. tests/test_comics.py::TestSandraAndWoo::test_comic
+. tests/test_comics.py::TestSmackJeeves_BrookeandKirby::test_comic
+. tests/test_comics.py::TestSmackJeeves_DeadFishComics::test_comic
+. tests/test_comics.py::TestSmackJeeves_Regnum::test_comic
+. tests/test_comics.py::TestGoComics_JerryHolbert::test_comic
+. tests/test_comics.py::TestGoComics_Sabine::test_comic
+. tests/test_comics.py::TestSmackJeeves_Wootlabs::test_comic
+. tests/test_comics.py::TestSmackJeeves_Whenweweresilent::test_comic
+. tests/test_comics.py::TestNobodyScores::test_comic
+. tests/test_comics.py::TestSmackJeeves_SecretPowerbk2::test_comic
+. tests/test_comics.py::TestSmackJeeves_ThehumanBEing::test_comic
+. tests/test_comics.py::TestGoComics_FreeRange::test_comic
+. tests/test_comics.py::TestSmackJeeves_LightRomantic::test_comic
+. tests/test_comics.py::TestGoComics_JanesWorld::test_comic
+. tests/test_comics.py::TestSmackJeeves_Saywhatyoumean::test_comic
+. tests/test_comics.py::TestSmackJeeves_InspiredByADream::test_comic
+. tests/test_comics.py::TestComicFury_Sinjetpack::test_comic
+. tests/test_comics.py::TestGoComics_ChuckAsay::test_comic
+. tests/test_comics.py::TestGoComics_GetAGrip::test_comic
+. tests/test_comics.py::TestGoComics_StuartCarlson::test_comic
+. tests/test_comics.py::TestSmackJeeves_Contradiction::test_comic
+F tests/test_comics.py::TestSmackJeeves_WithACherryOnTop::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SmackJeeves/WithACherryOnTop http://wacot.smackjeeves.com/comics/1778948/i6pg116/ Traversed 4 strips instead of 5. Check the prevSearch pattern at http://wacot.smackjeeves.com/comics/1778944/i6pg112/
+. tests/test_comics.py::TestGoComics_ReplyAllLite::test_comic
+. tests/test_comics.py::TestPetiteSymphony_Sangria::test_comic
+. tests/test_comics.py::TestGoComics_TheDinetteSet::test_comic
+. tests/test_comics.py::TestUndertow::test_comic
+. tests/test_comics.py::TestSmackJeeves_RevivalPsalm::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheBookofNosferatu::test_comic
+. tests/test_comics.py::TestSmackJeeves_ADayOut::test_comic
+. tests/test_comics.py::TestGoComics_AppleCreekComics::test_comic
+. tests/test_comics.py::TestComicFury_Mayonakadensha::test_comic
+. tests/test_comics.py::TestChainsawSuit::test_comic
+F tests/test_comics.py::TestWebcomicEu_Talandor::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:85: in _test_comic
+ >               self.save(image)
+ tests/test_comics.py:131: in save
+ >           self.check(False, 'could not save %s at %s to %s: %s' % (image.url, image.referrer, self.tmpdir, msg))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: WebcomicEu/Talandor http://talandor.webcomic.eu/ could not save http://thebesseffect.webcomic.eu/img/comic/61.jpg at http://talandor.webcomic.eu/?id=61 to /tmp/tmp79nvgt: URL retrieval of http://thebesseffect.webcomic.eu/img/comic/61.jpg failed: 404 Client Error
+. tests/test_comics.py::TestGoComics_Baldo::test_comic
+F tests/test_comics.py::TestChugworthAcademyArchive::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:81: in _test_comic
+ >       for strip in scraperobj.getStrips(max_strips):
+ dosagelib/scraper.py:155: in getStrips
+ >           for strip in self.getStripsFor(url, maxstrips):
+ dosagelib/scraper.py:165: in getStripsFor
+ >           data, baseUrl = getPageContent(url, self.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://chugworth.com/archive/?strip_id=422 failed: 404 Client Error
+. tests/test_comics.py::TestSnowFlakes::test_comic
+. tests/test_comics.py::TestComicGenesis_Fantazine::test_comic
+F tests/test_comics.py::TestBardsworth::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: Bardsworth http://www.bardsworth.com/ Traversed 0 strips instead of 5.
+. tests/test_comics.py::TestCreators_HeathcliffinSpanish::test_comic
+. tests/test_comics.py::TestSmackJeeves_HauntedHouseSurvivors::test_comic
+. tests/test_comics.py::TestSmackJeeves_MegaManBattleNetwork7TheWorldTournament::test_comic
+. tests/test_comics.py::TestPeppermintSaga::test_comic
+. tests/test_comics.py::TestComicFury_Lethargicmisanthropy::test_comic
+. tests/test_comics.py::TestFantasyRealms::test_comic
+. tests/test_comics.py::TestComicFury_Longhike::test_comic
+F tests/test_comics.py::TestSmackJeeves_PokefarmingRiseFromtheAshes::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SmackJeeves/PokefarmingRiseFromtheAshes http://pokefarming.smackjeeves.com/comics/1850974/event-get-fusion/ Traversed 4 strips instead of 5. Check the prevSearch pattern at http://pokefarming.smackjeeves.com/comics/1815995/what-madness-is-this-egg-doing/
+F tests/test_comics.py::TestSmackJeeves_ArchportCityChronicles::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SmackJeeves/ArchportCityChronicles http://tjs.smackjeeves.com/comics/1882011/ch-19-8/ Traversed 4 strips instead of 5. Check the prevSearch pattern at http://tjs.smackjeeves.com/comics/1876425/ch-19-5/
+. tests/test_comics.py::TestGoComics_DanWasserman::test_comic
+. tests/test_comics.py::TestGoComics_CitizenDog::test_comic
+. tests/test_comics.py::TestComicFury_Smalltownvalues::test_comic
+. tests/test_comics.py::TestGoComics_Sylvia::test_comic
+. tests/test_comics.py::TestGoComics_NestHeads::test_comic
+F tests/test_comics.py::TestDeathToTheExtremist::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:81: in _test_comic
+ >       for strip in scraperobj.getStrips(max_strips):
+ dosagelib/scraper.py:155: in getStrips
+ >           for strip in self.getStripsFor(url, maxstrips):
+ dosagelib/scraper.py:165: in getStripsFor
+ >           data, baseUrl = getPageContent(url, self.session)
+ dosagelib/util.py:195: in getPageContent
+ >           page = urlopen(url, session, max_content_bytes=max_content_bytes)
+ dosagelib/util.py:364: in urlopen
+ >           raise IOError(msg)
+ E           IOError: URL retrieval of http://www.dtecomic.com/ failed: 403 Client Error
+. tests/test_comics.py::TestSmackJeeves_OldElastikid::test_comic
+. tests/test_comics.py::TestChannelAte::test_comic
+. tests/test_comics.py::TestGoComics_LostSheep::test_comic
+. tests/test_comics.py::TestSmackJeeves_MetroJack::test_comic
+. tests/test_comics.py::TestPartiallyClips::test_comic
+. tests/test_comics.py::TestGoComics_TheMeaningofLila::test_comic
+. tests/test_comics.py::TestComicFury_GreenEyes::test_comic
+. tests/test_comics.py::TestGoComics_TheElderberries::test_comic
+. tests/test_comics.py::TestComicGenesis_KittyCattyGames::test_comic
+. tests/test_comics.py::TestComicGenesis_Wierdman::test_comic
+F tests/test_comics.py::TestScandinaviaAndTheWorld::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:90: in _test_comic
+ >               self.check_stripurl(strip)
+ tests/test_comics.py:125: in check_stripurl
+ >       self.check(mo is not None, 'strip URL %r does not match stripUrl pattern %s' % (strip.stripUrl, urlmatch))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: ScandinaviaAndTheWorld http://satwcomic.com/ strip URL u'http://satwcomic.com/everything-is-fine' does not match stripUrl pattern ^http\:\/\/satwcomic\.com\/.+\/$
+. tests/test_comics.py::TestGoComics_TomtheDancingBug::test_comic
+. tests/test_comics.py::TestWhyTheLongFace::test_comic
+. tests/test_comics.py::TestComicFury_BTTF::test_comic
+. tests/test_comics.py::TestSmackJeeves_DougsMindDougshugs::test_comic
+. tests/test_comics.py::TestComicFury_Jakebone::test_comic
+. tests/test_comics.py::TestSmackJeeves_SimplySarah::test_comic
+. tests/test_comics.py::TestIDreamOfAJeanieBottle::test_comic
+. tests/test_comics.py::TestGoComics_Overboard::test_comic
+. tests/test_comics.py::TestSnafuComics_Soul::test_comic
+. tests/test_comics.py::TestGoComics_StankoAndTibor::test_comic
+. tests/test_comics.py::TestSmackJeeves_MidnightPrince::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheMoistTouch::test_comic
+. tests/test_comics.py::TestGoComics_TheInsolentLemon::test_comic
+. tests/test_comics.py::TestGoComics_KidSpot::test_comic
+. tests/test_comics.py::TestGoComics_OrangesareFunny::test_comic
+. tests/test_comics.py::TestComicFury_HumanCookies::test_comic
+. tests/test_comics.py::TestComicFury_Spooncomic::test_comic
+. tests/test_comics.py::TestGoComics_HankandDalesOurWorld::test_comic
+. tests/test_comics.py::TestBoxerHockey::test_comic
+. tests/test_comics.py::TestSmackJeeves_ThinkBeforeYouThink::test_comic
+. tests/test_comics.py::TestGaiaGerman::test_comic
+. tests/test_comics.py::TestGoComics_JillpokeBohemia::test_comic
+. tests/test_comics.py::TestDamonk::test_comic
+. tests/test_comics.py::TestSmackJeeves_FairyTales::test_comic
+. tests/test_comics.py::TestGoComics_Lola::test_comic
+. tests/test_comics.py::TestGoComics_HIP::test_comic
+. tests/test_comics.py::TestSmackJeeves_XYZ::test_comic
+. tests/test_comics.py::TestComicGenesis_FantasyQwest::test_comic
+. tests/test_comics.py::TestGoComics_Cortoons::test_comic
+. tests/test_comics.py::TestSnafuComics_FT::test_comic
+. tests/test_comics.py::TestSmackJeeves_WhenSheWasBad::test_comic
+. tests/test_comics.py::TestArcamax_MotherGooseAndGrimm::test_comic
+. tests/test_comics.py::TestGoComics_ViewsAmerica::test_comic
+. tests/test_comics.py::TestGoComics_DickTracy::test_comic
+. tests/test_comics.py::TestComedity::test_comic
+. tests/test_comics.py::TestGoComics_BasicInstructions::test_comic
+. tests/test_comics.py::TestKey::test_comic
+. tests/test_comics.py::TestSmackJeeves_LoveDelicatessen::test_comic
+. tests/test_comics.py::TestSmackJeeves_YonkomaNuzlockeFireRed::test_comic
+. tests/test_comics.py::TestSmackJeeves_Cramberries::test_comic
+. tests/test_comics.py::TestWLP_MaidAttack::test_comic
+. tests/test_comics.py::TestComicFury_Lilheroartists::test_comic
+. tests/test_comics.py::TestASofterWorld::test_comic
+. tests/test_comics.py::TestVictimsOfTheSystem::test_comic
+. tests/test_comics.py::TestComicFury_Atowncalledalandale::test_comic
+. tests/test_comics.py::TestGoComics_TheAcademiaWaltz::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheHeadhunters::test_comic
+. tests/test_comics.py::TestSmackJeeves_NeoCrystalAdventures::test_comic
+F tests/test_comics.py::TestSmackJeeves_YoungCannibals::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:90: in _test_comic
+ >               self.check_stripurl(strip)
+ tests/test_comics.py:125: in check_stripurl
+ >       self.check(mo is not None, 'strip URL %r does not match stripUrl pattern %s' % (strip.stripUrl, urlmatch))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SmackJeeves/YoungCannibals http://www.youngcannibals.net/comics/1883878/true-sorrow-part-i/ strip URL u'http://www.youngcannibals.net/comics/1883877/true-sorrow-part-i/' does not match stripUrl pattern ^http\:\/\/youngcannibals\.smackjeeves\.com\/comics\/.+\/$
+. tests/test_comics.py::TestSmackJeeves_FramebyFrame::test_comic
+. tests/test_comics.py::TestComicFury_Dragoncity::test_comic
+. tests/test_comics.py::TestSmackJeeves_Oscurare::test_comic
+. tests/test_comics.py::TestNeoEarth::test_comic
+. tests/test_comics.py::TestSmackJeeves_FailureConfetti::test_comic
+. tests/test_comics.py::TestComicGenesis_PsychicDyslexiaInstitute::test_comic
+. tests/test_comics.py::TestSmackJeeves_TransUMan::test_comic
+. tests/test_comics.py::TestGaia::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheBucket::test_comic
+. tests/test_comics.py::TestGoComics_SkinHorse::test_comic
+. tests/test_comics.py::TestGoComics_TheSunshineClub::test_comic
+. tests/test_comics.py::TestSmackJeeves_BrightStars::test_comic
+. tests/test_comics.py::TestGoComics_HenryPayne::test_comic
+. tests/test_comics.py::TestWormWorldSagaFrench::test_comic
+. tests/test_comics.py::TestKeenSpot_RedSpike::test_comic
+. tests/test_comics.py::TestGoComics_Monty::test_comic
+. tests/test_comics.py::TestComicFury_Supershashi::test_comic
+. tests/test_comics.py::TestBigFatWhale::test_comic
+. tests/test_comics.py::TestFullFrontalNerdity::test_comic
+. tests/test_comics.py::TestPandyLand::test_comic
+. tests/test_comics.py::TestGoComics_CheapThrillsCuisine::test_comic
+. tests/test_comics.py::TestSmackJeeves_Bearhoney::test_comic
+. tests/test_comics.py::TestComicFury_Antarcticbroadcasting::test_comic
+. tests/test_comics.py::TestBetweenFailures::test_comic
+. tests/test_comics.py::TestSmackJeeves_AllStarHeroes::test_comic
+. tests/test_comics.py::TestSkinDeep::test_comic
+. tests/test_comics.py::TestSmackJeeves_CainandUnable::test_comic
+. tests/test_comics.py::TestSmackJeeves_Wildflowers::test_comic
+. tests/test_comics.py::TestBroodHollow::test_comic
+. tests/test_comics.py::TestGoComics_TheBoondocks::test_comic
+. tests/test_comics.py::TestSmackJeeves_Lethe::test_comic
+. tests/test_comics.py::TestGoComics_FrankAndSteinway::test_comic
+. tests/test_comics.py::TestEdmundFinney::test_comic
+. tests/test_comics.py::TestCatalyst::test_comic
+. tests/test_comics.py::TestKeenSpot_QUILTBAG::test_comic
+. tests/test_comics.py::TestComicFury_Brickland::test_comic
+. tests/test_comics.py::TestGoComics_DustSpecks::test_comic
+. tests/test_comics.py::TestSmackJeeves_AlwaysRainingHere::test_comic
+. tests/test_comics.py::TestComicGenesis_BackwaterPlanet::test_comic
+. tests/test_comics.py::TestSpamusement::test_comic
+. tests/test_comics.py::TestSmackJeeves_ThePrincessandtheGiant::test_comic
+. tests/test_comics.py::TestArcamax_Mutts::test_comic
+. tests/test_comics.py::TestSmackJeeves_Mascara::test_comic
+. tests/test_comics.py::TestKeenSpot_27TwentySeven::test_comic
+. tests/test_comics.py::TestSmackJeeves_SakuraMishzo::test_comic
+. tests/test_comics.py::TestSmackJeeves_MAGISA::test_comic
+. tests/test_comics.py::TestHarkAVagrant::test_comic
+. tests/test_comics.py::TestSmackJeeves_Akniatt::test_comic
+. tests/test_comics.py::TestSmackJeeves_SOSRadio::test_comic
+. tests/test_comics.py::TestBadMachinery::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheGoddamnPantyBrigade::test_comic
+. tests/test_comics.py::TestCaggage::test_comic
+. tests/test_comics.py::TestBetterDays::test_comic
+. tests/test_comics.py::TestSmackJeeves_TH3D3AD5H0WCA53::test_comic
+. tests/test_comics.py::TestGoComics_Candorville::test_comic
+. tests/test_comics.py::TestOrnerBoy::test_comic
+. tests/test_comics.py::TestDresdenCodak::test_comic
+. tests/test_comics.py::TestSmackJeeves_TotallyCrossover::test_comic
+. tests/test_comics.py::TestComicFury_StrangeAttractors::test_comic
+. tests/test_comics.py::TestSmackJeeves_WelcomeBackToTheLandOfForgottenMemories::test_comic
+F tests/test_comics.py::TestSodiumEyes::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SodiumEyes http://sodiumeyes.com/ Traversed 0 strips instead of 5.
+. tests/test_comics.py::TestSmackJeeves_Panacea::test_comic
+. tests/test_comics.py::TestGoComics_BUSHYTALES::test_comic
+. tests/test_comics.py::TestGoComics_FortKnox::test_comic
+. tests/test_comics.py::TestComicFury_Laceyinvestigations::test_comic
+. tests/test_comics.py::TestJustAnotherEscape::test_comic
+. tests/test_comics.py::TestSmackJeeves_ERAConvergence::test_comic
+. tests/test_comics.py::TestSmackJeeves_RyakLo::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheMegaManandSonicSpriteShowcase::test_comic
+. tests/test_comics.py::TestGoComics_Norman::test_comic
+. tests/test_comics.py::TestSmackJeeves_Sprytts::test_comic
+. tests/test_comics.py::TestSmackJeeves_AlPoxalips::test_comic
+. tests/test_comics.py::TestIAmArg::test_comic
+. tests/test_comics.py::TestSchoolBites::test_comic
+. tests/test_comics.py::TestGoComics_Cornered::test_comic
+. tests/test_comics.py::TestSmackJeeves_BeyondTemptation::test_comic
+. tests/test_comics.py::TestSmackJeeves_OneRainyDay::test_comic
+. tests/test_comics.py::TestSmackJeeves_NiceKitty::test_comic
+. tests/test_comics.py::TestSmackJeeves_Cement::test_comic
+. tests/test_comics.py::TestGoComics_Mac::test_comic
+. tests/test_comics.py::TestSmackJeeves_JackiesStory::test_comic
+. tests/test_comics.py::TestGoComics_TheWorstThingIveEverDone::test_comic
+. tests/test_comics.py::TestComicGenesis_ImpendingDoom::test_comic
+. tests/test_comics.py::TestSmackJeeves_NormalcyisforWimps::test_comic
+. tests/test_comics.py::TestItsWalky::test_comic
+. tests/test_comics.py::TestSmackJeeves_Burn::test_comic
+. tests/test_comics.py::TestSmackJeeves_Hinata::test_comic
+. tests/test_comics.py::TestGaranos::test_comic
+F tests/test_comics.py::TestSmackJeeves_Whatisdeepinonesheart::test_comic
+ tests/test_comics.py:41: in setUp
+ >           self.url = self.scraperclass.starter()
+ dosagelib/plugins/smackjeeves.py:49: in _starter
+ >       url2 = fetchUrl(url1, data, baseUrl, cls.prevSearch)
+ dosagelib/util.py:251: in fetchUrl
+ >       return fetchUrls(url, data, baseUrl, urlSearch)[0]
+ dosagelib/util.py:245: in fetchUrls
+ >           raise ValueError("Patterns %s not found at URL %s." % (patterns, url))
+ E           ValueError: Patterns ['<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>(?:<img[^>]+alt="[^"]*[pP][rR][eE][vV]|<img[^>]+(?:button_previous|naviButtons_Previous|nav_prev4|prev|previous|webbuttonback|PrevArrow)\\.|[^<]*[bB][aA][cC][kK]|\\s*<<? (?:[bB][aA][cC][kK]|[pP][rR][eE][vV])|[^<]*[pP][rR][eE][vV])', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>[^<]*Atras<', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/(?:backrg|JZj4a3C|b5175a677Zd6b)\\.png"[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*><\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*\'[^\']+/(?:backnav)\\.png\'[^>]*[^>]*>', '<\\s*[aA]\\s+(?:[^>]*\\s+)?[hH][rR][eE][fF]\\s*=\\s*"?([^>"]*/comics/\\d+/[^>"]*)"?[^>]*[^>]*>\\s*<\\s*[iI][mM][gG]\\s+(?:[^>]*\\s+)?[sS][rR][cC]\\s*=\\s*"[^"]+/prev\\.jpg"[^>]*[^>]*>'] not found at URL http://ones-mindt.smackjeeves.com/comics/.
+. tests/test_comics.py::TestGoComics_PCandPixel::test_comic
+. tests/test_comics.py::TestSmackJeeves_AdventuresofLumandFriends::test_comic
+. tests/test_comics.py::TestGoComics_Econogirl::test_comic
+. tests/test_comics.py::TestComicGenesis_DormSweetDorm::test_comic
+. tests/test_comics.py::TestPetiteSymphony_Kickinrad::test_comic
+. tests/test_comics.py::TestComicGenesis_AmorModerno::test_comic
+. tests/test_comics.py::TestComicGenesis_OfDoom::test_comic
+. tests/test_comics.py::TestGoComics_Brevity::test_comic
+. tests/test_comics.py::TestKeenSpot_AntiheroForHire::test_comic
+F tests/test_comics.py::TestGoComics_FarcesofNature::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:90: in _test_comic
+ >               self.check_stripurl(strip)
+ tests/test_comics.py:125: in check_stripurl
+ >       self.check(mo is not None, 'strip URL %r does not match stripUrl pattern %s' % (strip.stripUrl, urlmatch))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: GoComics/FarcesofNature http://www.gocomics.com/farces-of-nature/2013/08/01 strip URL u'http://www.gocomics.com/farces-of-nature/2013/07/31' does not match stripUrl pattern ^http\:\/\/www\.gocomics\.com\/Farces\-of\-Nature\/.+$
+. tests/test_comics.py::TestSmackJeeves_Regina::test_comic
+. tests/test_comics.py::TestComicFury_ParaFrenic::test_comic
+. tests/test_comics.py::TestCourtingDisaster::test_comic
+. tests/test_comics.py::TestSmackJeeves_FrenzyRedux::test_comic
+. tests/test_comics.py::TestGoComics_FredBasset::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheWinterCampaign::test_comic
+. tests/test_comics.py::TestGoComics_MikeduJour::test_comic
+. tests/test_comics.py::TestSmackJeeves_LifeinBeckysRage::test_comic
+. tests/test_comics.py::TestComicGenesis_Gonefor300days::test_comic
+. tests/test_comics.py::TestSmackJeeves_SPOON::test_comic
+. tests/test_comics.py::TestOmakeTheater::test_comic
+. tests/test_comics.py::TestCurvy::test_comic
+. tests/test_comics.py::TestCreators_TheWizardofIdinSpanish::test_comic
+. tests/test_comics.py::TestSmackJeeves_Ponzi::test_comic
+. tests/test_comics.py::TestComicFury_Parmeshen::test_comic
+. tests/test_comics.py::TestComicFury_Drettaville::test_comic
+. tests/test_comics.py::TestSmackJeeves_RavenWolf::test_comic
+. tests/test_comics.py::TestSmackJeeves_Gnoph::test_comic
+. tests/test_comics.py::TestGoComics_BadReporter::test_comic
+. tests/test_comics.py::TestSmackJeeves_No1Enemy::test_comic
+. tests/test_comics.py::TestCampComic::test_comic
+. tests/test_comics.py::TestHipsters::test_comic
+. tests/test_comics.py::TestIrregularWebcomic::test_comic
+. tests/test_comics.py::TestComicFury_TAOSAE::test_comic
+. tests/test_comics.py::TestComicFury_Frontier2170::test_comic
+. tests/test_comics.py::TestSmackJeeves_RubyRed::test_comic
+F tests/test_comics.py::TestComicFury_Starraccoon::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: ComicFury/Starraccoon http://starraccoon.webcomic.ws/comics/238 Traversed 2 strips instead of 5. Check the prevSearch pattern at http://starraccoon.webcomic.ws/comics/236
+. tests/test_comics.py::TestGoComics_BiffAndRiley::test_comic
+. tests/test_comics.py::TestLinuxComFridayFunnies::test_comic
+. tests/test_comics.py::TestSuburbanTribe::test_comic
+. tests/test_comics.py::TestSmackJeeves_SlipstreamSingularity::test_comic
+. tests/test_comics.py::TestSmackJeeves_BoilingPointofBrain::test_comic
+. tests/test_comics.py::TestSmackJeeves_NihilWandasJourney::test_comic
+. tests/test_comics.py::TestComicFury_JaysInternetFightClub::test_comic
+. tests/test_comics.py::TestCreators_OffCenter::test_comic
+. tests/test_comics.py::TestGoComics_ChanLowe::test_comic
+. tests/test_comics.py::TestSmackJeeves_KnightsRequiem::test_comic
+. tests/test_comics.py::TestComicGenesis_WhatYouDontSee::test_comic
+. tests/test_comics.py::TestSmackJeeves_LegendOfZeldaSwordOfWinds::test_comic
+. tests/test_comics.py::TestSmackJeeves_Paradox::test_comic
+. tests/test_comics.py::TestComicFury_PlasticBulletsMayhemUnloaded::test_comic
+. tests/test_comics.py::TestGoComics_TenCats::test_comic
+. tests/test_comics.py::TestSmackJeeves_BabysittingFourDemons::test_comic
+. tests/test_comics.py::TestPHDComics::test_comic
+. tests/test_comics.py::TestGoComics_BigNate::test_comic
+. tests/test_comics.py::TestComicGenesis_KiwiDayN::test_comic
+. tests/test_comics.py::TestGoComics_ClayBennett::test_comic
+. tests/test_comics.py::TestSmackJeeves_ThisistheWorstIdeaYouveEverHad::test_comic
+. tests/test_comics.py::TestSmackJeeves_WintersinLavelle::test_comic
+. tests/test_comics.py::TestAngband::test_comic
+. tests/test_comics.py::TestGoComics_Thingsesque::test_comic
+. tests/test_comics.py::TestComicFury_Cautionarytales::test_comic
+F tests/test_comics.py::TestComicFury_Deadducks::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:98: in _test_comic
+ >           self.check(num_strips == num_strips_expected, msg)
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: ComicFury/Deadducks http://deadducks.webcomic.ws/comics/191 Traversed 4 strips instead of 5. Check the prevSearch pattern at http://deadducks.webcomic.ws/comics/187
+. tests/test_comics.py::TestGoComics_MediumLarge::test_comic
+. tests/test_comics.py::TestGoComics_PaddedCell::test_comic
+. tests/test_comics.py::TestComicFury_Kirahitogame::test_comic
+. tests/test_comics.py::TestGoComics_KatetheGreat::test_comic
+. tests/test_comics.py::TestGoComics_Humoresque::test_comic
+. tests/test_comics.py::TestGoComics_SavageChickens::test_comic
+. tests/test_comics.py::TestSmackJeeves_KirbysDreamlandAdventures::test_comic
+. tests/test_comics.py::TestArcamax_Bizarro::test_comic
+. tests/test_comics.py::TestSmackJeeves_CafeauLait::test_comic
+. tests/test_comics.py::TestSmackJeeves_FruitMachine::test_comic
+. tests/test_comics.py::TestSmackJeeves_BullyEater::test_comic
+. tests/test_comics.py::TestSmackJeeves_AgeoftheGray::test_comic
+. tests/test_comics.py::TestSmackJeeves_PantsParty::test_comic
+. tests/test_comics.py::TestComicFury_Bobbythefetus::test_comic
+. tests/test_comics.py::TestPensAndTales_FireflyCross::test_comic
+. tests/test_comics.py::TestComicFury_ShamanQuest::test_comic
+. tests/test_comics.py::TestSmackJeeves_TotalDramaSurvivor::test_comic
+. tests/test_comics.py::TestSmackJeeves_Magience::test_comic
+. tests/test_comics.py::TestGoComics_FatCats::test_comic
+. tests/test_comics.py::TestComicFury_Actingout::test_comic
+. tests/test_comics.py::TestSmackJeeves_PMDVictoryFire::test_comic
+. tests/test_comics.py::TestGoComics_SuburbanFairyTales::test_comic
+. tests/test_comics.py::TestAGirlAndHerFed::test_comic
+. tests/test_comics.py::TestComicFury_Adventuresofjonas::test_comic
+. tests/test_comics.py::TestComicGenesis_DarkWelkin::test_comic
+. tests/test_comics.py::TestSmackJeeves_SongoftheButterfly::test_comic
+. tests/test_comics.py::TestComicFury_Amtheatre::test_comic
+. tests/test_comics.py::TestSmackJeeves_BetweenLightandDark::test_comic
+. tests/test_comics.py::TestAstronomyPOTD::test_comic
+. tests/test_comics.py::TestSmackJeeves_Kreetor::test_comic
+F tests/test_comics.py::TestSmackJeeves_LumasParadise::test_comic
+ tests/test_comics.py:72: in test_comic
+ >               self._test_comic(scraperobj)
+ tests/test_comics.py:85: in _test_comic
+ >               self.save(image)
+ tests/test_comics.py:131: in save
+ >           self.check(False, 'could not save %s at %s to %s: %s' % (image.url, image.referrer, self.tmpdir, msg))
+ tests/test_comics.py:134: in check
+ >       self.assertTrue(condition, "%s %s %s" % (self.name, self.url, msg))
+ E       AssertionError: SmackJeeves/LumasParadise http://luma.smackjeeves.com/comics/851756/175-final-story-15-paradise-like-no-other-final-ending/ could not save http://img232.imageshack.us/img232/5998/issue1754.png at http://luma.smackjeeves.com/comics/851756/175-final-story-15-paradise-like-no-other-final-ending/ to /tmp/tmpMsEo1h: URL retrieval of http://img232.imageshack.us/img232/5998/issue1754.png failed: 503 Server Error
+. tests/test_comics.py::TestGoComics_RipHaywire::test_comic
+. tests/test_comics.py::TestGoComics_Shoe::test_comic
+. tests/test_comics.py::TestSnafuComics_Tin::test_comic
+. tests/test_comics.py::TestGoComics_AmaZnEvents::test_comic
+. tests/test_comics.py::TestSmackJeeves_ItsCharacterDevelopment::test_comic
+. tests/test_comics.py::TestVGCats::test_comic
+. tests/test_comics.py::TestSmackJeeves_CheneysGotaGun::test_comic
+. tests/test_comics.py::TestGoComics_Beardo::test_comic
+. tests/test_comics.py::TestGoComics_TankMcNamara::test_comic
+. tests/test_comics.py::TestComicGenesis_ElnifiChronicles::test_comic
+. tests/test_comics.py::TestGoComics_TheBuckets::test_comic
+. tests/test_comics.py::TestCreators_TheQuigmans::test_comic
+. tests/test_comics.py::TestSmackJeeves_MediocreAtBest::test_comic
+. tests/test_comics.py::TestSmackJeeves_ChannelDDDNews::test_comic
+. tests/test_comics.py::TestGoComics_Pickles::test_comic
+. tests/test_comics.py::TestBillyTheDunce::test_comic
+. tests/test_comics.py::TestSmackJeeves_ThornTopia::test_comic
+. tests/test_comics.py::TestPixel::test_comic
+. tests/test_comics.py::TestSmackJeeves_Hemlock::test_comic
+. tests/test_comics.py::TestCreators_Rugrats::test_comic
+. tests/test_comics.py::TestComicFury_Serpamiaflare::test_comic
+. tests/test_comics.py::TestRadioactivePanda::test_comic
+. tests/test_comics.py::TestAfterStrife::test_comic
+. tests/test_comics.py::TestComicFury_Allthebbqsauce::test_comic
+. tests/test_comics.py::TestComicFury_Halloween2012::test_comic
+. tests/test_comics.py::TestComicGenesis_EvesApple::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheKeyHotelEnding::test_comic
+. tests/test_comics.py::TestSmackJeeves_InsideOuTAYuriTale::test_comic
+. tests/test_comics.py::TestGoComics_BUNS::test_comic
+. tests/test_comics.py::TestHorribleVille::test_comic
+. tests/test_comics.py::TestWebDesignerCOTW::test_comic
+. tests/test_comics.py::TestGoComics_Skooled::test_comic
+. tests/test_comics.py::TestGoComics_OriginsoftheSundayComics::test_comic
+. tests/test_comics.py::TestKeenSpot_TheFirstDaughter::test_comic
+. tests/test_comics.py::TestSmackJeeves_PokemonXDegree::test_comic
+. tests/test_comics.py::TestSmackJeeves_OrangeCloud::test_comic
+. tests/test_comics.py::TestGoComics_MattBors::test_comic
+. tests/test_comics.py::TestGoComics_SnowSez::test_comic
+. tests/test_comics.py::TestSmackJeeves_TheKwiddexProtocol::test_comic
+. tests/test_comics.py::TestComicFury_Friendshipisdragons::test_comic
+. tests/test_comics.py::TestSmackJeeves_MysttheBookofAtrusComic::test_comic
+. tests/test_comics.py::TestGoComics_JumpStart::test_comic
+. tests/test_comics.py::TestCreators_HomeOffice::test_comic
+. tests/test_scraper.py::ScraperTester::test_find_scraperclasses_single
+. tests/test_util.py::RegexTest::test_regex
+. tests/test_comics.py::TestGoComics_InvisibleBread::test_comic
+. tests/test_comics.py::TestSmackJeeves_EozinKadonnutKuningas::test_comic
+. tests/test_comics.py::TestSmackJeeves_RozeFighter::test_comic
+. tests/test_singletoninstance.py::TestSingleton::test_2
+. tests/test_comics.py::TestThisIsIndexed::test_comic
+. tests/test_comics.py::TestSomethingPositive::test_comic
+. tests/test_util.py::URLTest::test_normalisation
+. tests/test_comics.py::TestGoComics_CowSheepandaGnomeNamedHelga::test_comic
+. tests/test_singletoninstance.py::TestSingleton::test_1
+. tests/test_comics.py::TestElfOnlyInn::test_comic
+. tests/test_scraper.py::ScraperTester::test_find_scraperclasses_multi
+. tests/test_comics.py::TestSmackJeeves_TaikiTheWebcomic::test_comic
+. tests/test_scraper.py::ScraperTester::test_find_scraperclasses_error
+. tests/test_util.py::UidTest::test_system_uid
+. tests/test_dosage.py::TestDosage::test_dosage
+. tests/test_comics.py::TestWastedTalent::test_comic
+. tests/test_comics.py::TestSmackJeeves_Weaponry::test_comic
+. tests/test_scraper.py::ScraperTester::test_get_scraperclasses
+. tests/test_vote.py::TestVote::test_vote
+. tests/test_comics.py::TestGoComics_TheGreenMonkeys::test_comic
+. tests/test_comics.py::TestSmackJeeves_JustGotta::test_comic
+. tests/test_util.py::URLTest::test_unescape
+. tests/test_comics.py::TestBizarreUprising::test_comic
+. tests/test_comics.py::TestSmackJeeves_Boo::test_comic
+. tests/test_singletoninstance.py::TestSingleton::test_3

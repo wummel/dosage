@@ -3,13 +3,12 @@
 # Copyright (C) 2012-2014 Bastian Kleineidam
 
 from re import compile, escape, IGNORECASE
-from ..scraper import _BasicScraper
+from ..scraper import _BasicScraper, _ParserScraper
 from ..helpers import indirectStarter
-from ..util import tagre, fetchUrl, getPageContent
+from ..util import tagre
 
 
 class TheBrads(_BasicScraper):
-    description = u'ArchiveFirst World Problems Comic - By Brad Colbow'
     url = 'http://bradcolbow.com/archive/C4/'
     stripUrl = url + '%s/'
     firstStripUrl = stripUrl % 'P125'
@@ -20,7 +19,6 @@ class TheBrads(_BasicScraper):
 
 
 class TheDevilsPanties(_BasicScraper):
-    description = u"It's not Satanic Porn"
     url = 'http://thedevilspanties.com/'
     stripUrl = url + 'archives/%s'
     firstStripUrl = stripUrl % '300'
@@ -29,46 +27,14 @@ class TheDevilsPanties(_BasicScraper):
     help = 'Index format: number'
 
 
-class TheDreamlandChronicles(_BasicScraper):
-    description = u'The Dreamland Chronicles'
-    url = 'http://www.thedreamlandchronicles.com/'
-    stripUrl = url + 'comic/%s/'
-    firstStripUrl = stripUrl % 'page-1'
-    rurl = escape(url)
-    imageSearch = compile(tagre("img", "src", r'(http://www\.thedreamlandchronicles\.com/wp-content/uploads/\d+/\d+/\d+-\d+-\d+[^"]*)'))
-    prevSearch = compile(tagre("a", "href", r'(%s[^"]*)' % rurl, after='navi-prev"'))
-    help = 'Index format: page-n or chapter-n'
-
-    @classmethod
-    def namer(cls, imageUrl, pageUrl):
-        """Remove trailing digit from day number."""
-        name = imageUrl.split('/')[-1]
-        base, ext = name.split('.', 1)
-        bp = base.split('-')
-        if len(bp[2]) == 3:
-            bp[2] = bp[2][:-1]
-        return "%s-%s-%s.%s" % (bp[0], bp[1], bp[2], ext)
-
-class TheGamerCat(_BasicScraper):
-    description = u"The Gamer Cat"
-    url = 'http://www.thegamercat.com/'
-    rurl = escape(url)
-    stripUrl = url + '%s/'
-    firstStripUrl = stripUrl % '2011/06/06102011'
-    imageSearch = compile(tagre("img", "src", r'(%swordpress/comics/[^"/]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s\d+/\d+/[^"/]+/)' % rurl , after="navi navi-prev"))
-    help = 'Index format: yyyy/mm/mmddyyyy'
-
-
-class TheGentlemansArmchair(_BasicScraper):
-    url = 'http://thegentlemansarmchair.com/'
-    rurl = escape(url)
-    stripUrl = url + 'comic/%s'
-    firstStripUrl = stripUrl % 'dora-the-explorer/'
-    imageSearch =  compile(tagre("div", "id", r'comic') + "\s*.*\s*" + tagre("img", "src", r'(%swp-content/uploads/\d+/\d+/[^"]+)' % rurl))
-    prevSearch = compile(tagre("a", "href", r'(%s[^"]+)' % rurl, after='navi-prev'))
-    textSearch = compile(r'<h3 class="comic-post-widget-title">(.+)</h3>')
-    help = 'Index Format: name'
+class TheGamerCat(_ParserScraper):
+    url = "http://www.thegamercat.com/"
+    stripUrl = url + "comic/%s/"
+    firstStripUrl = stripUrl % "06102011"
+    css = True
+    imageSearch = '#comic img'
+    prevSearch = '.comic-nav-previous'
+    help = 'Index format: stripname'
 
 
 class TheLandscaper(_BasicScraper):
@@ -171,8 +137,7 @@ class ToonHole(_BasicScraper):
         return url in (self.stripUrl % "2013/03/if-game-of-thrones-was-animated",)
 
 
-# XXX disallowed by robots.txt
-class _TwoLumps(_BasicScraper):
+class TwoLumps(_BasicScraper):
     url = 'http://www.twolumps.net/'
     stripUrl = url + 'd/%s.html'
     imageSearch = compile(tagre("img", "src", r'(/comics/[^"]+)'))
@@ -180,19 +145,7 @@ class _TwoLumps(_BasicScraper):
     help = 'Index format: yyyymmdd'
 
 
-class TwoTwoOneFour(_BasicScraper):
-    description = u'Artwork, comics, graphic novels, music, articles, and various silliness by Troy McQuinn'
-    url = 'http://www.nitrocosm.com/go/2214_classic/'
-    rurl = escape(url)
-    stripUrl = url + '%s/'
-    firstStripUrl = stripUrl % '1'
-    imageSearch = compile(tagre("img", "src", r'(http://content\.nitrocosm\.com/[^"]+)', before="gallery_display"))
-    prevSearch = compile(tagre("a", "href", r'(%s\d+/)' % rurl, after="Previous"))
-    help = 'Index format: n (unpadded)'
-
-
 class TheWhiteboard(_BasicScraper):
-    description = u'The Whiteboard, a somewhat paintball-related webcomic by "Doc" Nickel'
     url = 'http://www.the-whiteboard.com/'
     stripUrl = url + 'auto%s.html'
     imageSearch = compile(r'<img SRC="(autotwb\d{1,4}.+?|autowb\d{1,4}.+?)">', IGNORECASE)
@@ -211,7 +164,6 @@ class TheOuterQuarter(_BasicScraper):
 
 
 class TheThinHLine(_BasicScraper):
-    description = u'the thin H line. Proudly mediocre. NSFW.'
     url = 'http://thinhline.tumblr.com/'
     rurl = escape(url)
     stripUrl = url + 'post/%s'
@@ -223,11 +175,11 @@ class TheThinHLine(_BasicScraper):
 
     indirectImageSearch = compile(tagre('a', 'href', r'(%simage/\d+)' % rurl))
 
-    def getComicStrip(self, url, data, baseUrl):
+    def getComicStrip(self, url, data):
         """The comic strip image is in a separate page."""
-        pageUrl = fetchUrl(url, data, baseUrl, self.indirectImageSearch)
-        pageData, pageBaseUrl = getPageContent(pageUrl, self.session)
-        return super(TheThinHLine, self).getComicStrip(pageUrl, pageData, pageBaseUrl)
+        pageUrl = self.fetchUrl(url, data, self.indirectImageSearch)
+        pageData = self.getPage(pageUrl)
+        return super(TheThinHLine, self).getComicStrip(pageUrl, pageData)
 
     @classmethod
     def namer(cls, imageUrl, pageUrl):
@@ -257,7 +209,6 @@ class TracyAndTristan(_BasicScraper):
 
 
 class TwoGuysAndGuy(_BasicScraper):
-    description = u"Two Guys and Guy"
     url = 'http://www.twogag.com/'
     rurl = escape(url)
     stripUrl = url + 'archives/%s'
